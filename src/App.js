@@ -3,11 +3,15 @@ import './App.css';
 import Navbar from './Component/Navbar';
 import Home from './Pages/Home';
 
+
+// import Apitest from  './Component/ApiTest'
+
 function App() {
   return (
     <>
-    <Navbar/>
-    <Home/>
+      <Navbar />
+      <Home  />
+      {/* <Apitest /> */}
     </>
     // <div className="App">
     //   <header className="App-header">

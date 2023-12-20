@@ -12,6 +12,26 @@ const handleClick = () => {
   }
 };
 
+const handleCardClick = async () => {
+
+  try {
+    // Perform an API call based on the clicked product code
+    const response = await fetch(`http://192.168.2.134:8000/api/product-category`);
+    const data = await response.json();
+    // const filteredData = data.filter(item => item.name === true);
+
+    // Navigate to another page with the fetched data
+    // You can use a navigation library (e.g., react-router-dom) for navigation
+    console.log('Fetched data:', data);
+
+    // Navigate to another page with the fetched data, using your preferred navigation method
+  } catch (error) {
+    console.error('Error fetching additional data:', error);
+  }
+};
+
+
+
 const handlesClick = () => {
   const elements = document.getElementsByClassName('svg1');
   const elements1 = document.getElementsByClassName('svg2');
@@ -32,9 +52,9 @@ const Featurecard = ({
   productCode,
 }) => {
   return (
-    <div className="relative rounded-lg overflow-hidden shadow-lg  bg-white mb-2">
+    <div className="relative rounded-lg overflow-hidden shadow-lg  bg-white mb-2 " onClick={handleCardClick}>
       <div className="">
-        <img className="w-full object-cover" src={image} alt={text} />
+        <img className="w-full object-cover" src={image}  />
         {/* Rounded white border with a small like icon in the top-right corner */}
         <div className="absolute top-2 right-2">
           <div
@@ -85,7 +105,7 @@ const Featurecard = ({
       </div>
       <div className="px-[14px] pt-4 pb-[9px]">
         <div className="flex mb-2 justify-between">
-          <div className="font-bold text-xl w-[104px]">{text}</div>
+          <div className="font-bold text-xl w-[156px]">{text}</div>
           <div className="flex items-center">
             <img
               src="../Images/Rectangle 98.svg" // Adjust the path accordingly

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import ButtonWithDropdown from "../Component/ButtonWithDropdown";
 import Featurecard from "../Component/Featurecard";
 import Searchbycategorycard from "../Component/Searchbycategorycard";
 import Headingtext from "../Component/Headingtext";
 
-import Style from "../Pages/Home.css";
+import "./Home.css";
 
 import Aftermarketcard from "../Component/Aftermarketcard";
 import BrandComponent from "../Component/BrandComponent";
@@ -18,29 +18,75 @@ function Home() {
     backgroundImage: 'url("../Images/buy equipment category background.png")',
     backgroundSize: "cover",
     backgroundPosition: "center",
-    height: "", // Adjust the height based on your needs
+    height: "",
     width: "",
   };
+
+
+  const [featureData, setFeatureData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://192.168.2.134:8000/api/product-detail/');
+        const data = await response.json();
+        const filteredData = data.filter(item => item.featured_part === true);
+        console.log(filteredData)
+
+        const fetchImage = async () => {
+          try {
+            const response = await fetch('http://192.168.2.134:8000/api/product-image/');
+            const imageData = await response.json();
+            const filteredProductImage = imageData.filter(item => item.display_order === 0);
+
+            filteredData.forEach(item => {
+              // console.log(item)
+              const CategoryName = item.categories[0].split('>');
+              console.log(CategoryName)
+              item.categories = []
+              item.categories.push(CategoryName[CategoryName.length - 1])
+              filteredProductImage.forEach(imageData => {
+                if (item.id === imageData.product) {
+                  item.image = imageData.original;
+                }
+              });
+            });
+
+            setFeatureData(filteredData);
+          } catch (error) {
+            console.error('Error fetching image data:', error);
+          }
+        };
+
+        // Call the function to fetch image data
+        fetchImage();
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    // Call the function to fetch data
+    fetchData();
+  }, []);
+
+
   
-
-
-
-   // Settings for the carousel slider
-   const responsive = {
+  // Settings for the carousel slider
+  const responsive = {
     superLargeDesktop: { breakpoint: { max: 4000, min: 1280 }, items: 4 },
     desktop: { breakpoint: { max: 1279, min: 1024 }, items: 3 },
     tablet: { breakpoint: { max: 1023, min: 640 }, items: 2 },
     mobile: { breakpoint: { max: 639, min: 0 }, items: 1 },
   };
-  
+
   // Settings for the carousel slider
   const carouselSettings = {
     infinite: true, // Enable infinite loop
     responsive: responsive,
-  
-   
 
-  
+
+
+
     // Additional settings for react-multi-carousel can be added here
   };
   // const handleSearchPartsClick = () => {
@@ -109,14 +155,14 @@ function Home() {
 
               {/* add custom button */}
               {/* <div className=" justify-center"> */}
-                <button
-                  className="inline-flex xl:w-[176px] lg:w-[48%] w-full h-[50px] items-center justify-center p-2 border border-transparent bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-bold text-base"
-                  onClick={() => {
-                    // Handle load more functionality
-                  }}
-                >
-                  Search Parts
-                </button>
+              <button
+                className="inline-flex xl:w-[176px] lg:w-[48%] w-full h-[50px] items-center justify-center p-2 border border-transparent bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-bold text-base"
+                onClick={() => {
+                  // Handle load more functionality
+                }}
+              >
+                Search Parts
+              </button>
               {/* </div> */}
             </div>
           </div>
@@ -131,95 +177,39 @@ function Home() {
             coloredText=" Part <>"
             maincolor="text-black"
           />
-         
 
-         <Carousel{...carouselSettings} >
+
           {/* <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 sm:gap-6 gap-0 items-center pt-[8px]"> */}
-         
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-            <Featurecard
-              image="../Images/Rectangle 97.svg"
-              text="AIR FILTER"
-              discountedPrice="2800"
-              originalPrice="3200"
-              discountPercentage="57"
-              brandName="Brand Name"
-              productCode="F500-...AB-06"
-            />
-           {/*</div> */}
+          <Carousel{...carouselSettings} style="gap-10" >
+
+
+            {/* {featureData.map((feature, index) => (
+              <Featurecard
+                key={index} // Make sure to provide a unique key for each FeatureCard
+                image={feature.image}
+                text={feature.categories}
+                discountedPrice={feature.discountedPrice}
+                originalPrice={feature.originalPrice}
+                discountPercentage={feature.discountPercentage}
+                brandName={feature.brand}
+                productCode={feature.upc}
+              />
+            ))} */}
+            {featureData.map((feature, index) => (
+              <Featurecard
+                key={index}
+                image={feature.image}
+                text={feature.categories}
+                discountedPrice={feature.discountedPrice}
+                originalPrice={feature.originalPrice}
+                discountPercentage={feature.discountPercentage}
+                brandName={feature.brand}
+                productCode={feature.upc}
+               // Pass the click handler
+              />
+            ))}
           </Carousel>
-          
+
         </div>
       </section>
       {/* section-3 */}
@@ -306,40 +296,40 @@ function Home() {
       </section>
       {/* section-5 */}
       <section className="mt-[49px] ">
-  <div className="container-1">
-    <Headingtext
-      mainText=" Brands we "
-      coloredText="Trust <>"
-      maincolor="text-black"
-    />
-    <div className="grid grid-cols-12 gap-3">
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+        <div className="container-1">
+          <Headingtext
+            mainText=" Brands we "
+            coloredText="Trust <>"
+            maincolor="text-black"
+          />
+          <div className="grid grid-cols-12 gap-3">
+            <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
+              <BrandComponent
+                brandimageUrl="../Images/Component 18.svg"
+                brandimagetext="brandimage"
+              />
+            </div>
+            <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
+              <BrandComponent
+                brandimageUrl="../Images/Component 18.svg"
+                brandimagetext="brandimage"
+              />
+            </div>
+            <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
+              <BrandComponent
+                brandimageUrl="../Images/Component 18.svg"
+                brandimagetext="brandimage"
+              />
+            </div>
+            <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
+              <BrandComponent
+                brandimageUrl="../Images/Component 18.svg"
+                brandimagetext="brandimage"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
