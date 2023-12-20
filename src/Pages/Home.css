@@ -1,0 +1,6 @@
+.react-multi-carousel-track{
+   width: 100%; /* Adjust as needed */
+ /* Ensure overflow is set appropriately */
+   gap: 10px;
+  
+}
