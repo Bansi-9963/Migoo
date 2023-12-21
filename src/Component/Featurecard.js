@@ -32,7 +32,7 @@ const Featurecard = ({
   productCode,
 }) => {
   return (
-    <div className="relative rounded-lg overflow-hidden shadow-lg  bg-white mb-2">
+    <div className="relative rounded-lg overflow-hidden shadow-sm xl:w-[259px] lg:w-[292px] md:w-[314px] sm:w-[270px] w-[95%] bg-white mb-2">
       <div className="">
         <img className="w-full object-cover" src={image} alt={text} />
         {/* Rounded white border with a small like icon in the top-right corner */}

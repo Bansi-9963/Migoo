@@ -1,17 +1,15 @@
 import React from "react";
 import ButtonWithDropdown from "../Component/ButtonWithDropdown";
 import Featurecard from "../Component/Featurecard";
-import Searchbycategorycard from "../Component/Searchbycategorycard";
+// import Searchbycategorycard from "../Component/Searchbycategorycard";
 import Headingtext from "../Component/Headingtext";
-
-import Style from "../Pages/Home.css";
 
 import Aftermarketcard from "../Component/Aftermarketcard";
 import BrandComponent from "../Component/BrandComponent";
+import CustomCarousel from "../Component/CustomCarousel";
+import Cardscroll from "../Component/Cardscroll";
 
 
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 
 function Home() {
   const backgroundStyle = {
@@ -21,28 +19,63 @@ function Home() {
     height: "", // Adjust the height based on your needs
     width: "",
   };
-  
 
 
-
-   // Settings for the carousel slider
-   const responsive = {
-    superLargeDesktop: { breakpoint: { max: 4000, min: 1280 }, items: 4 },
-    desktop: { breakpoint: { max: 1279, min: 1024 }, items: 3 },
-    tablet: { breakpoint: { max: 1023, min: 640 }, items: 2 },
-    mobile: { breakpoint: { max: 639, min: 0 }, items: 1 },
-  };
-  
   // Settings for the carousel slider
-  const carouselSettings = {
-    infinite: true, // Enable infinite loop
-    responsive: responsive,
-  
-   
-
-  
-    // Additional settings for react-multi-carousel can be added here
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 3,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1279,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
+  // Additional settings for react-multi-carousel can be added her
   // const handleSearchPartsClick = () => {
   //   // Handle the click for "Search Parts" as needed
   //   console.log("Clicked on Search Parts");
@@ -54,11 +87,11 @@ function Home() {
   // };
   return (
     <>
-
-      {/* section-1 */}
-      <section className="overflow-hidden" style={backgroundStyle} >
-        <div className="container-1 " >
+{/* ----Section-1 Start---- */}
+      <section className="overflow-hidden" style={backgroundStyle}>
+        <div className="container-1 ">
           <div className="pb-[194px] pt-[125px] ">
+            
             <Headingtext
               mainText="Search by "
               coloredText=" Equipment"
@@ -109,33 +142,33 @@ function Home() {
 
               {/* add custom button */}
               {/* <div className=" justify-center"> */}
-                <button
-                  className="inline-flex xl:w-[176px] lg:w-[48%] w-full h-[50px] items-center justify-center p-2 border border-transparent bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-bold text-base"
-                  onClick={() => {
-                    // Handle load more functionality
-                  }}
-                >
-                  Search Parts
-                </button>
+              <button
+                className="inline-flex xl:w-[176px] lg:w-[48%] w-full h-[50px] items-center justify-center p-2 border border-transparent bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-bold text-base"
+                onClick={() => {
+                  // Handle load more functionality
+                }}
+              >
+                Search Parts
+              </button>
               {/* </div> */}
             </div>
           </div>
         </div>
       </section>
+{/* ----Section-1  End---- */}
 
-      {/* section-2 */}
-      <section className="pt-[14px] container-1">
-        <div className=" ">
+{/* ----Section-2 Feature Part Start---- */}
+      <section className="pt-[14px]">
+        <div className="container-1 ">
           <Headingtext
             mainText=" Featured"
             coloredText=" Part <>"
             maincolor="text-black"
           />
-         
 
-         <Carousel{...carouselSettings} >
-          {/* <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 sm:gap-6 gap-0 items-center pt-[8px]"> */}
-         
+          <CustomCarousel settings={settings}>
+            {/* <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 sm:gap-6 gap-0 items-center pt-[8px]"> */}
+
             <Featurecard
               image="../Images/Rectangle 97.svg"
               text="AIR FILTER"
@@ -217,12 +250,14 @@ function Home() {
               brandName="Brand Name"
               productCode="F500-...AB-06"
             />
-           {/*</div> */}
-          </Carousel>
-          
+            {/*</div> */}
+          </CustomCarousel>
         </div>
       </section>
-      {/* section-3 */}
+
+{/* ----Section-2 Feature Part End---- */}
+
+{/* ----Section-3 Search By Category Start---- */}
       <section className=" pt-[49px] ">
         <div className="container-1 ">
           <Headingtext
@@ -230,59 +265,24 @@ function Home() {
             coloredText=" Category"
             maincolor="text-black"
           />
+         {/* Cardscroll component-- */}
+           <Cardscroll/>
 
-          <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-[22px] sm:gap-[25px] gap-0 items-center justify-center">
-            <Searchbycategorycard
-              imageUrl="../Images/Group.svg"
-              imagetext="images"
-              imagetitle="Engine"
-            />
-            <Searchbycategorycard
-              imageUrl="../Images/Group.svg"
-              imagetext="images"
-              imagetitle="Engine"
-            />
-            <Searchbycategorycard
-              imageUrl="../Images/Group.svg"
-              imagetext="images"
-              imagetitle="Engine"
-            />
-            <Searchbycategorycard
-              imageUrl="../Images/Group.svg"
-              imagetext="images"
-              imagetitle="Engine"
-            />
-            <Searchbycategorycard
-              imageUrl="../Images/Group.svg"
-              imagetext="images"
-              imagetitle="Engine"
-            />
-
-            {/* Add more instances of Searchbycategorycard as needed */}
-          </div>
-          {/* add custom button */}
-          <div className="flex justify-center mt-4">
-            <button
-              className="bg-white border border-[#E6992A] text-[#E6992A] font-bold text-[16px] py-2 px-4 rounded-md w-[176px] h-[58px] transition duration-300 hover:bg-[#E6992A] hover:text-white"
-              onClick={() => {
-                // Handle load more functionality
-              }}
-            >
-              Load More
-            </button>
-          </div>
         </div>
       </section>
+{/* ----Section-3 Search By Category End---- */}
 
-      {/* section-4 */}
+{/* Section-4 Why Choose Start */}
       <section className="">
         <div className="container-1 mx-auto mt-8">
+          <div className="">
           <Headingtext
             mainText=" Why Choose "
             coloredText="Aftermarket Parts?"
             maincolor="text-black"
           />
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[22px] items-center justify-center pt-[14px] ">
+          </div>
+          <div className="grid grid-cols-3  2xl:gap-[6px] xl:gap-[22px] lg:gap-[250px] md:gap-[400px] sm:gap-[390px] gap-[257px] items-center justify-center pt-[14px] overflow-x-scroll">
             <Aftermarketcard
               imageUrl="../Images/Group (1).svg"
               heading="Authentic Product"
@@ -304,42 +304,56 @@ function Home() {
           </div>
         </div>
       </section>
-      {/* section-5 */}
-      <section className="mt-[49px] ">
-  <div className="container-1">
-    <Headingtext
-      mainText=" Brands we "
-      coloredText="Trust <>"
-      maincolor="text-black"
-    />
-    <div className="grid grid-cols-12 gap-3">
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-      <div className="col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3">
-        <BrandComponent
-          brandimageUrl="../Images/Component 18.svg"
-          brandimagetext="brandimage"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+{/* ----Section-4 Why Choose End---- */}
+
+{/*---Section-5  Brands Name Start----*/}
+      <section className="mt-[49px] mb-5">
+        <div className="container-1">
+          <Headingtext
+            mainText=" Brands we "
+            coloredText="Trust <>"
+            maincolor="text-black"
+          />
+      <CustomCarousel settings={settings}>
+            <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+             <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+             <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+             <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+             <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+
+            <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+
+            <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+
+            <BrandComponent
+              brandimageUrl="../Images/Component 18.svg"
+              brandimagetext="brandimage"
+            />
+          </CustomCarousel>
+        </div>
+      </section>
+{/*---Section-5  Brands Name End----*/}
     </>
   );
 }
