@@ -31,7 +31,7 @@ function Home() {
         const response = await fetch('http://192.168.2.134:8000/api/product-detail/');
         const data = await response.json();
         const filteredData = data.filter(item => item.featured_part === true);
-        console.log(filteredData)
+        console.log(filteredData);
 
         const fetchImage = async () => {
           try {
@@ -39,20 +39,60 @@ function Home() {
             const imageData = await response.json();
             const filteredProductImage = imageData.filter(item => item.display_order === 0);
 
-            filteredData.forEach(item => {
-              // console.log(item)
-              const CategoryName = item.categories[0].split('>');
-              console.log(CategoryName)
-              item.categories = []
-              item.categories.push(CategoryName[CategoryName.length - 1])
-              filteredProductImage.forEach(imageData => {
-                if (item.id === imageData.product) {
-                  item.image = imageData.original;
-                }
-              });
-            });
+            const fetchPrice = async () => {
+              try {
+                const response = await fetch('http://192.168.2.134:8000/api/product-price/');
+                const priceData = await response.json();
 
-            setFeatureData(filteredData);
+
+                const LowestProductPrices = {};
+                priceData.forEach(item => {
+                  const productId = item.product;
+                  const currentPrice = parseFloat(item.price);
+
+                  if (!(productId in LowestProductPrices) || currentPrice < LowestProductPrices[productId].price) {
+                    LowestProductPrices[productId] = {
+                      price: currentPrice,
+                      item: item
+                    };
+                  }
+                });
+
+                // Extract the filtered items from the lowestPrices object
+                const FilteredLowestProductPrices = Object.values(LowestProductPrices).map(entry => entry.item);
+                console.log("FilteredLowestProductPrices", FilteredLowestProductPrices);
+
+                filteredData.forEach(item => {
+                  // console.log(item)
+                  const CategoryName = item.categories[0].split('>');
+                  item.categories = []
+                  item.categories.push(CategoryName[CategoryName.length - 1])
+                  filteredProductImage.forEach(imageData => {
+                    if (item.id == imageData.product) {
+                      item.image = imageData.original
+                    }
+                  });
+                  FilteredLowestProductPrices.forEach(element => {
+                    if (item.id == element.product) {
+                      item.lowest_price = parseFloat(element.price)
+                      item.discounted_price = parseFloat(item.mrp) - (parseFloat(item.lowest_price))
+                      item.discountPercentage = ((parseFloat(item.discounted_price) / parseFloat(item.mrp)) * 100).toPrecision(2)
+                      // console.log(element.price)
+
+                    }
+                  });
+                });
+                console.log(filteredData)
+
+
+                setFeatureData(filteredData);
+              } catch (error) {
+                console.error('Error fetching price data:', error);
+              }
+            };
+
+            // Call the function to fetch price data
+            fetchPrice();
           } catch (error) {
             console.error('Error fetching image data:', error);
           }
@@ -70,7 +110,8 @@ function Home() {
   }, []);
 
 
-  
+
+
   // Settings for the carousel slider
   const responsive = {
     superLargeDesktop: { breakpoint: { max: 4000, min: 1280 }, items: 4 },
@@ -181,31 +222,17 @@ function Home() {
 
           {/* <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 sm:gap-6 gap-0 items-center pt-[8px]"> */}
           <Carousel{...carouselSettings} style="gap-10" >
-
-
-            {/* {featureData.map((feature, index) => (
-              <Featurecard
-                key={index} // Make sure to provide a unique key for each FeatureCard
-                image={feature.image}
-                text={feature.categories}
-                discountedPrice={feature.discountedPrice}
-                originalPrice={feature.originalPrice}
-                discountPercentage={feature.discountPercentage}
-                brandName={feature.brand}
-                productCode={feature.upc}
-              />
-            ))} */}
             {featureData.map((feature, index) => (
               <Featurecard
                 key={index}
                 image={feature.image}
                 text={feature.categories}
-                discountedPrice={feature.discountedPrice}
-                originalPrice={feature.originalPrice}
+                discountedPrice={feature.lowest_price}
+                originalPrice={feature.mrp}
                 discountPercentage={feature.discountPercentage}
                 brandName={feature.brand}
                 productCode={feature.upc}
-               // Pass the click handler
+              // Pass the click handler
               />
             ))}
           </Carousel>
