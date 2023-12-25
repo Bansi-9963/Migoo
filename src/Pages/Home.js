@@ -8,6 +8,7 @@ import Aftermarketcard from "../Component/Aftermarketcard";
 import BrandComponent from "../Component/BrandComponent";
 import CustomCarousel from "../Component/CustomCarousel";
 import Cardscroll from "../Component/Cardscroll";
+import './Home.css';
 
 
 
@@ -75,6 +76,12 @@ function Home() {
     ],
   };
 
+  // Example card data (replace this with your dynamic data)
+  const cardsData = Array.from({ length: 15 }, (_, index) => ({
+    id: index + 1,
+    text: `Card ${index + 1}`,
+  }));
+
   // Additional settings for react-multi-carousel can be added her
   // const handleSearchPartsClick = () => {
   //   // Handle the click for "Search Parts" as needed
@@ -88,9 +95,9 @@ function Home() {
   return (
     <>
 {/* ----Section-1 Start---- */}
-      <section className="overflow-hidden" style={backgroundStyle}>
+      <section className="overflow-hidden lg:h-[450px]" style={backgroundStyle}>
         <div className="container-1 ">
-          <div className="pb-[194px] pt-[125px] ">
+          <div className="lg:pb-[194px] pb-[120px] pt-[125px] ">
             
             <Headingtext
               mainText="Search by "
@@ -143,7 +150,7 @@ function Home() {
               {/* add custom button */}
               {/* <div className=" justify-center"> */}
               <button
-                className="inline-flex xl:w-[176px] lg:w-[48%] w-full h-[50px] items-center justify-center p-2 border border-transparent bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-bold text-base"
+                className="inline-flex xl:ml-0 lg:ml-[181px] md:ml-0 sm:ml-0 ml-0 xl:w-[176px] lg:w-[48%] w-full h-[50px] items-center justify-center p-2 border border-transparent hover:bg-[#F2C94C] hover:bg-opacity-60 bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-bold text-base"
                 onClick={() => {
                   // Handle load more functionality
                 }}
@@ -266,7 +273,7 @@ function Home() {
             maincolor="text-black"
           />
          {/* Cardscroll component-- */}
-           <Cardscroll/>
+         <Cardscroll cardsData={cardsData} />
 
         </div>
       </section>
@@ -282,7 +289,7 @@ function Home() {
             maincolor="text-black"
           />
           </div>
-          <div className="grid grid-cols-3  2xl:gap-[6px] xl:gap-[22px] lg:gap-[250px] md:gap-[400px] sm:gap-[390px] gap-[257px] items-center justify-center pt-[14px] overflow-x-scroll">
+          <div className="grid grid-cols-3 3xl:gap-[10px] 2xl:gap-[10px] xl:gap-[32px] lg:gap-[251px] md:gap-[381px] sm:gap-[382px] gap-[261px] items-center  pt-[14px] overflow-x-scroll custom-scrollbar">
             <Aftermarketcard
               imageUrl="../Images/Group (1).svg"
               heading="Authentic Product"
@@ -314,7 +321,7 @@ function Home() {
             coloredText="Trust <>"
             maincolor="text-black"
           />
-      <CustomCarousel settings={settings}>
+     <div className="flex overflow-x-auto overflow-y-hidden items-center lg:gap-[2px] md:gap-[0px] gap-[8px] custom-scrollbar p-[10px]">
             <BrandComponent
               brandimageUrl="../Images/Component 18.svg"
               brandimagetext="brandimage"
@@ -350,7 +357,7 @@ function Home() {
               brandimageUrl="../Images/Component 18.svg"
               brandimagetext="brandimage"
             />
-          </CustomCarousel>
+          </div>
         </div>
       </section>
 {/*---Section-5  Brands Name End----*/}
