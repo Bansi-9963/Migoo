@@ -3,13 +3,10 @@ import ButtonWithDropdown from "../Component/ButtonWithDropdown";
 import Headingtext from "../Component/Headingtext";
 
 import FeaturcardScroll from "../Component/FeaturcardScroll";
-
-import Navbar from '../Component/Navbar';
-
 import Aftermarketcard from "../Component/Aftermarketcard";
 import Cardscroll from "../Component/Cardscroll";
 import BrandCarousel from "../Component/BrandCarousel";
-import "./Home.css";
+import "../CSS/Home.css";
 
 function Home() {
   const backgroundStyle = {
@@ -22,9 +19,6 @@ function Home() {
 
   return (
     <>
-
-<section>
-<Navbar/>
 
       <section className="overflow-hidden" style={backgroundStyle}>
 
@@ -170,7 +164,7 @@ function Home() {
         </div>
       </section>
 
-      </section>
+    
 {/*---Section-5  Brands Name End----*/}
 
     </>

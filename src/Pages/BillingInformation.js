@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Productimage from '../images/Image.png';
-import Productimage1 from '../images/Gear.png';
+import Productimage from '../Images/Image.png';
+import Productimage1 from '../Images/Gear.png';
 const BillingInformation = (props) => {
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');

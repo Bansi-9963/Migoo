@@ -1,6 +1,6 @@
 import React from 'react';
-import Productimage from '../images/Image.png';
-import Productimage1 from '../images/Gear.png';
+import Productimage from '../Images/Image.png';
+import Productimage1 from '../Images/Gear.png';
 const MyWishListItem = (props) => {
 const isOutOfStock = props.stock_status === 'Out Of Stock';
 return (

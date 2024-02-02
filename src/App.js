@@ -5,7 +5,18 @@ import Home from './Pages/Home';
 import MyWishList from './Pages/MyWishList.js';
 import MyShoppingCart from './Pages/MyShoppingCart.js';
 import BillingInformation from './Pages/BillingInformation.js';
-import ProductDetail from './Pages/ProductDetail.js'
+import Sign_In from "./Component/Sign_In";
+import Create_Acct from "./Component/Create_Account";
+import Error_Page from "./Component/Error_Page";
+import Empty_Cart from "./Component/Empty_Cart";
+import User_Settings from "./Component/User_Settings";
+import User_Dashboard from "./Component/User_Dashboard";
+import Order_Confirm from "./Component/Order_Confirm";
+import Header from "./Component/Header";
+import Footer from "./Component/Footer";
+import Testing from "./Component/testing";
+import Order_Detail from "./Component/Order_Detail";
+import OrderHistory from "./Component/OrderHistory";
 import {
   BrowserRouter,
   Routes,
@@ -16,17 +27,30 @@ import {
 function App() {
   return (
     <>
-  
-    <BrowserRouter>
-    <Routes>
-       <Route path="" element={<Home/>} />
-        <Route path="checkout" element={<BillingInformation />} />
-        <Route path="wishlist" element={<MyWishList/>} />
-        <Route path="shoppingcart" element={<MyShoppingCart/>} />
-        <Route path="productdetail" element={<ProductDetail/>} />
 
-    </Routes>
-  </BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <div className="App container-1">
+          <Routes>
+            <Route path="" element={<Home />} />
+            <Route path="checkout" element={<BillingInformation />} />
+            <Route path="wishlist" element={<MyWishList />} />
+            <Route path="shoppingcart" element={<MyShoppingCart />} />
+            <Route path="sign_in" element={<Sign_In />} />
+            <Route path="create_account" element={<Create_Acct />} />
+            <Route path="error_404" element={<Error_Page />} />
+            <Route path="empty_cart" element={<Empty_Cart />} />
+            <Route path="settings" element={<User_Settings />} />
+            <Route path="dashboard" element={<User_Dashboard />} />
+            <Route path="confirm_order" element={<Order_Confirm />} />
+            <Route path="testing" element={<Testing />} />
+            <Route path="order-detail" element={<Order_Detail />} />
+            <Route path="order-history" element={<OrderHistory />} />
+
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
     </>
     // <div className="App">
     //   <header className="App-header">
