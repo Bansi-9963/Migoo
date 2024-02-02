@@ -1,6 +1,6 @@
 import React from "react";
 import Cardbutton from "./Cardbutton";
-import "../Pages/Home.css";
+import "../CSS/Home.css";
 import { useState } from "react";
 
 // const handleClick = () => {

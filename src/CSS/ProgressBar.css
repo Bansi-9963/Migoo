@@ -1,0 +1,46 @@
+
+ 
+  /* Active Css  */
+  
+
+  li .active::after{
+    background-color: #E6992A;
+  }
+  .order_progress li .active p{
+    display: none;
+  }
+  .order_progress li .active .uil{
+    display: flex;
+  }
+  
+  /* Responsive Css  */
+  
+  @media (max-width: 600px) {
+    .order_progress{
+        flex-direction: column;
+    }
+    .order_progress li{
+        flex-direction: row;
+    }
+    .order_progress li .progress{
+        margin: 0 30px;
+    }
+    .progress::after{
+        width: 5px;
+        height: 55px;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+    .one::after{
+        height: 0;
+    }
+    .order_progress li .icon{
+        margin: 15px 0;
+    }
+  }
+  
+ 
+  
+  

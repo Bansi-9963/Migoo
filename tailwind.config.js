@@ -2,16 +2,14 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    
+    
   ],
   theme: {
     extend: {
       screens: {
-
-      'ssm': '447px',
-      'msm':'481px'
-      },},
-
-        
+        'ssm': '447px',
+        'msm':'481px',
        
       },
       colors: {
@@ -28,7 +26,8 @@ module.exports = {
       },
     },
    
-
   },
-  plugins: [],
+  plugins: [
+  ],
+
 }

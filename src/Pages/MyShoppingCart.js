@@ -1,7 +1,8 @@
 import React from 'react';
 import '../App.css';
-import ProductImage from '../images/Image.png';
-import Productimage1 from '../images/Gear.png';
+import '../CSS/Order_detail.css';
+import ProductImage from '../Images/Image.png';
+import Productimage1 from '../Images/Gear.png';
 import MyShoppingcartItem from '../Component/MyShoppingcartItem';
 import MyShoppingCartMobile from '../Component/MyShoppingCartMobile';
 const MyShoppingCart = () => {

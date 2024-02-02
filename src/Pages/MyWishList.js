@@ -1,7 +1,8 @@
 import React from 'react';
 import '../App.css';
-import Productimage from '../images/Image.png';
-import Productimage1 from '../images/Gear.png';
+import '../CSS/Order_detail.css';
+import Productimage from '../Images/Image.png';
+import Productimage1 from '../Images/Gear.png';
 import 'tailwindcss/tailwind.css';
 import MyWishListItem from  '../Component/MyWishListItem.js';
 import MyWishListMobile from "../Component/MyWishListMobile";
