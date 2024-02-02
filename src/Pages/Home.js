@@ -1,7 +1,11 @@
 import React from "react";
 import ButtonWithDropdown from "../Component/ButtonWithDropdown";
 import Headingtext from "../Component/Headingtext";
+
 import FeaturcardScroll from "../Component/FeaturcardScroll";
+
+import Navbar from '../Component/Navbar';
+
 import Aftermarketcard from "../Component/Aftermarketcard";
 import Cardscroll from "../Component/Cardscroll";
 import BrandCarousel from "../Component/BrandCarousel";
@@ -18,8 +22,12 @@ function Home() {
 
   return (
     <>
-      {/* ----Section-1 Start---- */}
-      <section className="overflow-hidden lg:h-[450px]" style={backgroundStyle}>
+
+<section>
+<Navbar/>
+
+      <section className="overflow-hidden" style={backgroundStyle}>
+
         <div className="container-1 ">
           <div className="lg:pb-[194px] pb-[120px] pt-[125px] ">
             <Headingtext
@@ -161,7 +169,10 @@ function Home() {
           <BrandCarousel />
         </div>
       </section>
-      {/*---Section-5  Brands Name End----*/}
+
+      </section>
+{/*---Section-5  Brands Name End----*/}
+
     </>
   );
 }
