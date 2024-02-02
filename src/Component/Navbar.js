@@ -57,7 +57,7 @@ const Header = () => {
                 Spare Part
                 </a>
                 <a href="/" className="">
-                <button className="font-bold inline-flex items-center justify-center bg-[#E6992A] w-[82px] h-[40px] py-1 px-3 focus:outline-none hover:bg-[#F2C94C] hover:border-[#F2C94C] border border-[#E6992A] rounded-lg text-base text-white ml-4">
+                <button className="font-bold inline-flex items-center justify-center bg-[#E6992A] w-[82px] h-[44px] py-1 px-3 focus:outline-none hover:bg-[#F2C94C] hover:border-[#F2C94C] border border-[#E6992A] rounded-lg text-base text-white ">
                   Login
                 </button>
                 </a>

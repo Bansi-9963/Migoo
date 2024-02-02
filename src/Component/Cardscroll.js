@@ -43,7 +43,7 @@ const Cardscroll = () => {
     <div>
       <div className={`overflow-x-scroll custom-scrollbar ${cardContainerClasses}`}>
         {Array.from({ length: numCardsToShow }).map((_, index) => (
-          <div key={index} className={`${cardItemClasses} p-5`}>
+          <div key={index} className={`${cardItemClasses} pr-5 pb-5 pl-1 pt-5`}>
             <Searchbycategorycard
               imageUrl="../Images/Group.svg"
               imagetext="images"
@@ -56,7 +56,7 @@ const Cardscroll = () => {
 
       <div className="flex justify-center mt-2 ">
         <button
-          className="bg-white border border-[#E6992A] text-[#E6992A] lg:w-[176px] lg:h-[58px] w-[115px] h-[41px] font-bold text-[16px] lg:px-0 lg:py-0 py-2 px-4 rounded-md transition duration-300 hover:bg-[#E6992A] hover:text-white"
+          className="bg-white border border-[#E6992A] text-[#E6992A] lg:w-[176px] lg:h-[58px] w-[117px] h-[41px] font-bold text-[16px] lg:px-0 lg:py-0 py-2 px-4 rounded-lg transition duration-300 hover:bg-[#E6992A] hover:text-white"
           onClick={handleToggleCards}
         >
           {showAllCards ? 'Show Less' : 'Load More'}

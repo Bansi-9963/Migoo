@@ -34,3 +34,126 @@
 .svg1:hover {
   fill: orange; /* Change to the desired hover color */
 }
+
+
+/* slick slider dots----- */
+.slick-dots{
+  bottom: -34px !important;
+}
+
+.slick-dots li{
+  margin: 0 5px 
+}
+
+.slick-dots li.slick-active button:before {
+
+  color: #E6992A !important;
+}
+
+.slick-dots li button:before{
+  font-size: 9px !important;
+
+}
+
+
+
+
+
+.custom-slider-2 {
+  .slick-slide {
+    width: 250px !important; /* Set the width for each slide in the second slider */
+  }
+}
+
+.slick-initialized .slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+  
+
+
+/* Add this CSS to your stylesheet or component */
+.custom-prev-arrow, .custom-next-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.custom-prev-arrow {
+  left: -40px;
+}
+
+.custom-next-arrow {
+  right: -40px;
+}
+
+/* Adjust the styles based on your design */
+.custom-prev-arrow svg,
+.custom-next-arrow svg {
+  width: 40px;
+  height: 22px;
+}
+
+/* Media query for screens between 640px and 674px */
+@media screen and (max-width: 639px) {
+  .custom-prev-arrow {
+    left: -12px; /* Adjusted by -3px */
+  }
+
+  .custom-next-arrow {
+    right: -3px; /* Adjusted by -3px */
+  }
+   /* Adjust the styles based on your design */
+.custom-prev-arrow svg,
+.custom-next-arrow svg {
+  width: 9px;
+  height: 20px;
+}
+}
+
+
+
+
+@media screen and (min-width: 640px) and (max-width: 767px) {
+  .custom-prev-arrow {
+    left: -15px; /* Adjusted by -3px */
+  }
+
+  .custom-next-arrow {
+    right: -15px; /* Adjusted by -3px */
+  }
+
+  /* Adjust the styles based on your design */
+.custom-prev-arrow svg,
+.custom-next-arrow svg {
+  width: 9px;
+  height: 20px;
+}
+}
+
+
+/* Media query for screens with a maximum width of 1023 pixels */
+@media screen and (max-width: 1023px) {
+  .custom-slider-2 .slick-slide {
+    width: 187px !important; /* Adjust the width for each slide in the second slider at 1023px width */
+  }
+}
+
+/* Media query for screens with a maximum width of 300 pixels */
+@media screen and (max-width: 500px) {
+  /* Adjusted styles for slick-dots on small screens */
+  .slick-dots {
+    bottom: -25px !important;
+  }
+
+  /* Adjusted margin for individual dots on small screens */
+  .slick-dots li {
+      margin: 0px !important; /* Adjust the left and right margin for small screens */
+  }
+
+  .slick-dots li button:before{
+    font-size: 6px !important;
+  }
+
+}
