@@ -6,7 +6,12 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'ssm': '447px',
+
+      'ssm': '447px',
+      'msm':'481px'
+      },},
+
+        
        
       },
       colors: {
@@ -23,6 +28,7 @@ module.exports = {
       },
     },
    
+
   },
   plugins: [],
 }

@@ -4,15 +4,24 @@ import Searchbycategorycard from '../Component/Searchbycategorycard';
 const Cardscroll = () => {
   const [numCardsToShow, setNumCardsToShow] = useState(5);
   const [isWideScreen, setIsWideScreen] = useState(true);
+  const [showAllCards, setShowAllCards] = useState(false);
 
-  const handleLoadMore = () => {
-    // Increase the number of cards to show (you can adjust this logic)
-    setNumCardsToShow(numCardsToShow + 5);
+  const handleToggleCards = () => {
+    if (showAllCards) {
+      // Show only one row of cards
+      setNumCardsToShow(5);
+    } else {
+      // Load all cards when "Load More" is clicked
+      setNumCardsToShow(15);
+    }
+
+    // Toggle the state
+    setShowAllCards(!showAllCards);
   };
 
   useEffect(() => {
     const handleResize = () => {
-      setIsWideScreen(window.innerWidth > 1023);
+      setIsWideScreen(window.innerWidth > 1279);
     };
 
     // Initial check on component mount
@@ -28,30 +37,29 @@ const Cardscroll = () => {
   }, []);
 
   const cardContainerClasses = isWideScreen ? 'flex flex-wrap' : 'flex flex-nowrap';
-  const cardItemClasses = isWideScreen ? 'w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/5' : 'w-200';
+  const cardItemClasses = isWideScreen ? 'w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/5 2xl:w-1/5' : 'w-200';
 
   return (
     <div>
-      <div className={`overflow-x-scroll ${cardContainerClasses}`}>
+      <div className={`overflow-x-scroll custom-scrollbar ${cardContainerClasses}`}>
         {Array.from({ length: numCardsToShow }).map((_, index) => (
-          <div key={index} className={`${cardItemClasses} p-2`}>
+          <div key={index} className={`${cardItemClasses} pr-5 pb-5 pl-1 pt-5`}>
             <Searchbycategorycard
               imageUrl="../Images/Group.svg"
               imagetext="images"
-              imagetitle="Engine"
+              imagetitle="Maintenance Service Parts"
               style={{ width: '100%' }}
             />
           </div>
         ))}
       </div>
 
-      {/* "Load More" button below the cards and centered */}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-2 ">
         <button
-          className="bg-white border border-[#E6992A] text-[#E6992A] font-bold text-[16px] py-2 px-4 rounded-md w-[176px] h-[58px] transition duration-300 hover:bg-[#E6992A] hover:text-white"
-          onClick={handleLoadMore}
+          className="bg-white border border-[#E6992A] text-[#E6992A] lg:w-[176px] lg:h-[58px] w-[117px] h-[41px] font-bold text-[16px] lg:px-0 lg:py-0 py-2 px-4 rounded-lg transition duration-300 hover:bg-[#E6992A] hover:text-white"
+          onClick={handleToggleCards}
         >
-          Load More
+          {showAllCards ? 'Show Less' : 'Load More'}
         </button>
       </div>
     </div>

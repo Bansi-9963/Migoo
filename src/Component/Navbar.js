@@ -1,74 +1,138 @@
 import React, { useState } from "react";
 
-function Navbar() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <header className="text-gray-600 body-font">
-      <div className="container-1 max-w-screen-xl flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
-        <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          <img src="../Images/image 14.svg" alt="Logo" />
-        </a>
-        <button
-          onClick={toggleNav}
-          data-collapse-toggle="navbar-default"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default"
-          aria-expanded={isNavOpen}
-        >
-          <span className="sr-only">Toggle menu</span>
-          <svg
-            className={`w-5 h-5 ${isNavOpen ? "transform rotate-180" : ""}`}
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
+    <header className="w-full  bg-[#FFFFFF]">
+      <div id="nav-header">
+        <div className="container-1 p-0 bg-[#FFFFFF] w-full py-2 sm:py-[18px]">
+          <nav>
+            <div className="flex justify-between items-center">
+              <div>
+                <a href="../">
+                  <img
+                    src='../Images/image 14.svg'
+                    alt="Mignesh-Logo"
+                    className="lg:w-auto md:w-[150px] w-[160px]"
+                  />
+                </a>
+              </div>
+              <div className="hidden lg:flex lg:gap-[26px] md:gap-[10px] md:text-[10px] text-[#4C5A67] font-bold">
+                 <a
+                    href="/"
+                    className="hover:text-[#E6992A] text-[#4C5A67] text-[16px]  font-bold py-[11px]"
+                  >
+                Rental
+                  
+                  </a>
+                  <a
+                    href="/"
+                    className="hover:text-[#E6992A] text-[#4C5A67] text-[16px]  font-bold  py-[11px]"
+                  >
+                Resale
+                  
+                  </a>
+             
+                <a
+                  href=""
+                  className="hover:text-[#E6992A] text-[#4C5A67] text-[16px]  font-bold py-[11px]"
+                >
+                  Insurance
+                </a>
+                <a
+                  href="/"
+                  className="hover:text-[#E6992A] text-[#4C5A67] text-[16px]  font-bold py-[11px]"
+                >
+                 Finance
+                </a>
+                <a
+                  href="/"
+                  className="hover:text-[#E6992A] text-[#4C5A67] text-[16px]  font-bold py-[11px]"
+                >
+                Spare Part
+                </a>
+                <a href="/" className="">
+                <button className="font-bold inline-flex items-center justify-center bg-[#E6992A] w-[82px] h-[44px] py-1 px-3 focus:outline-none hover:bg-[#F2C94C] hover:border-[#F2C94C] border border-[#E6992A] rounded-lg text-base text-white ">
+                  Login
+                </button>
+                </a>
+              </div>
+              <div className="lg:hidden">
+                <button
+                  id="mobile-menu-button"
+                  onClick={toggleMobileMenu}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </nav>
+          <div
+            id="mobile-menu"
+            className={`${
+              isMobileMenuOpen ? "block" : "hidden"
+            } lg:hidden mt-2 bg-[white]`}
           >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
-        <nav
-          className={`ml-auto md:ml-0 lg:flex flex-wrap items-center text-[#4C5A67] text-[16px] font-bold ${
-            isNavOpen ? "block" : "hidden"
-          }`}
-          id="navbar-default"
-        >
-          <ul className="lg:flex items-center space-x-4">
-            <li className="mr-[26px] hover:text-[#E6992A]">
-              <a href="#">Rental</a>
-            </li>
-            <li className="mr-[26px] hover:text-[#E6992A]">
-              <a href="#">Resale</a>
-            </li>
-            <li className="mr-[26px] hover:text-[#E6992A]">
-              <a href="#">Insurance</a>
-            </li>
-            <li className="mr-[26px] hover:text-[#E6992A]">
-              <a href="#">Finance</a>
-            </li>
-            <li className="mr-[26px] hover:text-[#E6992A]">
-              <a href="#">Spare Part</a>
-            </li>
-            <li>
-              <button className="font-bold inline-flex items-center justify-center bg-[#E6992A] w-[82px] h-[40px] py-1 px-3 focus:outline-none hover:bg-[#F2C94C] hover:border-[#F2C94C] border border-[#E6992A] rounded text-base text-white ml-4">
-                Login
-              </button>
-            </li>
-          </ul>
-        </nav>
+            <a
+              href=""
+              className="block  text-[#4C5A67] font-bold py-2 px-2 hover:text-[#E6992A] rounded "
+            >
+             Rental
+            </a>
+              <a
+                href="/about"
+                className="block  text-[#4C5A67] font-bold py-2 px-2  hover:text-[#E6992A]  rounded relative"
+              >
+               Resale
+                
+              </a>
+          
+            <a
+              href=""
+              className="block  text-[#4C5A67] font-bold py-2 px-2 hover:text-[#E6992A] rounded "
+            >
+              Insurance
+            </a>
+            <a
+              href="/quality"
+              className="block  text-[#4C5A67] font-bold  py-2 px-2 hover:text-[#E6992A] rounded"
+            >
+             Finance
+            </a>
+            <a
+              href="/contact"
+              className="block text-[#4C5A67] font-bold py-2 px-2 hover:text-[#E6992A] rounded"
+            >
+             Spare Part
+            </a>
+            <a href="/quote" className="block py-2">
+            <button className="font-bold inline-flex items-center justify-center bg-[#E6992A] w-[82px] h-[40px] py-1 px-3 focus:outline-none hover:bg-[#F2C94C] hover:border-[#F2C94C] border border-[#E6992A] rounded-lg text-base text-white ">
+                  Login
+                </button>
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );
-}
+};
 
-export default Navbar;
+export default Header;

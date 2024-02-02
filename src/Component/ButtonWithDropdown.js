@@ -14,11 +14,11 @@ const ButtonWithDropdown = ({ buttonText, dropdownOptions, buttonColor }) => {
   };
 
   return (
-    <div className="relative text-left inline-flex xl:w-[213px] lg:w-[48%] w-full flex-col 2xl:mr-[14px] xl:mr-[27px] lg:mr-[10px] xl-pb-0 pb-3">
+    <div className="relative text-left inline-flex xl:w-[213px] lg:w-[48%] w-full flex-col 2xl:mr-[14px] xl:mr-[27px] lg:mr-[10px]  xl-pb-0 pb-3">
       <button
         type="button"
         onClick={handleDropdownToggle}
-        className={`inline-flex items-center  h-[50px] justify-between p-2 border border-transparent ${buttonColor} text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500`}
+        className={`inline-flex items-center  h-[50px] justify-between p-2 border border-transparent ${buttonColor} text-white rounded-lg hover:bg-[#D9D9D9] hover:bg-opacity-60 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500`}
         
       >
         <span className="font-bold text-base ">{buttonText}</span>
