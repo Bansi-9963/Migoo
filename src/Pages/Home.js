@@ -3,7 +3,7 @@ import ButtonWithDropdown from "../Component/ButtonWithDropdown";
 import Featurecard from "../Component/Featurecard";
 // import Searchbycategorycard from "../Component/Searchbycategorycard";
 import Headingtext from "../Component/Headingtext";
-
+import Navbar from '../Component/Navbar';
 import Aftermarketcard from "../Component/Aftermarketcard";
 import BrandComponent from "../Component/BrandComponent";
 import CustomCarousel from "../Component/CustomCarousel";
@@ -88,6 +88,9 @@ function Home() {
   return (
     <>
 {/* ----Section-1 Start---- */}
+<section>
+<Navbar/>
+
       <section className="overflow-hidden" style={backgroundStyle}>
         <div className="container-1 ">
           <div className="pb-[194px] pt-[125px] ">
@@ -352,6 +355,7 @@ function Home() {
             />
           </CustomCarousel>
         </div>
+      </section>
       </section>
 {/*---Section-5  Brands Name End----*/}
     </>
