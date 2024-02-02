@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const User_Dashboard = () => {
   return (
-    <section className="2xl:mt-[79px] flex gap-6">
+    <section className="mt-[79px] flex gap-6">
       <Navigation_Bar />
       <div className="flex flex-col gap-[27px]">
         <div className="flex flex-row gap-6">
