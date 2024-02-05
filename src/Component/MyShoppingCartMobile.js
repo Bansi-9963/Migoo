@@ -25,7 +25,7 @@ const MyShoppingCartMobile = ({
   return (
     <div className="relative rounded-lg overflow-hidden border border-gray-100  mb-2 ssm:block flex">
       <div className="h-[100px] w-[110px]">
-        <img className="w-full h-full object-contain" src={image} alt={text} />
+        <img className="w-full h-full object-contain h-[100px] w-[110px]" src={image} alt={text} />
         <div className="absolute top-2 right-2">
           <div className="w-8 h-8 rounded-full p-1 flex items-center justify-center">
             <svg
@@ -107,7 +107,7 @@ const MyShoppingCartMobile = ({
                 onClick={increment}
               >
                 <svg
-                  className="w-3 h-3 text-black"
+                  className="max-[345px]:w- w-3 h-3 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

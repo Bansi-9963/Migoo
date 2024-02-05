@@ -33,8 +33,8 @@ const MyWishList = () => {
       // Add more wishlist items as needed
     ];
 return (
-<section className="container-1">
-   <div className="font-medium text-gray-900 text-3xl leading-10 pt-20 ">My WishList</div>
+<section className="container-1 py-10 sm:py-20">
+   <div className="font-medium text-gray-900 text-3xl leading-10">My WishList</div>
    <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 gap-6 mt-4 ">
    {dummyWishlistData.map((item) => (
           <MyWishListMobile
@@ -54,10 +54,10 @@ return (
                <th scope="col" className="px-2 sm:px-6 py-3">
                   PRODUCT 
                </th>
-               <th scope="col" className="px-2 sm:px-6 lg:px-20 xl:px-28 py-3">
+               <th scope="col" className="px-2 sm:px-6 lg:px-12 xl:px-20 py-3">
                   PRICE
                </th>
-               <th scope="col" className="px-2 sm:px-4 md:px-8 lg:px-12 xl:px-20 py-3">
+               <th scope="col" className="px-2 sm:px-4  lg:px-12 xl:px-20 py-3">
                   STOCK STATUS
                </th>
                <th scope="col" className="px-2 sm:px-4 py-3">

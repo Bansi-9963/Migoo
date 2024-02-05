@@ -32,7 +32,7 @@ function App() {
 
       <BrowserRouter>
         <Header />
-        <div className="App container-1">
+
           <Routes>
             <Route path="" element={<Home />} />
             <Route path="checkout" element={<BillingInformation />} />
@@ -50,7 +50,7 @@ function App() {
             <Route path="order-history" element={<OrderHistory />} />
             <Route path="billing-address" element={<Billing_address />} />
           </Routes>
-        </div>
+        
         <Footer />
       </BrowserRouter>
     </>
