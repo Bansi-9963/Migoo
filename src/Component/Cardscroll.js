@@ -37,7 +37,7 @@ const Cardscroll = () => {
   }, []);
 
   const cardContainerClasses = isWideScreen ? 'flex flex-wrap' : 'flex flex-nowrap';
-  const cardItemClasses = isWideScreen ? 'w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/5 2xl:w-1/5' : 'w-200';
+  const cardItemClasses = isWideScreen ? 'w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/5 2xl:w-1/5' :'2xl:w-240 xl:w-[220px] lg:w-[220px]';
 
   return (
     <div>

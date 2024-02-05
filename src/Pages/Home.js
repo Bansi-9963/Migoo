@@ -39,7 +39,7 @@ function Home() {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      // console.log(data)
+      console.log(data)
       hook(data);
     } catch (error) {
       console.log(error);
@@ -88,11 +88,11 @@ function Home() {
                 <h2 className="1 text-[32px] font-bold">
                   Search by <span className="text-[#E6992A]"> Equipment</span>
                 </h2>
-                <div className=" md:flex-col lg:flex-row w-full lg:gap-[14px] items-center justify-center pt-[26px]">
+                <div className=" pt-[26px]">
                   <select
                     name="brand"
                     id="brand"
-                    className="p-2 bg-[#D9D9D96E] rounded-md relative text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] 2xl-mb-0 xl:mr-[25px] lg:mr-[10px] xl-mb-0 mb-3 font-bold text-base"
+                    className="p-2 bg-[#D9D9D96E] rounded-md  text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] 2xl-mb-0 xl:mr-[25px] lg:mr-[10px] xl-mb-0 mb-3 font-bold text-base"
                     value={BrandSelect}
                     onChange={(e) => {
                       setBrandValue(e.target.value);
@@ -118,7 +118,7 @@ function Home() {
                   <select
                     name="equipment"
                     id="equipment"
-                    className="p-2 bg-[#D9D9D96E] rounded-md relative text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] xl:mr-[25px] lg:mr-[10px] 2xl-mb-0 xl-mb-0 mb-3 font-bold text-base"
+                    className="p-2 bg-[#D9D9D96E] rounded-md text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] xl:mr-[25px] lg:mr-[10px] 2xl-mb-0 xl-mb-0 mb-3 font-bold text-base"
                     value={EquipmentSelect}
                     onChange={(e) => {
                       setEquipmentValue(e.target.value);
@@ -151,7 +151,7 @@ function Home() {
                   <select
                     name="year"
                     id="year"
-                    className="p-2 bg-[#D9D9D96E] rounded-md relative text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] xl:mr-[25px] lg:mr-[10px] 2xl-mb-0 xl-mb-0 mb-3 font-bold text-base"
+                    className="p-2 bg-[#D9D9D96E] rounded-md  text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] xl:mr-[25px] lg:mr-[10px] 2xl-mb-0 xl-mb-0 mb-3 font-bold text-base"
                     value={YearSelect}
                     onChange={(e) => {
                       setYearValue(e.target.value);
@@ -181,7 +181,7 @@ function Home() {
                   <select
                     name="model"
                     id="model"
-                    className="p-2 bg-[#D9D9D96E] rounded-md relative text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] xl:mr-[25px] lg:mr-[10px] 2xl-mb-0 xl-mb-0 mb-3 font-bold text-base"
+                    className="p-2 bg-[#D9D9D96E] rounded-md text-left inline-flex 2xl:w-[257px] xl:w-[214px] lg:w-[48%] h-full w-full flex-col 2xl:mr-[18px] xl:mr-[25px] lg:mr-[10px] 2xl-mb-0 xl-mb-0 mb-3 font-bold text-base"
                     value={ModelSelect}
                     onChange={(e) => {
                       setModelValue(e.target.value);
@@ -216,7 +216,7 @@ function Home() {
                   </select>
 
                   <button
-                    className="inline-flex xl:ml-0 lg:ml-[181px] md:ml-0 sm:ml-0 ml-0 2xl:w-[180px] xl:w-[181px] lg:w-[48%] w-full items-center justify-center p-2 border border-transparent hover:bg-[#F2C94C] hover:bg-opacity-60 bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 h-full flex-shrink-0 align-middle font-bold text-base "
+                    className="inline-flex  xl:ml-0 lg:ml-[181px] md:ml-0 sm:ml-0 ml-0 2xl:w-[180px] xl:w-[181px] lg:w-[48%] w-full items-center justify-center p-2 border border-transparent hover:bg-[#F2C94C] hover:bg-opacity-60 bg-[#E6992A] bg-opacity-60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 align-start font-bold text-base "
                     disabled={ModelSelect === "Select Model"}
                     onClick={(e) => {
                       setCatPopup(true);
