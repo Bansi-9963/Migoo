@@ -101,7 +101,7 @@ dots:true,
 },
 },
 {
-breakpoint: 500,
+breakpoint: 480,
 settings: {
 slidesToShow: 1,
 slidesToScroll: 1,
