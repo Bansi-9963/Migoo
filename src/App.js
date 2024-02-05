@@ -17,6 +17,8 @@ import Footer from "./Component/Footer";
 import Testing from "./Component/testing";
 import Order_Detail from "./Component/Order_Detail";
 import OrderHistory from "./Component/OrderHistory";
+import Billing_address from "./Pages/Address.js";
+
 import {
   BrowserRouter,
   Routes,
@@ -30,7 +32,7 @@ function App() {
 
       <BrowserRouter>
         <Header />
-        <div className="App container-1">
+
           <Routes>
             <Route path="" element={<Home />} />
             <Route path="checkout" element={<BillingInformation />} />
@@ -46,9 +48,9 @@ function App() {
             <Route path="testing" element={<Testing />} />
             <Route path="order-detail" element={<Order_Detail />} />
             <Route path="order-history" element={<OrderHistory />} />
-
+            <Route path="billing-address" element={<Billing_address />} />
           </Routes>
-        </div>
+        
         <Footer />
       </BrowserRouter>
     </>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Productimage from '../Images/Image.png';
 import Productimage1 from '../Images/Gear.png';
+import "../CSS/Order_detail.css"
 const BillingInformation = (props) => {
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
@@ -35,17 +36,17 @@ console.log('Form submission failed');
 return (
 
 
-   <section className="container-1">
-     <div className="grid grid-cols-12 gap-6">
+   <section className="container-1 py-10 sm:py-20">
+     <div className="grid grid-cols-12  gap- 0 sm:gap-6">
        <div className="xl:col-span-8 lg:col-span-7 col-span-12">
-       <div className="min-h-full pt-9 lg:pb-9 pb-0 px-0 lg:px-4 sm:px-6 lg:px-8">
+       <div className="min-h-full  lg:pb-9 pb-0 px-0 lg:px-4 sm:px-6 lg:px-8">
             <div className="w-full space-y-8">
-               <h2 className="mt-6 text-3xl text-2xl font-medium">Billing Information</h2>
+               <h2 className="sm:text-3xl text-2xl font-medium">Billing Information</h2>
                <form className="mt-8 space-y-6" action="#" method="POST">
                   <input type="hidden" name="remember" defaultValue="true" />
                   <div className="grid grid-cols-12 gap-4">
                      <div className="col-span-12 sm:col-span-4">
-                        <label htmlFor="first-name" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
+                        <label htmlFor="first-name" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
                         First Name
                         </label>
                         <input
@@ -54,12 +55,12 @@ return (
                            type="text"
                            autoComplete="first_name"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Your First Name"
                            />
                      </div>
                      <div className="col-span-12 sm:col-span-4">
-                        <label htmlFor="last-name" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
+                        <label htmlFor="last-name" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
                         Last Name
                         </label>
                         <input
@@ -68,13 +69,13 @@ return (
                            type="text"
                            autoComplete="last_name"
                            required
-                           className="appearance-none relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Your Last Name"
                            />
                      </div>
                      <div className="col-span-12 sm:col-span-4">
-                        <label htmlFor="company-name" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
-                        Company Name (optional)
+                        <label htmlFor="company-name" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
+                        Company Name <span className="text-[#808080]">(optional)</span>
                         </label>
                         <input
                            id="company_name"
@@ -82,12 +83,12 @@ return (
                            type="text"
                            autoComplete="company_name"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Company Name"
                            />
                      </div>
                      <div className="col-span-12 ">
-                        <label htmlFor="street_adddress" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
+                        <label htmlFor="street_adddress" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
                         Street Address
                         </label>
                         <input
@@ -96,13 +97,13 @@ return (
                            type="text"
                            autoComplete="street_adddress"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Street Address"
                            />
                      </div>
                      <div className="col-span-12 sm:col-span-4">
-                        <label  htmlFor="country" className="block text-sm font-medium text-[#1A1A1A] mb-[10px] ">Country / Region</label>
-                        <select id="country" className="appearance-none relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base">
+                        <label  htmlFor="country" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2 ">Country / Region</label>
+                        <select id="country" className="appearance-none relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm">
                            <option >Select</option>
                            <option>Canada</option>
                            <option>France</option>
@@ -110,8 +111,8 @@ return (
                         </select>
                      </div>
                      <div className="col-span-12 sm:col-span-3  xl:col-span-2">
-                        <label  htmlFor="states" className="block text-sm font-medium text-[#1A1A1A] mb-[10px] ">States</label>
-                        <select id="states" className="appearance-none relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base ">
+                        <label  htmlFor="states" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2 ">States</label>
+                        <select id="states" className="appearance-none relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm ">
                            <option>Selects</option>
                            <option>Bihar</option>
                            <option>Goa</option>
@@ -119,7 +120,7 @@ return (
                         </select>
                      </div>
                      <div className="col-span-12 sm:col-span-3  xl:col-span-2 ">
-                        <label htmlFor="zip_code" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
+                        <label htmlFor="zip_code" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
                         Zipcode
                         </label>
                         <input
@@ -128,12 +129,12 @@ return (
                            type="text"
                            autoComplete="zip_code"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Zip Code"
                            />
                      </div>
                      <div className="col-span-12 sm:col-span-6">
-                        <label htmlFor="email" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
+                        <label htmlFor="email" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
                         Email
                         </label>
                         <input
@@ -142,12 +143,12 @@ return (
                            type="email"
                            autoComplete="email"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Email Address"
                            />
                      </div>
                      <div className="col-span-12 sm:col-span-6">
-                        <label htmlFor="email" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
+                        <label htmlFor="email" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
                         Phone
                         </label>
                         <input
@@ -156,7 +157,7 @@ return (
                            type="tel"
                            autoComplete="phone_number"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 sm:py-3.5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Phone number"
                            />
                      </div>
@@ -180,15 +181,15 @@ return (
                         <h2 className="text-2xl font-medium">Additional Info</h2>
                      </div>
                      <div className="col-span-12 lg:block hidden">
-                        <label htmlFor="order_notes" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
-                        Order Notes (Optional)
+                        <label htmlFor="order_notes" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
+                        Order Notes <span className="text-[#808080]">(optional)</span>
                         </label>
                         <textarea
                            id="order_notes"
                            name="order_notes"
                            autoComplete="order_notes"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Notes about your order, e.g. special notes for delivery"
                            ></textarea>
                      </div>
@@ -198,7 +199,7 @@ return (
          </div>
        </div>
        <div className="cart-summary xl:col-span-4 lg:col-span-5 col-span-12 min-w-md min-w-lg:justify-self-center">
-         <div className="rounded-md border border-gray-100 p-6 mt-9 text-[#1A1A1A)] leading-6">
+         <div className="rounded-md border border-gray-100 p-6 text-[#1A1A1A)] leading-6">
       
          <div className="cart-total pb-1.5 font-medium text-[20px] ">Order summary</div>
          <div className="divide-y-2 pb-6">
@@ -257,16 +258,15 @@ return (
 
          <div className="payment-option py-1 flex items-center justify-between">
             <label htmlFor="cashOnDelivery" className="flex items-center cursor-pointer">
-              <input
-                id="cashOnDelivery"
-                name="paymentMethod"
-                type="radio"
-                className="h-4 w-4 text-gray-700 border-gray-300 rounded-full appearance-none focus:outline-none"
-              />
-              <span className="ml-1.5 text-sm text-gray-900">Pay Via UPI</span>
+            <input
+               id="pay-via-upi"
+               name="paymentMethod"
+               type="radio"
+               className="h-4 w-4 text-gray-700 border-gray-300 rounded-full"
+               />
+            <span className="ml-1.5 text-sm text-gray-900">Pay Via UPI</span>
             </label>
-          </div>
-
+         </div>
          <div className="payment-option py-1 flex items-center justify-between">
             <label htmlFor="mobilePayment" className="flex items-center cursor-pointer">
             <input
@@ -291,15 +291,15 @@ return (
            <h2 className="text-2xl font-medium ">Additional Info</h2>
          </div>
          <div className="col-span-12 ">
-                        <label htmlFor="order_notes" className="block text-sm font-medium text-[#1A1A1A] mb-[10px]">
-                        Order Notes (Optional)
+                        <label htmlFor="order_notes" className="block text-sm font-medium text-[#1A1A1A] sm:mb-[10px] mb-2">
+                        Order Notes <span className="text-[#808080]">(optional)</span>
                         </label>
                         <textarea
                            id="order_notes"
                            name="order_notes"
                            autoComplete="order_notes"
                            required
-                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-base"
+                           className="appearance-none  relative block w-full px-3 py-3.5 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#E6992A] focus:border-[#E6992A] focus:z-10 sm:text-base text-sm"
                            placeholder="Notes about your order, e.g. special notes for delivery"
                            ></textarea>
                      </div>

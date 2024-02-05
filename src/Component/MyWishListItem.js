@@ -5,22 +5,22 @@ const MyWishListItem = (props) => {
 const isOutOfStock = props.stock_status === 'Out Of Stock';
 return (
 <tr className={`bg-white border-b  hover:bg-gray-50 text-gray-900 text-base font-normal leading- ${isOutOfStock ? 'out-of-stock-style' : ''}`}>
-<th scope="row" className="px-2 sm:px-6 py-2.5 whitespace-nowrap  flex md:flex-row flex-col-reverse">
+<th scope="row" className="px-2 sm:px-6 py-2.5 whitespace-nowrap  flex lg:flex-row flex-col-reverse">
    <img src={props.item_image} alt="Product Image" className="w-[100px] h-[100px]" />
-   <p className="self-start md:self-center md:pl-3 xl:pl-10">
+   <p className="self-start lg:self-center lg:pl-3 xl:pl-10">
       {props.item_name}
    </p>
 </th>
-<td className="px-2 sm:px-6 lg:px-20 xl:px-28 py-4  self-center">
+<td className="px-2 sm:px-6 lg:px-12 xl:px-20 py-4  self-center">
    {props.item_price}<br className="sm:hidden block"/>
    <span className="text-gray-400 text-base font-normal leading-6 line-through">{props.item_price2}</span>
 </td>
-<td className="px-2 sm:px-4 md:px-8 lg:px-12 xl:px-20 py-4  self-center">
+<td className="px-2 sm:px-4 lg:px-12 xl:px-20 py-4  self-center">
    <span className={`py-1 px-2 rounded-md ${isOutOfStock ? 'bg-red-600 bg-opacity-20 text-branding-error' : 'bg-yellow-300 bg-opacity-20 text-branding-success-dark'} text-sm font-normal leading-7`}>
    {isOutOfStock ?  props.stock_status : props.stock_status}
    </span>
 </td>
-<td className="px-2 sm:px-4 py-4 text-right self-center">
+<td className="px-2 sm:px-4    py-4 text-right self-center">
    <div className="flex gap-5">
       <div className={`px-4 md:px-8 py-3.5 btn text-white rounded-full ${isOutOfStock ? 'bg-[#F2F2F2] font-semibold' : 'bg-[#E6992A] font-semibold'} lg:hidden block`}>
       <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512">

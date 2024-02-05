@@ -54,7 +54,7 @@ const Header = () => {
             <div className="h-[60px] lg:flex items-center hidden">
               <div className="flex xl:h-[21px] items-center gap-8">
                 <div>
-                  <a className="font-medium leading-[21px] text-sm">Home</a>
+                  <a href="/" className="font-medium leading-[21px] text-sm">Home</a>
                 </div>
                 <div>
                   <a className="font-medium leading-[21px] text-sm">About Us</a>
@@ -136,17 +136,18 @@ const Header = () => {
                 />
               </svg>
             </div>
-            <div>
+            <div> <a href="/shoppingcart">
               <img
                 src={Shopping_Cart}
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
-              />
+              /> </a>
             </div>
-            <div>
+            <div> <a href="/wishlist">
               <img
                 src={Heart}
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
               />
+              </a>
             </div>
             <div className="hidden lg:block">
               <img src={User} className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6" />

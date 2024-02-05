@@ -42,8 +42,8 @@ const MyShoppingCart = () => {
       ));
     };
 return (
-<section className="container-1">
-   <div className="text-gray-900 text-2xl font-medium mt-16">My Shopping Cart</div>
+<section className="container-1 py-10 sm:py-20">
+   <div className="text-gray-900 text-2xl font-medium ">My Shopping Cart</div>
    <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 ssm:gap-6 gap-4 mt-4 ssm:mb-0 mb-[210px]">
    {renderMobileItems()}
    </div>
@@ -77,7 +77,7 @@ return (
             <button className="px-8 py-3.5  rounded-full bg-gray-50 text-gray-300 font-semibold my-4 text-[#4D4D4D]">Return To Shop</button>
          </div>
       </div>
-      <div className="max-h-[447px] max-[447px]:fixed max-[447px]:bottom-0 max-[447px]:left-0 max-[447px]:w-full bg-white border-t border-gray-100 py-3 px-6 leading-6 ssm:mt-4 ssm:px-6 ssm:rounded-md ssm:border ssm:border-gray-100 lg:col-span-4 ssm:col-span-8">
+      <div className="max-h-[447px] max-[447px]:fixed max-[447px]:bottom-0 max-[447px]:left-0 max-[447px]:w-full bg-white border-t border-gray-100 py-3 px-6 leading-6 ssm:mt-4 ssm:px-6 ssm:rounded-md ssm:border ssm:border-gray-100 lg:col-span-4 col-span-12">
          <div className="font-medium text-[20px]">Cart Total </div>
          <div className="divide-y-2">
             <div className="subtotal py-2 ssm:py-3 flex justify-between">

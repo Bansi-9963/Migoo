@@ -9,6 +9,7 @@
   }
   [type=radio]:checked{
     background-color:#E6992A;
+    border: #E6992A;
   }
   [type=checkbox]:checked{
     background-color:#E6992A;
