@@ -17,6 +17,9 @@ import Footer from "./Component/Footer";
 import Testing from "./Component/testing";
 import Order_Detail from "./Component/Order_Detail";
 import OrderHistory from "./Component/OrderHistory";
+import ProductDetails from "./Pages/ProductDetails.js";
+
+
 import {
   BrowserRouter,
   Routes,
@@ -27,7 +30,6 @@ import {
 function App() {
   return (
     <>
-
       <BrowserRouter>
         <Header />
         <div className="App container-1">
@@ -46,7 +48,7 @@ function App() {
             <Route path="testing" element={<Testing />} />
             <Route path="order-detail" element={<Order_Detail />} />
             <Route path="order-history" element={<OrderHistory />} />
-
+            <Route path="product-details" element={<ProductDetails />} />
           </Routes>
         </div>
         <Footer />
