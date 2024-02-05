@@ -4,6 +4,21 @@
    /* gap: 10px; */
   
 /* } */
+ 
+
+/* select:not([size]) {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.322221 1.44794L3.94279 6.30702C4.04951 6.4558 4.20975 6.57916 4.40538 6.66313C4.98409 6.91156 5.72291 6.76125 6.05557 6.3274L9.91987 1.47085C10.0288 1.33398 10.0877 1.17807 10.0906 1.01884C10.0996 0.518927 9.56576 0.108905 8.8983 0.103017L1.35985 0.0303091L1.32598 0.0331434C0.665027 0.0319618 0.1245 0.428639 0.112625 0.923598C0.105316 1.11081 0.17882 1.29469 0.322221 1.44794Z' fill='white'%3E%3C/path%3E%3C/svg%3E");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 0.75em 0.75em;
+  padding-right: 2.5rem;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+} */
+
+.font-bold {
+  font-weight: 700;
+}
 
 /* Example CSS to customize the scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
@@ -11,149 +26,135 @@
   width: 4px;
   height: 2px;
   background-color: #f3f3f3;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
   /* background-color:none; /* Color of the scrollbar thumb */
   /* border-radius: 0px; Rounded corners of the thumb */ 
   background-color: #c3c3c3;
-    border-radius: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background-color: none; /* Color of the scrollbar track */
-}
-
-.no-max-width {
-  max-width:none;
-}
-
-/* Inside your CSS file or styles section */
-
-
-.svg1:hover {
-  fill: orange; /* Change to the desired hover color */
-}
-
-
-/* slick slider dots----- */
-.slick-dots{
-  bottom: -34px !important;
-}
-
-.slick-dots li{
-  margin: 0 5px 
-}
-
-.slick-dots li.slick-active button:before {
-
-  color: #E6992A !important;
-}
-
-.slick-dots li button:before{
-  font-size: 9px !important;
-
-}
-
-
-
-
-
-.custom-slider-2 {
-  .slick-slide {
-    width: 250px !important; /* Set the width for each slide in the second slider */
+  border-radius: 4px;
   }
-}
-
-.slick-initialized .slick-slide {
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+  background-color: none; /* Color of the scrollbar track */
+  }
+  
+  .no-max-width {
+  max-width:none;
+  }
+  
+  /* Inside your CSS file or styles section */
+  
+  .svg1:hover {
+  fill: orange; /* Change to the desired hover color */
+  }
+  
+  /* slick slider dots----- */
+  .slick-dots{
+  bottom: -34px !important;
+  }
+  
+  .slick-dots li{
+  margin: 0 5px 
+  }
+  
+  .slick-dots li.slick-active button:before {
+  
+  color: #E6992A !important;
+  }
+  
+  .slick-dots li button:before{
+  font-size: 9px !important;
+  
+  }
+  
+  
+  
+  
+  .custom-slider-2 {
+  .slick-slide {
+  width: 250px !important; /* Set the width for each slide in the second slider */
+  }
+  }
+  
+  .slick-initialized .slick-slide {
   display: flex !important;
   justify-content: center !important;
-}
+  }
   
-
-
-/* Add this CSS to your stylesheet or component */
-.custom-prev-arrow, .custom-next-arrow {
+  /* Add this CSS to your stylesheet or component */
+  .custom-prev-arrow, .custom-next-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-}
-
-.custom-prev-arrow {
+  }
+  
+  .custom-prev-arrow {
   left: -40px;
-}
-
-.custom-next-arrow {
+  }
+  
+  .custom-next-arrow {
   right: -40px;
-}
-
-/* Adjust the styles based on your design */
-.custom-prev-arrow svg,
-.custom-next-arrow svg {
+  }
+  
+  /* Adjust the styles based on your design */
+  .custom-prev-arrow svg,
+  .custom-next-arrow svg {
   width: 40px;
   height: 22px;
-}
-
-/* Media query for screens between 640px and 674px */
-@media screen and (max-width: 639px) {
-  .custom-prev-arrow {
-    left: -12px; /* Adjusted by -3px */
   }
-
+  /* Media query for screens between 640px and 674px */
+  @media screen and (max-width: 639px) {
+  .custom-prev-arrow,
   .custom-next-arrow {
-    right: -3px; /* Adjusted by -3px */
+  display: none;
   }
-   /* Adjust the styles based on your design */
-.custom-prev-arrow svg,
-.custom-next-arrow svg {
-  width: 9px;
-  height: 20px;
-}
-}
-
-
-
-
-@media screen and (min-width: 640px) and (max-width: 767px) {
+  }
+  
+  
+  
+  
+  @media screen and (min-width: 640px) and (max-width: 767px) {
   .custom-prev-arrow {
-    left: -15px; /* Adjusted by -3px */
+  left: -15px; /* Adjusted by -3px */
   }
-
+  
   .custom-next-arrow {
-    right: -15px; /* Adjusted by -3px */
+  right: -15px; /* Adjusted by -3px */
   }
-
+  
   /* Adjust the styles based on your design */
-.custom-prev-arrow svg,
-.custom-next-arrow svg {
+  .custom-prev-arrow svg,
+  .custom-next-arrow svg {
   width: 9px;
   height: 20px;
-}
-}
-
-
-/* Media query for screens with a maximum width of 1023 pixels */
-@media screen and (max-width: 1023px) {
-  .custom-slider-2 .slick-slide {
-    width: 187px !important; /* Adjust the width for each slide in the second slider at 1023px width */
   }
-}
-
-/* Media query for screens with a maximum width of 300 pixels */
-@media screen and (max-width: 500px) {
+  }
+  
+  /* Media query for screens with a maximum width of 1023 pixels */
+  @media screen and (max-width: 1023px) {
+  .custom-slider-2 .slick-slide {
+  width: 187px !important; /* Adjust the width for each slide in the second slider at 1023px width */
+  }
+  }
+  
+  /* Media query for screens with a maximum width of 300 pixels */
+  @media screen and (max-width: 500px) {
   /* Adjusted styles for slick-dots on small screens */
   .slick-dots {
-    bottom: -25px !important;
+  bottom: -25px !important;
   }
-
+  
   /* Adjusted margin for individual dots on small screens */
   .slick-dots li {
-      margin: 0px !important; /* Adjust the left and right margin for small screens */
+  margin: 0px !important; /* Adjust the left and right margin for small screens */
   }
-
+  
   .slick-dots li button:before{
-    font-size: 6px !important;
+  font-size: 6px !important;
   }
-
-}
+  
+  }
+  
+  

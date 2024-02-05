@@ -43,7 +43,7 @@ const Cardscroll = () => {
     <div>
       <div className={`overflow-x-scroll custom-scrollbar ${cardContainerClasses}`}>
         {Array.from({ length: numCardsToShow }).map((_, index) => (
-          <div key={index} className={`${cardItemClasses} pr-5 pb-5 pl-1 pt-5`}>
+          <div key={index} className={`${cardItemClasses} pr-5 pb-5 pl-1 md:pt-5 sm:pt-[5px]`}>
             <Searchbycategorycard
               imageUrl="../Images/Group.svg"
               imagetext="images"
