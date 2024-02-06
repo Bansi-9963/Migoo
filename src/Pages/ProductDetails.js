@@ -1,7 +1,15 @@
 import React from "react";
 import slider from "../Images/Product_Details/slider.png";
 import prodict_image from "../Images/Product_Details/product_image.png";
+import client1 from "../Images/Product_Details/client1.png";
+import clien2 from "../Images/Product_Details/client2.png";
+import clien3 from "../Images/Product_Details/client3.png";
+
 import Featurecard from "../Component/Featurecard";
+import OfferCard from "../Component/Product_Details/OfferCard";
+import Customer_review from "../Component/Product_Details/Customer_review";
+
+import product_detail_style from "../CSS/Product_Details.module.css";
 
 const ProductDetails = () => {
   return (
@@ -54,8 +62,8 @@ const ProductDetails = () => {
           </div>
 
           {/* Product-Image Div */}
-          <div className="Product-Image ms-[12px] mr-[24px] h-[580px]">
-            <img src={prodict_image} className="max-w-[556px]  h-[580px]"></img>
+          <div className="Product-Image ms-[12px] mr-[24px] h-[556px]">
+            <img src={prodict_image} className="max-w-[556px]  h-[556px]"></img>
           </div>
 
           {/* Product-Details Div */}
@@ -136,7 +144,7 @@ const ProductDetails = () => {
 
                 <div className="flex gap-3 py-[20px]">
                   <div className="flex gap-2">
-                    <p className="text-[#B3B3B3] relative font-bold text-[20px] leading-[30px]">
+                    <p className="text-[#B3B3B3] relative font-bold text-[20px] line-through leading-[30px]">
                       <span className="  ">₹48.00</span>
                     </p>
 
@@ -295,7 +303,7 @@ const ProductDetails = () => {
                 </button>
                 <input
                   type="number"
-                  className="p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-black"
+                  className="p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-[#333333]"
                   name="custom-input-number"
                   readOnly
                 />
@@ -378,8 +386,81 @@ const ProductDetails = () => {
               </p>
             </div>
 
-            <div className="mt-[12px] font-medium text-[24px] leading-[28px]">
-              <h3>Features & Specification</h3>
+            <div className="mt-[12px] ">
+              <h3 className="font-medium text-[24px] leading-[28px]">
+                Features & Specification
+              </h3>
+
+              <div className="Description mt-[83px]">
+                <div className="grid grid-cols-5 gap-4">
+                  <p
+                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                  >
+                    Description
+                  </p>
+                  <span
+                    className={`${product_detail_style.table_text} col-span-3`}
+                  >
+                    Deflection / Guide Pulley for HYUNDAI: CRETA, ELANTRA, I10,
+                    I20, VE NUE, VERNA, XCENT, KIA: CARENS, SELTOS, SONET -
+                    7803-...6473A
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-5 gap-4">
+                  <p
+                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                  >
+                    Net Quantity
+                  </p>
+                  <span
+                    className={`${product_detail_style.table_text} col-span-3`}
+                  >
+                    1
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-5 gap-4">
+                  <p
+                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                  >
+                    Fitting place
+                  </p>
+                  <span
+                    className={`${product_detail_style.table_text} col-span-3`}
+                  >
+                    {" "}
+                    V-Ribbed Belt Drive
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-5 gap-4">
+                  <p
+                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                  >
+                    Manufacturer
+                  </p>
+                  <span
+                    className={`${product_detail_style.table_text} col-span-3`}
+                  >
+                    Gates India Private Limited
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-5 gap-4">
+                  <p
+                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                  >
+                    Address of Manufacturer
+                  </p>
+                  <span
+                    className={`${product_detail_style.table_text} col-span-3`}
+                  >
+                    3rd floor, Building # 10, Tower C DLF Cyber City,  Phase-II,
+                    Gurugram, Haryana 122002,  India Ph:- +911244933535
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -429,24 +510,188 @@ const ProductDetails = () => {
         </div>
       </section>
 
-      <section className="container-1">
-        <div className="grid grid-cols-1 gap-[25px] md:grid-cols-2">
+      <section className="container-1 mt-11">
+        <div className="grid grid-cols-1  gap-[25px] xl:grid-cols-2">
           {/* Compatibility Div  */}
-          <div className="Compatibility ">
-            <h2> Compatibility</h2>
-            <div className="flex border gap-[28px]">
-              <h4> Excavator</h4>
-              <h4> Backhoe Loader</h4>
+          <div className="Grid-item-1  ">
+            <h2 className={`${product_detail_style.headhing_medium} `}>
+              {" "}
+              Compatibility
+            </h2>
+            <div className=" border   mt-6  ">
+              <div className=" flex  gap-[28px]  h-[32px]">
+                <h4 className="pl-[13px] text-[#808080] my-auto text-[14px] font-medium leading-[21px]">
+                  Excavator
+                </h4>
+                <h4 className="pl-[47px] text-[#808080] my-auto text-[14px] font-medium leading-[21px]">
+                  Backhoe Loader
+                </h4>
+              </div>
+              <table class="table-fixed w-full text-sm text-left  ">
+                <thead class=" text-[#4D4D4D] text-[12px] leading-[12px]  h-[39px] uppercase bg-[#E7E7E782]  ">
+                  <tr>
+                    <th scope="col" className="pl-4   py-3">
+                      Models
+                    </th>
+                    <th scope="col" className=" pl-[53px] py-3">
+                      Year
+                    </th>
+                    <th scope="col" className=" pl-[63px] py-3">
+                      Fuel
+                    </th>
+                    <th scope="col" className=" py-3"></th>
+                  </tr>
+                </thead>
+                <tbody className="pt-[11px] w-[616px]">
+                  <tr className="bg-white   ">
+                    <td
+                      className={`${product_detail_style.table_text} pl-4 py-3 whitespace-nowrap  `}
+                    >
+                      Volvo EC130C
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[53px] py-3`}
+                    >
+                      2020 - 2022
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[63px] py-3`}
+                    >
+                      Diesel
+                    </td>
+                    <td className="px-6 py-3 text-right">
+                      <a
+                        href="#"
+                        className="text-[#E6992A] border-[#E6992A] px-[12px] py-[5px] border border-solid  box-border rounded-lg cursor-pointer "
+                      >
+                        Choose
+                      </a>
+                    </td>
+                  </tr>{" "}
+                  <tr className="bg-white   ">
+                    <td
+                      className={`${product_detail_style.table_text} pl-4 py-3 whitespace-nowrap  `}
+                    >
+                      Volvo EC130C
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[53px] py-3`}
+                    >
+                      2020 - 2022
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[63px] py-3`}
+                    >
+                      Diesel
+                    </td>
+                    <td className="px-6 py-3 text-right">
+                      <a
+                        href="#"
+                        className="text-[#E6992A]    border-[#E6992A] px-[12px] py-[5px] border border-solid  box-border rounded-lg cursor-pointer "
+                      >
+                        Choose
+                      </a>
+                    </td>
+                  </tr>
+                  <tr className="bg-white   ">
+                    <td
+                      className={`${product_detail_style.table_text} pl-4 py-3 whitespace-nowrap  `}
+                    >
+                      Volvo EC130C
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[53px] py-3`}
+                    >
+                      2020 - 2022
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[63px] py-3`}
+                    >
+                      Diesel
+                    </td>
+                    <td className="px-6 py-3 text-right">
+                      <a
+                        href="#"
+                        className="text-[#E6992A] border border-solid border-[#E6992A] px-[12px] py-[5px]   box-border rounded-lg cursor-pointer "
+                      >
+                        Choose
+                      </a>
+                    </td>
+                  </tr>
+                  <tr className="bg-white    ">
+                    <td
+                      className={`${product_detail_style.table_text} pl-4 py-3 whitespace-nowrap  `}
+                    >
+                      Volvo EC130C
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[53px] py-3`}
+                    >
+                      2020 - 2022
+                    </td>
+                    <td
+                      className={`${product_detail_style.table_small_text} pl-[63px] py-3`}
+                    >
+                      Diesel
+                    </td>
+                    <td className="px-6 py-3 text-right ">
+                      <a
+                        href="#"
+                        className="text-[#E6992A] border  border-[#E6992A] px-[12px] py-[5px] border-solid  box-border   rounded-lg cursor-pointer "
+                      >
+                        Choose
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-            <table>
-            
-            </table>
           </div>
 
           {/* Offer-by-Other-Seller Div  */}
-          <div className="Offer-by-Other-Seller ">
-            <h2>Offer by Other Seller </h2>
+          <div className="Grid-Item-2 Offer-by-Other-Seller  ">
+            <h2 className={`${product_detail_style.headhing_medium} `}>
+              Offer by Other Seller
+            </h2>
+
+            <div className="mt-6  mb-[14px]">
+              <OfferCard />
+            </div>
+
+            <div className="mb-[14px]">
+              <OfferCard />
+            </div>
+            <div className="mb-[14px]">
+              <OfferCard />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container-1 mt-[36px]">
+        <div className="">
+          <h2 className={`${product_detail_style.headhing_medium} `}>
+            Customer Review
+          </h2>
+        </div>
+        <div className="mt-[25px] max-w-[648px] ">
+          <Customer_review />
+          <div className="border-b my-[20px]"></div>
+
+          <Customer_review />
+          <div className="border-b my-[20px]"></div>
+
+          <Customer_review />
+
+          <div className="mt-[14px] mb-[14px]  grid grid-cols-2">
+            <a className="text-[#E6992A] flex rounded-[43px] font-semibold bg-[#E6992A1A] text-[14px] leading-[28px] py-[14px] px-[8px] w-[138px] max-h-[45px]  ">
+              <span className="mx-auto justify-center items-center">
+                Load More
+              </span>
+            </a>
+            <a className="text-[#E6992A]  justify-self-end  font-medium  text-[12px]  my-auto">
+              Write a Review
+            </a>
           </div>
         </div>
       </section>
