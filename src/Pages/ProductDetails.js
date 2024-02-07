@@ -6,6 +6,8 @@ import clien2 from "../Images/Product_Details/client2.png";
 import clien3 from "../Images/Product_Details/client3.png";
 
 import Featurecard from "../Component/Featurecard";
+import FeaturcardScroll from "../Component/FeaturcardScroll";
+
 import OfferCard from "../Component/Product_Details/OfferCard";
 import Customer_review from "../Component/Product_Details/Customer_review";
 
@@ -15,66 +17,93 @@ const ProductDetails = () => {
   return (
     <>
       <section className="container-1">
-        <div className="flex ">
-          {/* Image-Slider Div */}
-          <div className="Slider">
-            <svg
-              className="mt-[8px] mx-auto mb-[33px]"
-              width="16"
-              height="9"
-              viewBox="0 0 16 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 8L8 1L1 8"
-                stroke="#999999"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <div className="grid gap-[12px]">
-              <img src={slider} className="w-full h -full " />
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-6   ">
+          <div className="flex gap-3  ">
+            {/* Image-Slider Div */}
+            <div className="Slider h-auto 2xl:h-[556px] xl:h-[494px] lg:h-[404px] w-auto">
+              <div>
+                <svg
+                  className="mt-[8px] mb-[28px] mx-auto lg:mb-[20px] xl:mb-[28px] 2xl:mb-[33px] "
+                  width="16"
+                  height="9"
+                  viewBox="0 0 16 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 8L8 1L1 8"
+                    stroke="#999999"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
 
-              <img src={slider} className="w-full h-full "></img>
-              <img src={slider} className="w-full h-full "></img>
-              <img src={slider} className="w-full h-full "></img>
-              <img src={slider} className="w-full h-full "></img>
+              <div className="grid gap-[12px] 2xl:w-[80px]  ">
+                <img
+                  src={slider}
+                  className="w-auto h-auto 2xl:w-[80px] 2xl:h-[80px] "
+                />
+
+                <img
+                  src={slider}
+                  className="w-auto h-auto 2xl:w-[80px] 2xl:h-[80px]"
+                ></img>
+                <img
+                  src={slider}
+                  className="w-auto h-auto 2xl:w-[80px] 2xl:h-[80px] "
+                ></img>
+                <img
+                  src={slider}
+                  className="w-auto h-auto 2xl:w-[80px] 2xl:h-[80px] "
+                ></img>
+                <img
+                  src={slider}
+                  className="w-auto h-auto 2xl:w-[80px] 2xl:h-[80px]"
+                ></img>
+              </div>
+
+              <div>
+                <svg
+                  className="xl:mt-[40px] mt-[28px] lg:mt-[20px]  mx-auto lg:mb-[10px]"
+                  width="16"
+                  height="9"
+                  viewBox="0 0 16 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 1L8 8L1 1"
+                    stroke="#999999"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
             </div>
 
-            <svg
-              className="mt-[40px] mx-auto mb-[10px]"
-              width="16"
-              height="9"
-              viewBox="0 0 16 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 1L8 8L1 1"
-                stroke="#999999"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-
-          {/* Product-Image Div */}
-          <div className="Product-Image ms-[12px] mr-[24px] h-[556px]">
-            <img src={prodict_image} className="max-w-[556px]  h-[556px]"></img>
+            {/* Product-Image Div */}
+            <div className="Product-Image  xl:h-[556px]  ">
+              <img
+                src={prodict_image}
+                className="2xl:max-w-[556px]   2xl:h-[556px] w-auto "
+              ></img>
+            </div>
           </div>
 
           {/* Product-Details Div */}
-          <div className="Product-Details  w-[647px] ">
+          <div className="Product-Details  2xl:w-[647px] w-auto ">
             <div className="border-b ">
               <div>
                 <div className="flex gap-[8px]">
-                  <h2 className="font-semibold text-[36px] leading-[43px]">
+                  <h2 className="font-semibold xl:text-[36px] md:text-[28px] text-[24px] md:leading-[32px] leading-[28px] xl:leading-[43px]">
                     Air Filter
                   </h2>
-                  <p className="text-[#9D6618] rounded-[4px] bg-[#E6992A33] text-[14px] leading-[21px] py-[4px] px-[8px] w-[92px] h-[29px] my-auto">
+                  <p
+                    className={`${product_detail_style.small_text}  text-[#9D6618] rounded-[4px] bg-[#E6992A33] py-[4px] px-[8px] w-[92px] h-[29px] my-auto`}
+                  >
                     50 In Stock
                   </p>
                 </div>
@@ -129,14 +158,18 @@ const ProductDetails = () => {
                         fill="#FF8A00"
                       />
                     </svg>
-                    <p className="my-auto text-[#666666] text-[14px] font-normal leading-5 ">
+                    <p
+                      className={`${product_detail_style.small_text} my-auto text-[#666666] font-normal`}
+                    >
                       4 Review
                     </p>
                   </div>
 
                   <span className="text-[#B3B3B3]">•</span>
 
-                  <p className="text-[#333333] font-medium text-[14px] leading-[21px]">
+                  <p
+                    className={`${product_detail_style.small_text} text-[#333333] font-medium`}
+                  >
                     SKU:
                     <span className="text-[#666666] font-normal">2,51,594</span>
                   </p>
@@ -148,12 +181,14 @@ const ProductDetails = () => {
                       <span className="  ">₹48.00</span>
                     </p>
 
-                    <p className="text-[#020202] font-bold  text-[24px] leading-[36px]">
+                    <p className="t ext-[#020202] font-bold  text-[24px] leading-[36px]">
                       ₹17.28
                     </p>
                   </div>
 
-                  <p className="text-[#EA4B48] font-medium rounded-[30px] bg-[#EA4B481A] text-[14px] leading-[21px] py-[3px] px-[10px] w-[74px] h-[27px] my-auto">
+                  <p
+                    className={`${product_detail_style.small_text} text-[#EA4B48] font-medium rounded-[30px] bg-[#EA4B481A]   py-[3px] px-[10px] w-[74px] h-[27px] my-auto `}
+                  >
                     64% Off
                   </p>
                 </div>
@@ -161,17 +196,23 @@ const ProductDetails = () => {
             </div>
 
             {/* Product Brand Detail  */}
-            <div className="flex border-b py-[24px] justify-between ">
-              <p className="my-auto text-[#1A1A1A] text-[14px] leading-[21px]">
+            <div className="flex border-b py-[18px] md:py-[20px] 2xl:py-[24px] justify-between ">
+              <p
+                className={`${product_detail_style.small_text} my-auto text-[#1A1A1A]`}
+              >
                 Brand:
-                <span className="text-[#808080] text-[14px] leading-[21px]">
+                <span
+                  className={`${product_detail_style.small_text} text-[#808080]`}
+                >
                   Volvo India
                 </span>
               </p>
 
               {/* Product share platforms  */}
               <div className="flex flex-row ">
-                <div className="text-[#1A1A1A] font-normal   self-center">
+                <div
+                  className={`${product_detail_style.small_text} text-[#1A1A1A] font-normal self-center`}
+                >
                   Share item:
                 </div>
                 <div className="  p-2.5 social_media rounded-full hover:bg-[#E6992A]">
@@ -370,36 +411,78 @@ const ProductDetails = () => {
             </div>
 
             {/* More details  */}
-            <div className="border-b text-[14px] leading-[21px] text-[#1A1A1A] pb-[10px] mt-[24px] max-w-[432px]">
-              <p className="font-medium">
-                Part Number: <span className="font-normal">7803-...6473A</span>
-              </p>
-              <p className="font-medium">
-                Origin: <span className="font-normal"> Aftermarket</span>
-              </p>
-              <p className="font-medium">
-                Class:{" "}
-                <span className="font-normal">Deflection / Guide Pulley</span>
-              </p>
-              <p className="font-medium">
-                Sold by:<span className="font-normal"> Migoo</span>
-              </p>
+            <div className="border-b  text-[#1A1A1A] pb-[10px] mt-[24px] ">
+              <div className="grid grid-cols-3 gap-4 text-[#1A1A1A]">
+                <p
+                  className={`${product_detail_style.small_text} font-medium col-span-1 text-[#1A1A1A]`}
+                >
+                  Part Number:{" "}
+                </p>
+                <span
+                  className={`${product_detail_style.small_text}  col-span-2 font-normal`}
+                >
+                  7803-...6473A
+                </span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 text-[#1A1A1A]">
+                <p
+                  className={`${product_detail_style.small_text} font-medium col-span-1 text-[#1A1A1A] `}
+                >
+                  Origin:{" "}
+                </p>
+                <span
+                  className={`${product_detail_style.small_text} font-normal col-span-2`}
+                >
+                  {" "}
+                  Aftermarket
+                </span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 text-[#1A1A1A]">
+                <p
+                  className={`${product_detail_style.small_text} font-medium col-span-1 text-[#1A1A1A] `}
+                >
+                  Class:{" "}
+                </p>
+                <span
+                  className={`${product_detail_style.small_text} col-span-2 font-normal`}
+                >
+                  Deflection / Guide Pulley
+                </span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 text-[#1A1A1A]">
+                <p
+                  className={`${product_detail_style.small_text} font-medium col-span-1 text-[#1A1A1A]`}
+                >
+                  Sold by:
+                </p>
+                <span
+                  className={`${product_detail_style.small_text} font-normal col-span-2`}
+                >
+                  {" "}
+                  Migoo
+                </span>
+              </div>
             </div>
 
             <div className="mt-[12px] ">
-              <h3 className="font-medium text-[24px] leading-[28px]">
+              <h3
+                className={`${product_detail_style.headhing_medium} font-medium`}
+              >
                 Features & Specification
               </h3>
 
-              <div className="Description mt-[83px]">
+              <div className="Description 2xl:mt-[45px] pt-3">
                 <div className="grid grid-cols-5 gap-4">
                   <p
-                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                    className={`${product_detail_style.small_text} font-medium text-[#000000] col-span-1  lg:col-span-2`}
                   >
                     Description
                   </p>
                   <span
-                    className={`${product_detail_style.table_text} col-span-3`}
+                    className={`${product_detail_style.small_text} font-normal col-span-3 text-[#1A1A1A]`}
                   >
                     Deflection / Guide Pulley for HYUNDAI: CRETA, ELANTRA, I10,
                     I20, VE NUE, VERNA, XCENT, KIA: CARENS, SELTOS, SONET -
@@ -409,12 +492,12 @@ const ProductDetails = () => {
 
                 <div className="grid grid-cols-5 gap-4">
                   <p
-                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                    className={`${product_detail_style.small_text} font-medium text-black col-span-2`}
                   >
                     Net Quantity
                   </p>
                   <span
-                    className={`${product_detail_style.table_text} col-span-3`}
+                    className={`${product_detail_style.small_text} font-normal text-[#1A1A1A] col-span-3`}
                   >
                     1
                   </span>
@@ -422,12 +505,12 @@ const ProductDetails = () => {
 
                 <div className="grid grid-cols-5 gap-4">
                   <p
-                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                    className={`${product_detail_style.small_text} font-medium text-black col-span-1  lg:col-span-2`}
                   >
                     Fitting place
                   </p>
                   <span
-                    className={`${product_detail_style.table_text} col-span-3`}
+                    className={`${product_detail_style.small_text} font-normal text-[#1A1A1A] col-span-3`}
                   >
                     {" "}
                     V-Ribbed Belt Drive
@@ -436,12 +519,12 @@ const ProductDetails = () => {
 
                 <div className="grid grid-cols-5 gap-4">
                   <p
-                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                    className={`${product_detail_style.small_text} font-medium text-black col-span-1 lg:col-span-2`}
                   >
                     Manufacturer
                   </p>
                   <span
-                    className={`${product_detail_style.table_text} col-span-3`}
+                    className={`${product_detail_style.small_text} font-normal text-[#1A1A1A] col-span-3`}
                   >
                     Gates India Private Limited
                   </span>
@@ -449,12 +532,12 @@ const ProductDetails = () => {
 
                 <div className="grid grid-cols-5 gap-4">
                   <p
-                    className={`${product_detail_style.table_text}  text-black col-span-2`}
+                    className={`${product_detail_style.small_text} font-medium text-black col-span-1  lg:col-span-2`}
                   >
                     Address of Manufacturer
                   </p>
                   <span
-                    className={`${product_detail_style.table_text} col-span-3`}
+                    className={`${product_detail_style.small_text} font-normal   text-[#1A1A1A] col-span-4  lg:col-span-3 `}
                   >
                     3rd floor, Building # 10, Tower C DLF Cyber City,  Phase-II,
                     Gurugram, Haryana 122002,  India Ph:- +911244933535
@@ -466,51 +549,18 @@ const ProductDetails = () => {
         </div>
       </section>
 
+      {/* Related Products Section  */}
       <section className="container-1 mt-[30px]">
         <div className="text-[#1A1A1A] text-[24px] leading-7 font-medium">
           <h2>Related Product</h2>
         </div>
-        <div className="mt-[30px] grid  grid-cols-2 sm:grid-cols-2 gap-6 xl:grid-cols-4 justify-between ">
-          <Featurecard
-            image="../Images/Rectangle 97.svg"
-            text="AIR FILTER"
-            discountedPrice="2800"
-            originalPrice="3200"
-            discountPercentage="57"
-            brandName="Brand Name"
-            productCode="F500-...AB-06"
-          />
-          <Featurecard
-            image="../Images/Rectangle 97.svg"
-            text="AIR FILTER"
-            discountedPrice="2800"
-            originalPrice="3200"
-            discountPercentage="57"
-            brandName="Brand Name"
-            productCode="F500-...AB-06"
-          />
-          <Featurecard
-            image="../Images/Rectangle 97.svg"
-            text="AIR FILTER"
-            discountedPrice="2800"
-            originalPrice="3200"
-            discountPercentage="57"
-            brandName="Brand Name"
-            productCode="F500-...AB-06"
-          />
-          <Featurecard
-            image="../Images/Rectangle 97.svg"
-            text="AIR FILTER"
-            discountedPrice="2800"
-            originalPrice="3200"
-            discountPercentage="57"
-            brandName="Brand Name"
-            productCode="F500-...AB-06"
-          />
+        <div className="mt-[30px]">
+          <FeaturcardScroll />
         </div>
       </section>
 
-      <section className="container-1 mt-11">
+      {/* Compatibility & Offers Section  */}
+      <section className="container-1 mt-[45px]">
         <div className="grid grid-cols-1  gap-[25px] xl:grid-cols-2">
           {/* Compatibility Div  */}
           <div className="Grid-item-1  ">
@@ -668,6 +718,7 @@ const ProductDetails = () => {
         </div>
       </section>
 
+      {/* Customer Review Section  */}
       <section className="container-1 mt-[36px]">
         <div className="">
           <h2 className={`${product_detail_style.headhing_medium} `}>
@@ -684,8 +735,10 @@ const ProductDetails = () => {
           <Customer_review />
 
           <div className="mt-[14px] mb-[14px]  grid grid-cols-2">
-            <a className="text-[#E6992A] flex rounded-[43px] font-semibold bg-[#E6992A1A] text-[14px] leading-[28px] py-[14px] px-[8px] w-[138px] max-h-[45px]  ">
-              <span className="mx-auto justify-center items-center">
+            <a className="text-[#E6992A] flex rounded-[43px] font-semibold bg-[#E6992A1A]  leading-[28px]  w-fit sm:w-[138px] max-h-[45px]  ">
+              <span
+                className={`${product_detail_style.small_text} mx-auto px-4 py-2 justify-center items-center sm:py-[14px]  sm:px-[8px]`}
+              >
                 Load More
               </span>
             </a>

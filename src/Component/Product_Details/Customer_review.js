@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
 import client1 from "../../Images/Product_Details/client1.png";
 import product_detail_style from "../../CSS/Product_Details.module.css";
-
-
 
 const Customer_review = () => {
   return (
@@ -15,7 +13,11 @@ const Customer_review = () => {
             </div>
 
             <div>
-              <p>Kristin Watson</p>
+              <p
+                className={`${product_detail_style.small_text} text-[#1A1A1A] font-medium  `}
+              >
+                Kristin Watson
+              </p>
               <div className="flex my-auto">
                 <svg
                   width="16"
@@ -80,19 +82,23 @@ const Customer_review = () => {
               </div>
             </div>
           </div>
-          <p className={`${product_detail_style.table_text}  justify-self-end`}>
+          <p
+            className={`${product_detail_style.small_text} text-[#999999] font-normal  justify-self-end`}
+          >
             2 min ago
           </p>
         </div>
 
         <div className="pt-[12px]">
-          <p className={`${product_detail_style.table_text}  justify-self-end`}>
+          <p
+            className={`${product_detail_style.small_text} font-normal text-[#595959]  justify-self-end`}
+          >
             Duis at ullamcorper nulla, eu dictum eros.
           </p>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Customer_review;

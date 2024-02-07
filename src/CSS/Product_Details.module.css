@@ -1,6 +1,6 @@
 .headhing_medium {
   font-size: 24px;
-  font-weight: 500px;
+  font-weight: 500px !important;
   color: #1a1a1a;
   line-height: 28px;
 }
@@ -15,4 +15,37 @@
   color: #333333;
   line-height: 12px;
   font-weight: 400px;
+}
+
+
+
+.text_xs  {
+  font-size: 10px;
+  line-height: 14px;
+}
+
+@media (min-width: 640px) {
+  .small_text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.small_text {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+@media (min-width: 640px) {
+  .small_text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .small_text {
+    font-size: 14px;
+    line-height: 21px;
+  }
 }
