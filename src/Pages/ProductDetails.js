@@ -7,7 +7,7 @@ import clien3 from "../Images/Product_Details/client3.png";
 
 import Featurecard from "../Component/Featurecard";
 import FeaturcardScroll from "../Component/FeaturcardScroll";
-
+import Scroll from "../Component/Product_Details/Slider";
 
 import OfferCard from "../Component/Product_Details/OfferCard";
 import Customer_review from "../Component/Product_Details/Customer_review";
@@ -27,8 +27,7 @@ const ProductDetails = () => {
     <>
       <section className="container-1">
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-6   ">
-         
-        <div className="flex gap-3 items-center justify-center lg:items-start ">
+          <div className="flex gap-3 items-center justify-center lg:items-start ">
             {/* Image-Slider Div */}
             <div className="Slider h-auto 2xl:h-[556px] xl:h-[494px] lg:h-[404px] w-auto">
               <div>
@@ -569,7 +568,7 @@ const ProductDetails = () => {
         <div className="text-[#1A1A1A] text-[24px] leading-7 font-medium">
           <h2>Related Product</h2>
         </div>
-        <div className="mt-[30px]">
+        <div className="mt-[30px] ">
           <FeaturcardScroll />
         </div>
       </section>
