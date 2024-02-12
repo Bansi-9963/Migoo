@@ -150,7 +150,9 @@ const Header = () => {
               </a>
             </div>
             <div className="hidden lg:block">
+              <a href="/dashboard">
               <img src={User} className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6" />
+              </a>
             </div>
             <div
               className="block lg:hidden md:w-7 md:h-7 w-6 h-6 md:mt-[3px] mt-[2px]"

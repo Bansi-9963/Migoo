@@ -71,15 +71,15 @@ const MyShoppingCartMobile = ({
         </div>
         <p className="mb-3 flex  items-baseline">
           ${originalPrice}
-          <div className="py-1 px-1 inline-block bg-white border border-gray-200 rounded-[170px]  ml-3">
+          <div className="py-1 px-1 inline-block bg-white border border-gray-200 rounded-[170px]  max-[345px]:ml-1 ml-3 ">
             <div className="flex items-center gap-x-1.5">
               <button
                 data-action="decrement"
-                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
+                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 max-[345px]:p-1 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full max-[345px]:m-0 m-1"
                 onClick={decrement}
               >
                 <svg
-                  className="w-3 h-3 text-black"
+                  className="max-[345px]:w-2 w-3 max-[345px]:h-2 h-3 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -103,11 +103,11 @@ const MyShoppingCartMobile = ({
             />
               <button
                 data-action="increment"
-                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
+                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 max-[345px]:p-1 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full max-[345px]:m-0 m-1"
                 onClick={increment}
               >
                 <svg
-                  className="max-[345px]:w- w-3 h-3 text-black"
+                  className="max-[345px]:w-2 w-3 max-[345px]:h-2 h-3 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
