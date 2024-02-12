@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Navigation_Bar from "./Navigation_Bar";
+import '../CSS/Order_detail.css';
 
 
 const OrderHistory = () => {
@@ -179,37 +180,39 @@ const OrderHistory = () => {
         );
       };
   return (
-    <section className="my-[79px] flex lg:gap-6 gap-4 ">
+    <section className="sm:my-20 my-10  flex ssm:flex-row flex-col lg:gap-6 gap-4 container-1">
     <Navigation_Bar />
-    <div className="w-full">
-      <div className="border-2 border-[#E6E6E6] rounded-md   pb-14">
+    <div className="w-full  ">
+      <div className="border-2 border-[#E6E6E6] rounded-md   pb-14 ">
       <h2 className="text-xl font-medium leading-7 text-[#1A1A1A] px-[20px] py-1.5 ">
                Order History
             </h2>
-            <table className="data-table w-full">
+            <div className='overflow-x-auto'>
+            <table className="data-table w-full   ">
               <thead className="bg-[#F2F2F2]">
                 <tr className="text-[#4D4D4D]">
-                  <th className="column-header py-3 pl-[24px] text-start">ORDER ID</th>
-                  <th className="column-header py-3 text-start">DATE</th>
-                  <th className="column-header py-3 text-start">TOTAL</th>
-                  <th className="column-header py-3 text-start">STATUS</th>
-                  <th className="column-header py-3 text-start">View</th>
+                  <th className="column-header py-3 px-[24px] pl-[24px] text-start">ORDER ID</th>
+                  <th className="column-header py-3 px-[24px] text-start">DATE</th>
+                  <th className="column-header py-3 px-[24px] text-start">TOTAL</th>
+                  <th className="column-header py-3 px-[24px] text-start">STATUS</th>
+                  <th className="column-header py-3 px-[24px] text-start sr-only">View</th>
                   {/* Add more table headers as needed */}
                 </tr>
               </thead>
               <tbody>
                 {currentItems.map((item) => (
                   <tr key={item.id} className="data-row text-sm text-[#333333]">
-                    <td className="data-cell py-3 pl-[24px]">{item.order_id}</td>
-                    <td className="data-cell py-3">{item.date}</td>
-                    <td className="data-cell py-3">{item.total}</td>
-                    <td className="data-cell py-3">{item.status}</td>
-                    <td className="data-cell py-3"><a className="font-medium text-[#E6992A]">View Details</a></td>
+                    <td className="data-cell py-3 pl-[24px] whitespace-nowrap">{item.order_id}</td>
+                    <td className="data-cell py-3 whitespace-nowrap">{item.date}</td>
+                    <td className="data-cell py-3 whitespace-nowrap">{item.total}</td>
+                    <td className="data-cell py-3 whitespace-nowrap">{item.status}</td>
+                    <td className="data-cell py-3 whitespace-nowrap"><a className="font-medium text-[#E6992A]">View Details</a></td>
                     {/* Add more table data as needed */}
                   </tr>
                 ))}
               </tbody>
             </table>
+            </div>
             <div className="pagination-buttons flex justify-center pt-8">
               <button
                 onClick={handlePrevPage}

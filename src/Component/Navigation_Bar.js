@@ -13,9 +13,9 @@ const Navigation_Bar = () => {
   const location = useLocation();
 
   return (
-    <div className="2xl:h-[470px] xl:w-[312px] rounded-lg border-[1px] border-[#E6E6E6] sticky top-20">
-      <ul>
-        <li className="lg:pl-[23px] pl-[14px] pr-[14px] pt-[24px] text-[20px] font-medium leading-[30px] 2xl:h-[70px]">
+    <div className="ssm:h-[470px] xl:w-[312px] rounded-lg border-[1px] border-[#E6E6E6] sticky ssm:top-[5rem] top-[4.5rem] ssm:z-0 z-50 bg-white">
+      <ul className="flex ssm:flex-col flex-row justify-between">
+        <li className="lg:pl-[23px] pl-[14px] pr-[14px] pt-[24px] text-[20px] font-medium leading-[30px] 2xl:h-[70px] ssm:block hidden">
           <img src={Navigation} className="inline h-[18px] w-[18px] lg:hidden block" />
           <span className=" lg:block hidden text-xl font-normal leading-6">
             Navigation
@@ -23,8 +23,8 @@ const Navigation_Bar = () => {
         </li>
         <Link to="/dashboard">
           <li
-            className={`lg:pl-[23px] pl-[14px] pr-[14px] h-[56px] flex items-center ${location.pathname === "/dashboard"
-                ? "bg-[#F2F0ED] border-l-[3px] border-[#E6992A]"
+            className={`lg:pl-[23px] pl-[14px] ssm:pr-[14px] h-[56px] flex items-center ${location.pathname === "/dashboard"
+                ? "bg-[#F2F0ED] ssm:border-l-[3px] border-l-0 ssm:border-b-0 border-b-[3px] border-[#E6992A]"
                 : ""
               }`}
           >
@@ -37,8 +37,8 @@ const Navigation_Bar = () => {
 
         <Link to="/order-history">
           <li
-            className={`lg:pl-[23px] pl-[14px] pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:border-l-[3px] hover: border-[#E6992A] transition duration-300 ${location.pathname === "/order-history"
-                ? "bg-[#F2F0ED] border-l-[3px] border-[#E6992A]"
+            className={`lg:pl-[23px] ssm:pl-[14px] ssm:pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:ssm:border-l-[3px] hover:border-[#E6992A] transition duration-300 ${location.pathname === "/order-history"
+                ? "bg-[#F2F0ED] ssm:border-l-[3px] border-l-0 ssm:border-b-0 border-b-[3px] border-[#E6992A]"
                 : ""
               }`}
           >
@@ -49,13 +49,13 @@ const Navigation_Bar = () => {
           </li>
         </Link>
 
-        <li className="lg:pl-[23px] pl-[14px] pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:border-l-[3px] hover: border-[#E6992A] transition duration-300">
+        <li className="lg:pl-[23px] ssm:pl-[14px] ssm:pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:ssm:border-l-[3px] hover: border-[#E6992A] transition duration-300">
           <img src={Wishlist} className="inline h-[18px] w-[18px]" />
           <span className="pl-[13px] text-base font-normal leading-6 lg:block hidden">
             Wishlist
           </span>
         </li>
-        <li className="lg:pl-[23px] pl-[14px] pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:border-l-[3px] hover: border-[#E6992A] transition duration-300">
+        <li className="lg:pl-[23px] ssm:pl-[14px] ssm:pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:ssm:border-l-[3px] hover: border-[#E6992A] transition duration-300">
           <img src={ShoppingList} className="inline h-[18px] w-[18px]" />
           <span className="pl-[13px] text-base font-normal leading-6 lg:block hidden">
             Shopping List
@@ -63,8 +63,8 @@ const Navigation_Bar = () => {
         </li>
         <Link to="/settings">
           <li
-            className={`lg:pl-[23px] pl-[14px] pr-[14px] h-[56px] flex items-center ${location.pathname === "/settings"
-                ? "bg-[#F2F0ED] border-l-[3px] border-[#E6992A]"
+            className={`lg:pl-[23px] ssm:pl-[14px] ssm:pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:ssm:border-l-[3px] hover:border-[#E6992A] transition duration-300  ${location.pathname === "/settings"
+                ? "bg-[#F2F0ED] ssm:border-l-[3px] border-l-0 ssm:border-b-0 border-b-[3px] border-[#E6992A]"
                 : ""
               }`}
           >
@@ -76,8 +76,8 @@ const Navigation_Bar = () => {
         </Link>
         <Link to="/billing-address">
           <li
-            className={`lg:pl-[23px] pl-[14px] pr-[14px] h-[56px] flex items-center ${location.pathname === "/billing-address"
-                ? "bg-[#F2F0ED] border-l-[3px] border-[#E6992A]"
+            className={`lg:pl-[23px] ssm:pl-[14px] ssm:pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:ssm:border-l-[3px] hover:border-[#E6992A] transition duration-300  ${location.pathname === "/billing-address"
+                ? "bg-[#F2F0ED] ssm:border-l-[3px] border-l-0 ssm:border-b-0 border-b-[3px] border-[#E6992A]"
                 : ""
               }`}
           >
@@ -87,7 +87,7 @@ const Navigation_Bar = () => {
             </span>
           </li>
         </Link>
-        <li className="lg:pl-[23px] pl-[14px] pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:border-l-[3px] hover: border-[#E6992A] transition duration-300">
+        <li className="lg:pl-[23px] ssm:pl-[14px] pr-[14px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:ssm:border-l-[3px] hover: border-[#E6992A] transition duration-300">
           <img src={Logout} className="inline h-[18px] w-[18px]" />
           <span className="pl-[13px] text-base font-normal leading-6 lg:block hidden">
             Log-out

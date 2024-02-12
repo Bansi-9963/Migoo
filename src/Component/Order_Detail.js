@@ -37,7 +37,7 @@ const Order_Detail = () => {
         ));
     };
     return (
-        <section className="my-[79px] flex lg:gap-6 gap-4">
+        <section className="ssm:my-[79px] mb-10 flex ssm:flex-row flex-col lg:gap-6 gap-4 container-1 ">
             <Navigation_Bar />
             <div className="Order_Detail border-[1px] border-[#E6E6E6] w-full rounded-lg">
                 <div className="flex flex-row justify-between py-4 md:px-6 px-3 border-b-[1px]  border-[#E6E6E6] ">
@@ -59,7 +59,7 @@ const Order_Detail = () => {
                         <ul className="order_progress one  flex ">
                             <li className="flex flex-col items-center" key={1} onClick={() => handleStepClick(1)}>
                                 <div
-                                    className={`progress after:content-[''] after:block after:absolute  after:h-[5px] after:bg-gray-200 after:right-[37px] w-[40px] h-[40px] rounded-full  my-[14px] grid place-items-center text-white relative cursor-pointer 2xl:ml-[50px] 2xl:mr-[85px] xl:mx-[84px]  lg:mx-[75px] md:mx-[55px] mx-[42px] border-dashed one after:w-0 after:h-0 ${
+                                    className={`progress after:content-[''] after:block after:absolute  after:h-[5px] after:bg-gray-200 after:right-[37px] w-[40px] h-[40px] rounded-full   grid place-items-center text-white relative cursor-pointer 2xl:ml-[50px] 2xl:mr-[85px] xl:mx-[84px]  lg:mx-[75px] md:mx-[55px] mx-[42px] sm:my-[14px] my-[20px]  border-dashed one after:w-0 after:h-0 ${
                                         activeStep >= 1 ? "active bg-[#E6992A] " : "bg-white"
                                     }`}
                                 >
@@ -70,7 +70,7 @@ const Order_Detail = () => {
                             </li>
                             <li className="flex flex-col items-center" key={2} onClick={() => handleStepClick(2)}>
                                 <div
-                                    className={`progress after:content-[''] after:block after:absolute 2xl:after:w-[170px]  xl:after:w-[170px] lg:after:w-[150px] md:after:w-[110px] after:w-[85px] after:h-[5px] after:bg-gray-200 after:right-[37px] w-[40px] h-[40px] rounded-full  my-[14px] grid place-items-center text-white relative cursor-pointer  2xl:mx-[85px] xl:mx-[84px]  lg:mx-[75px] md:mx-[55px] mx-[42px] border-2 border-dashed border-[#E6992A] two ${
+                                    className={`progress after:content-[''] after:block after:absolute 2xl:after:w-[170px]  xl:after:w-[170px] lg:after:w-[150px] md:after:w-[110px] after:w-[85px] after:h-[5px] after:bg-gray-200 after:right-[37px] w-[40px] h-[40px] rounded-full  sm:my-[14px] my-[20px] grid place-items-center text-white relative cursor-pointer  2xl:mx-[85px] xl:mx-[84px]  lg:mx-[75px] md:mx-[55px] mx-[42px] border-2 border-dashed border-[#E6992A] two ${
                                         activeStep >= 2 ? "active bg-[#E6992A] " : "bg-white"
                                     }`}
                                 >

@@ -3,13 +3,13 @@ const MyShoppingcartItem = (props) => {
    const [quantity, setQuantity] = useState(0);
 
    const decrement = () => {
-     if (quantity > 0) {
-       setQuantity(quantity - 1);
-     }
+       if (quantity > 0) {
+           setQuantity(quantity - 1);  
+       }
    };
- 
+
    const increment = () => {
-     setQuantity(quantity + 1);
+       setQuantity(quantity + 1);
    };
  
    const subtotal = props.item_price * quantity;
@@ -26,47 +26,47 @@ return (
       ${props.item_price}
    </td>
    <td className="px-2 sm:px-4 md:px-6 py-4 text-gray-900 text-base font-medium leading-6 self-center">
-      <div className="py-1 px-1 inline-block bg-white border border-gray-200 rounded-[170px]  ">
-         <div className="flex items-center gap-x-1.5">
-            <button
-               data-action="decrement"
-               className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
-               onClick={decrement}
-               >
-               <svg
-                  className="w-3 h-3 text-black"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 2"
-                  >
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16" />
-               </svg>
-            </button>
-            <input
-              type="number"
-              className="p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-black"
-              name="custom-input-number"
-              value={quantity}
-              readOnly
-            />
-            <button
-               data-action="increment"
-               className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
-               onClick={increment}
-               >
-               <svg
-                  className="w-3 h-3 text-black"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                  >
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v16M1 9h16" />
-               </svg>
-            </button>
-         </div>
-      </div>
+   <div className="py-1 px-1 inline-block bg-white border border-gray-200 rounded-[170px]  ">
+            <div className="flex items-center gap-x-1.5">
+                <button
+                    data-action="decrement"
+                    className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
+                    onClick={decrement}
+                >
+                    <svg
+                        className="w-3 h-3 text-black"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 18 2"
+                    >
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16" />
+                    </svg>
+                </button>
+                <input
+                    type="number"
+                    className="p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-black"
+                    name="custom-input-number"
+                    value={quantity}
+                    readOnly
+                />
+                <button
+                    data-action="increment"
+                    className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
+                    onClick={increment}
+                >
+                    <svg
+                        className="w-3 h-3 text-black"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 18 18"
+                    >
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v16M1 9h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
    </td>
    <td className="px-2 sm:px-4 md:px-6 py-4 text-gray-900 text-base font-medium leading-6 self-center">
    ${subtotal.toFixed(2)}
