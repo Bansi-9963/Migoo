@@ -71,6 +71,7 @@ const Sign_In = () => {
       eye_inp.type = "password";
     }
   };
+  
 
   const handleMouseToggle = (isMouseOver) => {
     const passwordInput = document.getElementById("password-input");
@@ -169,7 +170,7 @@ const Sign_In = () => {
                 Don’t have account?
               </p>
               <span className="font-medium text-[14px] leading-[21px] text-[#1A1A1A] ml-[4px]">
-                <Link to="create_account" className="hover:underline">
+                <Link to="/create_account" className="hover:underline">
                   Register
                 </Link>
               </span>

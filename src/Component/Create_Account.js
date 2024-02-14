@@ -72,7 +72,7 @@ const Create_Acct = () => {
                 Already have an account?
               </p>
               <span className="font-medium text-[14px] leading-[21px] text-[#1A1A1A] ml-[4px]">
-                <Link to="/" className="hover:underline">Login</Link>
+                <Link to="/sign_in" className="hover:underline">Login</Link>
               </span>
             </div>
           </div>
