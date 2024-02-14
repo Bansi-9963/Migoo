@@ -36,9 +36,8 @@
     outline: none !important;
   }
   
-  table tbody tr td{
-    padding-left:24px !important;
-    padding-right:24px !important;
+  .order-history table tbody tr td{
+   
     padding-top:11px !important;
     padding-bottom:11px !important;
 }

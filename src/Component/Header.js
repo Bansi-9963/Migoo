@@ -3,6 +3,15 @@ import Heart from "../Images/Heart.png";
 import Shopping_Cart from "../Images/ShoppingCartSimple.png";
 import User from "../Images/User.png";
 import { useEffect } from "react";
+import Dashboard from "../Images/Dashboard.png";
+import order_history from "../Images/History.png";
+import Wishlist from "../Images/Wishlist.png";
+import ShoppingList from "../Images/Shopping_Cart.png";
+import Settings from "../Images/Settings.png";
+import Logout from "../Images/Logout.png";
+import billing_address from "../Images/Address_book.png";
+import { Link , useLocation } from "react-router-dom";
+
 
 const toggleElement = (elementId) => {
   const element = document.getElementById(elementId);
@@ -21,13 +30,31 @@ const handleClose = () => {
 
 const handleHamburger = () => {
   let mob_menu = document.getElementById("mobile_menu");
+  let user_options = document.getElementById("user_dash");
+  user_options.classList.add("hidden");
   if (mob_menu.classList.contains("hidden")) {
     mob_menu.classList.remove("hidden");
   } else {
     mob_menu.classList.add("hidden");
   }
 };
+
+const handleUser = () => {
+  let user_options = document.getElementById("user_dash");
+  let mob_menu = document.getElementById("mobile_menu");
+  mob_menu.classList.add("hidden");
+  if (user_options.classList.contains("hidden")) {
+    user_options.classList.remove("hidden");
+  } else {
+    user_options.classList.add("hidden");
+  }
+}
+const handleUserClose = () => {
+  let user_options = document.getElementById("user_dash");
+  user_options.classList.add("hidden")
+}
 const Header = () => {
+  const location = useLocation();
   useEffect(() => {
     const topNav = document.getElementById("header_nav");
     const handleScroll = () => {
@@ -42,7 +69,7 @@ const Header = () => {
   }, []);
   return (
     <header className="border-b-[1px] relative bg-white z-10" id="header_nav">
-      <div className="container-1 " id="Nav_Bar">
+      <div className="container-1 relative z-[999] bg-white" id="Nav_Bar" >
         <div className="lg:h-[93px] md:h-[83px] h-[70px] flex justify-between items-center ">
           <div className="flex gap-10 items-center">
             <div className="xl:h-[70px] xl:w-[199px] lg:w-[159px] ssm:w-[109px] lg:h-[60px] md:w-[129px] md:h-[50px] ssm:h-10 w-[89px] h-8">
@@ -53,9 +80,11 @@ const Header = () => {
             </div>
             <div className="h-[60px] lg:flex items-center hidden">
               <div className="flex xl:h-[21px] items-center gap-8">
+                <Link to="">
                 <div>
-                  <a href="/" className="font-medium leading-[21px] text-sm">Home</a>
+                  <a className="font-medium leading-[21px] text-sm">Home</a>
                 </div>
+                </Link>
                 <div>
                   <a className="font-medium leading-[21px] text-sm">About Us</a>
                 </div>
@@ -136,24 +165,27 @@ const Header = () => {
                 />
               </svg>
             </div>
-            <div> <a href="/shoppingcart">
+            <Link to="/shoppingcart">
+            <div onClick={handleUserClose}>
               <img
                 src={Shopping_Cart}
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
-              /> </a>
+              />
             </div>
-            <div> <a href="/wishlist">
+            </Link>
+            <Link to="/wishlist">
+            <div className="hidden lg:block" onClick={handleUserClose}>
               <img
                 src={Heart}
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
               />
-              </a>
             </div>
-            <div className="hidden lg:block">
-              <a href="/dashboard">
+            </Link>
+            <Link to="/dashboard">
+            <div onClick={handleUser} className="lg:pointer-events-none pointer-events-auto cursor-pointer">
               <img src={User} className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6" />
-              </a>
             </div>
+            </Link>
             <div
               className="block lg:hidden md:w-7 md:h-7 w-6 h-6 md:mt-[3px] mt-[2px]"
               onClick={handleHamburger}
@@ -250,15 +282,18 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/* Mobile Hamburger */}
+ 
       <div
         id="mobile_menu"
         className="hidden absolute w-full z-[20] bg-white h-[100vh]"
       >
         <div className="container-1">
-          <div className="border-b-[1px]">
+          <Link to="/">
+          <div className="border-b-[1px]" 
+           >
             <p className="text-xl pt-3 pb-3">Home</p>
           </div>
+          </Link>
           <div className="border-b-[1px]">
             <p className="text-xl pt-3 pb-3">About Us</p>
           </div>
@@ -307,6 +342,85 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+   
+      <div id="user_dash" className="hidden absolute w-full z-[20] bg-white h-[100vh]">
+        <div className="container-1">
+          <Link to="/dashboard">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/dashboard"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={Dashboard} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Dashboard</p>
+          </div>
+          </Link>
+          <Link to="/order-history">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/order-history"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={order_history} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Order History</p>
+          </div>
+          </Link>
+          <Link to="/wishlist">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/wishlist"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={Wishlist} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Wishlist</p>
+          </div>
+          </Link>
+          <Link to="/shoppingcart">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/shoppingcart"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={ShoppingList} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Shopping List</p>
+          </div>
+          </Link>
+          <Link to="/settings">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/settings"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={Settings} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Settings</p>
+          </div>
+          </Link>
+          <Link to="/billing-address">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/billing-address"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={billing_address} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Address Book</p>
+          </div>
+          </Link>
+          <Link to="/sign_in">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/sign_in"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={Logout} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Log-Out</p>
+          </div>
+          </Link>
+       
+        </div>
+      </div>
+
+
     </header>
   );
 };

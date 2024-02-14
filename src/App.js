@@ -46,7 +46,7 @@ function App() {
             <Route path="dashboard" element={<User_Dashboard />} />
             <Route path="confirm_order" element={<Order_Confirm />} />
             <Route path="testing" element={<Testing />} />
-            <Route path="order-detail" element={<Order_Detail />} />
+            <Route path="order-detail/:orderId" element={<Order_Detail />} />
             <Route path="order-history" element={<OrderHistory />} />
             <Route path="billing-address" element={<Billing_address />} />
           </Routes>

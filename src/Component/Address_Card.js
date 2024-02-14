@@ -1,7 +1,7 @@
 
 const Address_Card = () => {
     return (
-        <div className=" border-solid border-[1px] border-[#E6E6E6] rounded-lg ssm:pt-8 pt-4 ssm:pl-8 pl-4 ssm:pr-8 pr-4 leading-9 w-full  md:w-[280px] md:pt-5 md:leading-8 lg:w-[290px] xl:w-[380px] xl:pt-4 2xl:w-[315px]">
+        <div className=" border-solid border-[1px] border-[#E6E6E6] rounded-lg ssm:pt-8 pt-4 ssm:pl-8 pl-4 ssm:pr-8 pr-4 leading-9 w-full  md:w-[280px] md:pt-5 md:leading-8 lg:w-[290px] xl:w-[380px] xl:pt-4 2xl:w-[49%]">
                <p className="uppercase font-semibold text-[#999999] ssm:text-[16px] text-[16px]">Billing Address</p>
                <p className="text-[#1a1a1a] ssm:text-[20px] text-[16px] font-medium">Dainne Russell</p>
                <p className="text-[#666666] ssm:text-[16px] text-[14px] leading-7">B-308 Shilp Corporate park. Rajpath rangoli road, Ahmedabad-31134</p>
