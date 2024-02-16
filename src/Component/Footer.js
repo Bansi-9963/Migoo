@@ -2,7 +2,7 @@ import logo from "../Images/migoo-logo-white.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1A1A1A] 2xl:h-[368px]">
+    <footer className="bg-[#1A1A1A] xl:h-[368px] lg:h-[380px] md:h-[480px]">
       <div className="container-1 upper-footer pt-[60px] mb-[60px] xl:h-[228.5px] flex lg:flex-row flex-col">
         <div className="2xl:h-[167px] 2xl:w-[336px] xl:w-[306px] lg:w-[286px] h-max  lg:mx-0 mb-3 lg:mb-0">
           <div className="mb-4">
