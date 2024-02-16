@@ -4,8 +4,8 @@ import tick from "../Images/Tick.png";
 
 const Order_Confirm = () => {
   return (
-    <section className="container-1">
-      <div className="xl:w-[967px] lg:w-[867px] md:w-[637px] xl:h-[726px] md:h-[576px] md:mt-[81px] md:mb-[81px] mt-[51px] mb-[51px] w-[230px] h-[400px] mx-auto flex items-center justify-center">
+    <section>
+      <div className="xl:w-[967px] lg:w-[867px] md:w-[637px] xl:h-[726px] md:h-[576px] w-[230px] h-[400px] mx-auto flex items-center justify-center">
         <div className="flex ">
           <div className="lg:block hidden">
             <img src={order_confirm} />

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Error_Page = () => {
   return (
-    <div className="h-[913px] flex items-center justify-center">
+    <div className="xl:py-[140px] lg:py-[100px] md:py-[80px] py-16 flex items-center justify-center">
       <div className="2xl:h-[571.03px] 2xl:w-[612px] ">
         <img src={error} className="mx-auto" />
         <center className="mt-[32px] font-semibold sm:text-[32px] text-[22px] sm:leading-[48px] leading-[24px]">
