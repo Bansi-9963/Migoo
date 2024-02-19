@@ -32,12 +32,18 @@ const Navigation_Bar = () => {
           </li>
         </Link>
         <Link to="/order-history">
-        <li className="pl-[23px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:border-l-[3px] hover: border-[#E6992A] transition duration-300">
-          <img src={order_history} className="inline h-[18px] w-[18px]" />
-          <span className="pl-[13px] text-base font-normal leading-6">
+          <li
+            className={`pl-[23px] h-[56px] flex items-center  hover:bg-[#F2F0ED] hover:border-l-[3px] hover: border-[#E6992A] transition duration-300 ${
+              location.pathname === "/order-history"
+                ? "bg-[#F2F0ED] border-l-[3px] border-[#E6992A]"
+                : ""
+            }`}
+          >
+            <img src={order_history} className="inline h-[18px] w-[18px]" />
+            <span className="pl-[13px] text-base font-normal leading-6">
             Order History
-          </span>
-        </li>
+            </span>
+          </li>
         </Link>
         <li className="pl-[23px] h-[56px] flex items-center hover:bg-[#F2F0ED] hover:border-l-[3px] hover: border-[#E6992A] transition duration-300">
           <img src={Wishlist} className="inline h-[18px] w-[18px]" />

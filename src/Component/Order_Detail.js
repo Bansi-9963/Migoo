@@ -57,27 +57,27 @@ const Order_Detail = () => {
         ));
     };
     return (
-        <section className="ssm:my-[79px] mb-10 flex ssm:flex-row flex-col lg:gap-6 gap-4 container-1 ">
+        <section className="ssm:my-[79px] my-10 flex ssm:flex-row flex-col lg:gap-6 gap-4 container-1 ">
             {screenWidth >= 1024 ? <Navigation_Bar /> : null}
             <div className="Order_Detail border-[1px] border-[#E6E6E6] w-full rounded-lg">
                 <div className="flex flex-row justify-between py-4 md:px-6 px-3 border-b-[1px]  border-[#E6E6E6] ">
-                    <div className="flex md:flex-row flex-col gap-[8px] md:items-center items-start self-center">
+                    <div className="flex ssm:flex-row flex-col gap-[8px] sm:items-center items-start self-center">
                         <span className="md:text-xl text-lg font-medium md:leading-8 leading-5">Order Details</span>
                         <span className="text-center hidden md:block">.</span>
                         <span className="text-[#4D4D4D] text-sm">April 24, 2021</span>
                         <span className="text-center hidden md:block">.</span>
                         <span className="text-[#4D4D4D] text-sm">3 Products</span>
                     </div>
-                    <Link to="/dashboard">
-                        <div className="self-center text-base font-medium leading-6 text-[#E6992A]">
+                    <Link to="/dashboard" className="flex">
+                        <div className="self-center  text-base font-medium leading-6 text-[#E6992A]">
 
-                            Bake to List
+                            Back to List
 
                         </div>
                     </Link>
                 </div>
                 <div className="md:px-6 px-3 grid grid-cols-12 md:gap-6 gap-3 md:py-9 py-5">
-                    <div className="col-span-12">
+                    <div className="col-span-12 justify-self-center">
                         <ul className="order_progress one  flex ">
                             <li className="flex flex-col items-center" key={1} onClick={() => handleStepClick(1)}>
                                 <div

@@ -17,7 +17,7 @@ const OrderDetailMobile = ({
       </div>
       <div className="px-[14px] pt-4 pb-[9px] text-gray-900 text-sm font-normal leading-6">
         <div className=" mb-1 ">
-          <div className="text-lg font-semibold w-[104px]">{text}</div>
+          <div className="text-base font-semibold w-[104px]">{text}</div>
         </div>
         <p className="mb-2 flex  items-baseline">
           ${originalPrice}

@@ -9,6 +9,9 @@ import Wishlist from "../Images/Wishlist.png";
 import ShoppingList from "../Images/Shopping_Cart.png";
 import Settings from "../Images/Settings.png";
 import Logout from "../Images/Logout.png";
+import billing_address from "../Images/Address_book.png";
+import { Link , useLocation } from "react-router-dom";
+
 
 const toggleElement = (elementId) => {
   const element = document.getElementById(elementId);
@@ -46,7 +49,12 @@ const handleUser = () => {
     user_options.classList.add("hidden");
   }
 }
+const handleUserClose = () => {
+  let user_options = document.getElementById("user_dash");
+  user_options.classList.add("hidden")
+}
 const Header = () => {
+  const location = useLocation();
   useEffect(() => {
     const topNav = document.getElementById("header_nav");
     const handleScroll = () => {
@@ -72,9 +80,11 @@ const Header = () => {
             </div>
             <div className="h-[60px] lg:flex items-center hidden">
               <div className="flex xl:h-[21px] items-center gap-8">
+                <Link to="">
                 <div>
                   <a className="font-medium leading-[21px] text-sm">Home</a>
                 </div>
+                </Link>
                 <div>
                   <a className="font-medium leading-[21px] text-sm">About Us</a>
                 </div>
@@ -155,21 +165,27 @@ const Header = () => {
                 />
               </svg>
             </div>
-            <div>
+            <Link to="/cart">
+            <div onClick={handleUserClose}>
               <img
                 src={Shopping_Cart}
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
               />
             </div>
-            <div className="hidden lg:block">
+            </Link>
+            <Link to="/wishlist">
+            <div className="hidden lg:block" onClick={handleUserClose}>
               <img
                 src={Heart}
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
               />
             </div>
+            </Link>
+            <Link to="/dashboard">
             <div onClick={handleUser} className="lg:pointer-events-none pointer-events-auto cursor-pointer">
               <img src={User} className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6" />
             </div>
+            </Link>
             <div
               className="block lg:hidden md:w-7 md:h-7 w-6 h-6 md:mt-[3px] mt-[2px]"
               onClick={handleHamburger}
@@ -266,15 +282,18 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/* Mobile Hamburger */}
+ 
       <div
         id="mobile_menu"
         className="hidden absolute w-full z-[20] bg-white h-[100vh]"
       >
         <div className="container-1">
-          <div className="border-b-[1px]">
+          <Link to="/">
+          <div className="border-b-[1px]" 
+           >
             <p className="text-xl pt-3 pb-3">Home</p>
           </div>
+          </Link>
           <div className="border-b-[1px]">
             <p className="text-xl pt-3 pb-3">About Us</p>
           </div>
@@ -324,33 +343,80 @@ const Header = () => {
         </div>
       </div>
 
-      {/* user icon dashboard */}
+   
       <div id="user_dash" className="hidden absolute w-full z-[20] bg-white h-[100vh]">
         <div className="container-1">
-          <div className="border-b-[1px] flex items-center gap-3">
+          <Link to="/dashboard">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/dashboard"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
             <p><img src={Dashboard} className="w-5 h-5"/></p>
             <p className="text-xl pt-3 pb-3">Dashboard</p>
           </div>
-          <div className="border-b-[1px] flex items-center gap-3">
+          </Link>
+          <Link to="/order-history">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/order-history"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
             <p><img src={order_history} className="w-5 h-5"/></p>
             <p className="text-xl pt-3 pb-3">Order History</p>
           </div>
-          <div className="border-b-[1px] flex items-center gap-3">
+          </Link>
+          <Link to="/wishlist">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/wishlist"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
             <p><img src={Wishlist} className="w-5 h-5"/></p>
             <p className="text-xl pt-3 pb-3">Wishlist</p>
           </div>
-          <div className="border-b-[1px] flex items-center gap-3">
+          </Link>
+          <Link to="/cart">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/cart"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
             <p><img src={ShoppingList} className="w-5 h-5"/></p>
             <p className="text-xl pt-3 pb-3">Shopping List</p>
           </div>
-          <div className="border-b-[1px] flex items-center gap-3">
+          </Link>
+          <Link to="/settings">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/settings"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
             <p><img src={Settings} className="w-5 h-5"/></p>
             <p className="text-xl pt-3 pb-3">Settings</p>
           </div>
-          <div className="border-b-[1px] flex items-center gap-3">
+          </Link>
+          <Link to="/billing-address">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/billing-address"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
+            <p><img src={billing_address} className="w-5 h-5"/></p>
+            <p className="text-xl pt-3 pb-3">Address Book</p>
+          </div>
+          </Link>
+          <Link to="/sign_in">
+          <div className={`border-b-[1px] flex items-center gap-3 hover:bg-[#F2F0ED] hover:border-b-[3px] hover:border-[#E6992A] transition duration-300 ${
+              location.pathname === "/sign_in"
+                ? "bg-[#F2F0ED] border-b-[3px] border-[#E6992A]"
+                : ""
+            } `}onClick={handleUser}>
             <p><img src={Logout} className="w-5 h-5"/></p>
             <p className="text-xl pt-3 pb-3">Log-Out</p>
           </div>
+          </Link>
+       
         </div>
       </div>
 
@@ -359,4 +425,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header;  
