@@ -47,11 +47,11 @@ return (
           />
         ))}
    </div>
-   <div className="relative  mt-4 rounded-md border border-gray-100 ssm:block hidden">
+   <div className="relative  mt-6 rounded-md border border-gray-100 ssm:block hidden">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500">
          <thead className=" uppercase text-[#808080] border-b">
             <tr className="text-sm w-full">
-               <th scope="col" className="px-2 sm:px-6  py-3">
+               <th scope="col" className="px-2 px-6  ">
                   PRODUCT 
                </th>
                <th scope="col" className="px-2 sm:px-6 lg:px-12 xl:px-20 py-3">

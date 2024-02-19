@@ -24,7 +24,7 @@ const MyShoppingCartMobile = ({
    const subtotal = originalPrice * quantity;
   return (
     <div className="relative rounded-lg overflow-hidden border border-gray-100  mb-2 ssm:block flex">
-      <div className="h-[100px] w-[110px]">
+      <div className="h-[100px] w-[110px] w-[40%] self-center">
         <img className="w-full h-full object-contain h-[100px] w-[110px]" src={image} alt={text} />
         <div className="absolute top-2 right-2">
           <div className="w-8 h-8 rounded-full p-1 flex items-center justify-center">
@@ -67,9 +67,9 @@ const MyShoppingCartMobile = ({
       </div>
       <div className="px-[14px] pt-4 pb-[9px] text-gray-900 text-base font-normal leading-6">
         <div className=" mb-2 ">
-          <div className="text-lg font-semibold w-[104px]">{text}</div>
+          <div className="sm:text-lg  text-base font-semibold w-[104px]">{text}</div>
         </div>
-        <p className="mb-3 flex  items-baseline">
+        <p className="mb-3 text-sm flex  items-baseline">
           ${originalPrice}
           <div className="py-1 px-1 inline-block bg-white border border-gray-200 rounded-[170px]  max-[345px]:ml-1 ml-3 ">
             <div className="flex items-center gap-x-1.5">
@@ -96,7 +96,7 @@ const MyShoppingCartMobile = ({
               </button>
               <input
               type="number"
-              className="p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-black"
+              className=" text-sm p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-black"
               name="custom-input-number"
               value={quantity}
               readOnly
@@ -125,7 +125,7 @@ const MyShoppingCartMobile = ({
             </div>
           </div>
         </p>
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center mb-2 text-sm">
           <span className="mb-2 ">SubTotal: ${subtotal.toFixed(2)}</span>
         </div>
       </div>

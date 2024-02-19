@@ -181,7 +181,7 @@ const User_Dashboard = () => {
 
       <div className="overflow-x-hidden w-full  ">
       <div className="border-2 border-[#E6E6E6] rounded-md">
-      <div className="flex justify-between items-center px-6 sm:py-4 py-3 ">
+      <div className="flex mssm:flex-row flex-col justify-between items-center px-6 sm:py-4 py-3 ">
             <h2 className="text-xl font-medium leading-[30px] text-[#1A1A1A]">
               Recent Order History
             </h2>

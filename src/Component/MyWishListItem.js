@@ -5,9 +5,9 @@ const MyWishListItem = (props) => {
 const isOutOfStock = props.stock_status === 'Out Of Stock';
 return (
 <tr className={`bg-white border-b  hover:bg-gray-50 text-gray-900 text-base font-normal leading- ${isOutOfStock ? 'out-of-stock-style' : ''}`}>
-<th scope="row" className="px-2 sm:px-6 py-2.5 whitespace-nowrap  flex lg:flex-row flex-col-reverse">
+<th scope="row" className="px-6 sm:px-6 py-2.5 whitespace-nowrap  flex lg:flex-row flex-col-reverse">
    <img src={props.item_image} alt="Product Image" className="w-[100px] h-[100px]" />
-   <p className="self-start lg:self-center lg:pl-3 xl:pl-10">
+   <p className="self-start lg:self-center lg:pl-6 xl:pl-10">
       {props.item_name}
    </p>
 </th>

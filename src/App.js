@@ -20,6 +20,7 @@ import OrderHistory from "./Component/OrderHistory";
 import Billing_address from "./Pages/Address.js";
 import Product_Category from "./Component/Product_Category";
 import Product_List from "./Component/Product_List";
+import ProductDetails from "./Pages/ProductDetails.js";
 
 
 import {
@@ -40,7 +41,7 @@ function App() {
             <Route path="" element={<Home />} />
             <Route path="checkout" element={<BillingInformation />} />
             <Route path="wishlist" element={<MyWishList />} />
-            <Route path="shoppingcart" element={<MyShoppingCart />} />
+            <Route path="cart" element={<MyShoppingCart />} />
             <Route path="sign_in" element={<Sign_In />} />
             <Route path="create_account" element={<Create_Acct />} />
             <Route path="error_404" element={<Error_Page />} />
@@ -55,6 +56,7 @@ function App() {
             <Route path="testing" element={<Testing />} />
             <Route path="category" element={<Product_Category />} />
             <Route path="product-list" element={<Product_List />} />
+            <Route path="product-details" element={<ProductDetails />} />
           </Routes>
         
         <Footer />
