@@ -2,7 +2,7 @@ import React from 'react';
 import SLider from 'react-slider';
 import { useState } from 'react';
 import '../App.css';
-import category_img from "../Images/Group.png";
+import { Link } from "react-router-dom";
 
 const MIN = 50;
 const MAX = 1000;
@@ -220,7 +220,7 @@ const Product_Category = () => {
   return (
     <div className='container-1'>
       {/* breadcrumbs */}
-  
+
       <div id='breadcrumbs' className='lg:h-[62px] h-11 w-full flex items-center gap-[10px]'>
         <div className='flex items-center'>
           <div>
@@ -229,7 +229,9 @@ const Product_Category = () => {
             </svg>
           </div>
           <div className='pl-2 pt-[3px]'>
-            <p className='text-[#5F6C72] text-base'>Home</p>
+            <Link to="/">
+              <p className='text-[#5F6C72] text-base'>Home</p>
+            </Link>
           </div>
         </div>
         <div className='pt-1'>
@@ -490,7 +492,7 @@ const Product_Category = () => {
               {currentItems.map((data) => (
                 <div className='2xl:max-w-[225px] 2xl:max-h-[250px]' key={data.id}>
                   <div className='w-full h-[212px] flex justify-center'>
-                    <img src={data.product_img} className='object-cover'/>
+                    <img src={data.product_img} className='object-cover w-full' />
                   </div>
                   <div className='w-full h-auto py-[7px] bg-[#E6992A]'>
                     <center className='text-white font-bold text-xl'>{data.title}</center>
