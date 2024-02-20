@@ -203,38 +203,34 @@ const User_Dashboard = () => {
 
 
 
-
-
-          <div className="overflow-x-hidden w-full  ">
-            <div className="border-2 border-[#E6E6E6] rounded-md">
-              <div className="flex justify-between items-center px-6 sm:py-4 py-3 ">
-                <h2 className="text-xl font-medium leading-[30px] text-[#1A1A1A]">
-                  Recent Order History
-                </h2>
-                <Link to="/order-history">
-                  <h3 className="text-base text-[#E6992A] leading-6 font-medium">
-                    View All
-                  </h3>
-                </Link>
-              </div>
-              <div className='overflow-x-auto'>
-                <table className="data-table  w-full">
-                  <thead className="bg-[#F2F2F2]">
-                    <tr className="text-[#4D4D4D]">
-                      <th className="column-header py-3 px-[24px] pl-[24px] text-start">ORDER ID</th>
-                      <th className="column-header py-3 px-[24px] text-start">DATE</th>
-                      <th className="column-header py-3 px-[24px] text-start">TOTAL</th>
-                      <th className="column-header py-3 px-[24px] text-start">STATUS</th>
-                      <th className="column-header py-3 px-[24px] text-start "> <span className='hidden'>View</span></th>
-                      {/* Add more table headers as needed */}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <Order_Row />
-                  </tbody>
-                </table>
-              </div>
-
+      <div className="overflow-x-hidden w-full  ">
+      <div className="border-2 border-[#E6E6E6] rounded-md">
+      <div className="flex mssm:flex-row flex-col justify-between items-center px-6 sm:py-4 py-3 ">
+            <h2 className="text-xl font-medium leading-[30px] text-[#1A1A1A]">
+              Recent Order History
+            </h2>
+            <Link to="/order-history">
+            <h3 className="text-base text-[#E6992A] leading-6 font-medium">
+              View All
+            </h3>
+            </Link>
+          </div>
+            <div className='overflow-x-auto'>
+            <table className="data-table  w-full">
+              <thead className="bg-[#F2F2F2]">
+                <tr className="text-[#4D4D4D]">
+                  <th className="column-header py-3 px-[24px] pl-[24px] text-start">ORDER ID</th>
+                  <th className="column-header py-3 px-[24px] text-start">DATE</th>
+                  <th className="column-header py-3 px-[24px] text-start">TOTAL</th>
+                  <th className="column-header py-3 px-[24px] text-start">STATUS</th>
+                  <th className="column-header py-3 px-[24px] text-start "> <span className='hidden'>View</span></th>
+                  {/* Add more table headers as needed */}
+                </tr>
+              </thead>
+              <tbody>
+              <Order_Row />
+              </tbody>
+            </table>
             </div>
           </div>
         </div>
