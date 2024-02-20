@@ -69,12 +69,14 @@ const MyShoppingCart = () => {
                </div>
             </div>
          </section>
+
          <section className="container-1 py-5 sm:py-8">
             <div className="text-gray-900 text-2xl font-medium ">My Shopping Cart</div>
             <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 ssm:gap-6 gap-4 mt-6 mb-4 ">
                {renderMobileItems()}
             </div>
             <div className="grid grid-cols-12 gap-6 mt-6 ">
+
                <div className="relative overflow-x-auto mt-4 rounded-md  lg:col-span-8 col-span-12 border border-gray-100 ssm:block hidden">
                   <table className="w-full text-sm xl:text-base text-left rtl:text-right text-gray-500">
                      <thead className=" text-gray-700 uppercase ">
@@ -101,10 +103,12 @@ const MyShoppingCart = () => {
                      </tbody>
                   </table>
                   <div className="flex flex-row px-6 ">
+
                      <button className="px-8 py-3.5  rounded-full bg-gray-50 text-gray-300 font-semibold my-4 text-[#4f4f4f]">Return To Shop</button>
                   </div>
                </div>
                <div className=" max-h-[290px] bg-white border-t border-gray-100 py-3 px-6 leading-6 lg:mt-4 ssm:px-6 ssm:rounded-md ssm:border ssm:border-gray-100 lg:col-span-4 col-span-12">
+
                   <div className="font-medium text-[20px]">Cart Total </div>
                   <div className="divide-y-2">
                      <div className="subtotal py-2 ssm:py-3 flex justify-between">
@@ -120,7 +124,9 @@ const MyShoppingCart = () => {
                         <span className="font-semibold text-[#1A1A1A]">$84.00</span>
                      </div>
                   </div>
+
                   <button className="px-8 lg:py-3.5 py-2 my-3 text-white rounded-full bg-[#E6992A] font-semibold w-full">Proceed to checkout</button>
+
                </div>
             </div>
          </section>

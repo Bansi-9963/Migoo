@@ -60,7 +60,9 @@ const MyWishList = () => {
                </div>
             </div>
          </section>
+
          <section className="container-1 py-5 sm:py-8">
+
             <div className="font-medium text-gray-900 text-3xl leading-10">My WishList</div>
             <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 gap-6 mt-4 ">
                {dummyWishlistData.map((item) => (
@@ -74,6 +76,7 @@ const MyWishList = () => {
                   />
                ))}
             </div>
+
             <div className="relative  mt-6 rounded-md border border-gray-100 ssm:block hidden">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500">
          <thead className=" uppercase text-[#808080] border-b">
@@ -154,6 +157,7 @@ const MyWishList = () => {
          </div>
       </div>
    </div>
+
          </section>
       </>
    );

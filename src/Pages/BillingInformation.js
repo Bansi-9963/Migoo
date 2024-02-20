@@ -37,6 +37,7 @@ const BillingInformation = (props) => {
    return (
       <>
 
+
          <section className='container-1'>
             <div id='breadcrumbs' className='lg:h-[62px] h-11 w-full flex items-center gap-[10px]'>
                <div className='flex items-center'>
@@ -61,12 +62,15 @@ const BillingInformation = (props) => {
                </div>
             </div>
          </section>
+
          <section className="container-1 py-5 sm:py-8">
+
             <div className="grid grid-cols-12  gap- 0 sm:gap-6">
                <div className="xl:col-span-8 lg:col-span-7 col-span-12">
                   <div className="min-h-full  lg:pb-9 pb-0 px-0 lg:px-4 sm:px-6 lg:px-8">
                      <div className="w-full space-y-8">
                         <h2 className="sm:text-3xl text-2xl font-medium">Billing Information</h2>
+
                         <form className="mt-7 w-full">
                            <div className="grid grid-cols-12 gap-4 ">
                               <div className="md:col-span-4 ssm:col-span-6 col-span-12 ">
@@ -175,6 +179,7 @@ const BillingInformation = (props) => {
 
 
 
+
                               </div>
                            </div>
                         </form>
@@ -263,9 +268,8 @@ const BillingInformation = (props) => {
                      </div>
                      <button className="px-8 py-3.5 mt-4  text-white rounded-full bg-[#E6992A] font-semibold w-full">Place Order</button>
 
-
-
                   </div>
+
                </div>
 
 
@@ -291,7 +295,9 @@ const BillingInformation = (props) => {
          </section>
       </>
 
+
    );
+
 
 };
 export default BillingInformation;

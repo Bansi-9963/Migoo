@@ -234,7 +234,9 @@ const Order_Detail = () => {
                                             PRICE
                                         </th>
                                         <th scope="col" className="text-sm px-2 sm:px-5 py-3">
-                                            QUANTITY    
+
+                                            QUANTITY
+
                                         </th>
                                         <th scope="col" className="text-sm px-2 sm:px-5 py-3">
                                             SUBTOTAL
@@ -246,7 +248,9 @@ const Order_Detail = () => {
                         </div>
                     </div>
                 </div>
+
                 </div>
+
             </section>
         </>
     );
