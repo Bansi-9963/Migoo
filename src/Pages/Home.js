@@ -230,23 +230,19 @@ function Home() {
           </div>
         </div>
       </section>
-      {/* ----Section-1 End---- */}
-
-      {/* ----Section-2 Feature Part Start---- */}
+      
       <section className="pt-[28px]">
         <div className="container-1 ">
           <Headingtext
             mainText=" Featured"
-            coloredText=" Part <>"
+            coloredText=" Part"
             maincolor="text-black"
           />
           <FeaturcardScroll />
         </div>
       </section>
 
-      {/* ----Section-2 Feature Part End---- */}
-
-      {/* ----Section-3 Search By Category Start---- */}
+   
       <section className=" pt-[49px] ">
         <div className="container-1 ">
           <Headingtext
@@ -254,14 +250,11 @@ function Home() {
             coloredText=" Category"
             maincolor="text-black"
           />
-          {/* Cardscroll component-- */}
-          {/* <Cardscroll cardsData={cardsData} /> */}
+         
           <Cardscroll />
         </div>
       </section>
-      {/* ----Section-3 Search By Category End---- */}
-
-      {/* Section-4 Why Choose Start */}
+      
       <section className="">
         <div className="container-1 mx-auto mt-8">
           <div className="">
@@ -271,7 +264,7 @@ function Home() {
               maincolor="text-black"
             />
           </div>
-          <div className="grid grid-cols-3 3xl:gap-[10px] 2xl:gap-[10px] xl:gap-[32px] lg:gap-[251px] md:gap-[381px] sm:gap-[382px] gap-[261px] items-center ssm:pt-[1px] md:pt-[14px] overflow-x-scroll custom-scrollbar">
+          <div className="grid xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 3xl:gap-[7px] 2xl:gap-[7px] xl:gap-[20px] md:gap-[20px] items-center ssm:pt-[1px] md:pt-[14px] custom-scrollbar">
             <Aftermarketcard
               imageUrl="../Images/Group (1).svg"
               heading="Authentic Product"
@@ -285,6 +278,12 @@ manufacturers, ensuring quality and performance for your vehicle's longevity and
 manufacturers, ensuring quality and performance for your vehicle's longevity and your satisfaction."
             />
             <Aftermarketcard
+              imageUrl="../Images/Group (1).svg"
+              heading="Authentic Product"
+              text="Reliable components sourced only from reputable aftermarket 
+manufacturers, ensuring quality and performance for your vehicle's longevity and your satisfaction."
+            />
+             <Aftermarketcard
               imageUrl="../Images/Group (1).svg"
               heading="Authentic Product"
               text="Reliable components sourced only from reputable aftermarket 
@@ -293,14 +292,14 @@ manufacturers, ensuring quality and performance for your vehicle's longevity and
           </div>
         </div>
       </section>
-      {/* ----Section-4 Why Choose End---- */}
+     
 
       {/*---Section-5 Brands Name Start----*/}
       <section className="mt-[49px] mb-5">
         <div className="container-1">
           <Headingtext
             mainText=" Brands we "
-            coloredText="Trust <>"
+            coloredText="Trust"
             maincolor="text-black"
           />
           <BrandCarousel />

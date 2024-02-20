@@ -10,7 +10,7 @@ module.exports = {
       screens: {
         'ssm': '500px',
         'msm': '550px',
-				'mssm':'481px'
+				'mssm':'475px'
        
       },
       colors: {

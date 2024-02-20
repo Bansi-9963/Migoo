@@ -166,7 +166,7 @@ const OrderHistory = () => {
           </div>
         </div>
       </section>
-      <section className="sm:my-20 my-10  flex ssm:flex-row flex-col lg:gap-6 gap-4 container-1">
+      <section className="sm:my-5 my-5  flex ssm:flex-row flex-col lg:gap-6 gap-4 container-1">
         {screenWidth >= 1024 ? <Navigation_Bar /> : null}
         <div className="overflow-x-hidden w-full">
           <div className="border-2 border-[#E6E6E6] rounded-md   pb-14 ">

@@ -56,13 +56,13 @@ const Featurecard = ({
   };
 
   return (
-    <div className="relative rounded-lg overflow-hidden shadow-md 2xl:w-[300px] max-[324px]:w-[90%] xl:w-[259px] lg:w-[292px] md:w-[314px] sm:w-[270px] msm:w-[236px] mssm:w-[210px] w-full bg-white mb-2 ">
+    <div className="relative rounded-lg overflow-hidden shadow-md 2xl:w-[300px] max-[324px]:w-[100%] xl:w-[259px] lg:w-[292px] md:w-[314px] sm:w-[270px] msm:w-[236px] mssm:w-[210px] mssm:max-w-[300px] max-w-[230px] w-full bg-white mb-2 ">
       <div className="">
         <img className="w-full object-cover" src={image} alt={text} />
-        {/* Rounded white border with a small like icon in the top-right corner */}
+        
         <div className="absolute top-2 right-2">
           <div
-            className="w-8 h-8 rounded-full bg-white p-1 flex items-center justify-center test"
+            className="w-8 h-8 mssm:w-6 mssm:h-6  rounded-full bg-white p-1 flex items-center justify-center test"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -115,34 +115,34 @@ const Featurecard = ({
         </div>
       </div>
       <div className="px-[14px] pt-4 pb-[9px]">
-        <div className="flex mb-2 justify-between">
-          <div className="font-bold md:text-xl sm:text-lg text-lg w-[104px]">
+        <div className="flex mb-[5px] justify-between">
+          <div className="font-bold sm:text-[16px] text-[14px] m w-[104px]">
             {text}
           </div>
           <div className="flex items-center">
             <img
               src="../Images/Rectangle 98.svg" // Adjust the path accordingly
               alt="Icon"
-              className="w-[16px] h-[16px]"
+              className="w-[14px] h-[14px]"
             />
-            <span className="text-xs ml-1 w-[64px]">Fulfilled by</span>
+            <span className="sm:text-[12px] ml-1 text-[10px] w-[64px]">Fulfilled by</span>
           </div>
         </div>
-        <p className="text-[#000000] font-bold md:text-xl sm:text-lg text-lg mb-2">
+        <p className="text-[#000000] font-bold sm:text-[12px] text-[12px] mb-[5px]">
           ₹{discountedPrice}{" "}
-          <span className="text-[#8A8A8A] md:text-xl sm:text-lg text-lg  pl-[11px] line-through">
+          <span className="text-[#8A8A8A] sm:text-[12px] text-[12px] font-bold pl-[11px] line-through mr-[10px]">
             ₹{originalPrice}
           </span>{" "}
-          <span className="text-black text-xs font-normal">
-            ({discountPercentage}% off)
+          <span className="rounded-lg bg-[#f0c4c4f2] text-[#EA4B48] text-[9px] font-medium px-[8px] py-[1px]">
+            {discountPercentage}% off
           </span>
         </p>
-        {/* Brand Name and Product Code in the same row using flex and justify-end */}
-        <div className="flex justify-between items-center mb-2">
-          <p className="text-[#717171] font-medium sm:text-base text-sm mr-2">
+        
+        <div className="flex justify-between items-center">
+          <p className="text-[#717171] font-medium text-[10px] mr-2">
             {brandName}
           </p>
-          <p className="text-[#717171] font-medium text-xs">{productCode}</p>
+          <p className="text-[#717171] font-medium text-[10px] ">{productCode}</p>
         </div>
       </div>
       <div className="flex justify-between px-[14px] gap-[10px] pb-4">
