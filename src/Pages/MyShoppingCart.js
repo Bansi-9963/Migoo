@@ -70,7 +70,7 @@ const MyShoppingCart = () => {
             </div>
          </section>
 
-         <section className="container-1 py-5 sm:py-8">
+         <section className="container-1 py-5 sm:py-5">
             <div className="text-gray-900 text-2xl font-medium ">My Shopping Cart</div>
             <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 ssm:gap-6 gap-4 mt-6 mb-4 ">
                {renderMobileItems()}

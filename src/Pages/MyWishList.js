@@ -61,7 +61,7 @@ const MyWishList = () => {
             </div>
          </section>
 
-         <section className="container-1 py-5 sm:py-8">
+         <section className="container-1 py-5 sm:py-5">
 
             <div className="font-medium text-gray-900 text-3xl leading-10">My WishList</div>
             <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 gap-6 mt-4 ">
