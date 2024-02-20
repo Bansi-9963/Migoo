@@ -1,19 +1,19 @@
-import React ,{ useState } from "react";
+import React, { useState } from "react";
 const OrderDetailMobile = ({
   image,
   text,
   originalPrice,
   qty
- 
+
 }) => {
 
- 
-   const subtotal = originalPrice * qty;
+
+  const subtotal = originalPrice * qty;
   return (
     <div className="relative  overflow-hidden border border-gray-100  ssm:block flex">
       <div className="h-[100px] w-[110px] px-2">
         <img className="w-full h-full object-contain" src={image} alt={text} />
-        
+
       </div>
       <div className="px-[14px] pt-4 pb-[9px] text-gray-900 text-sm font-normal leading-6">
         <div className=" mb-1 ">

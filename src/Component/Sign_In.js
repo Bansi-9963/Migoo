@@ -21,7 +21,7 @@ const Sign_In = () => {
   };
 
   return (
-    <section className="xl:py-[150px] lg:py-[100px] py-[75px] flex justify-center items-center">
+    <section className="xl:py-[150px] lg:py-[100px] py-[75px] flex justify-center items-center container-1">
       <div className="flex items-center justify-center md:h-[371px] md:w-[520px] w-full h-full">
         <div className="sign_in_div  w-full h-full rounded-lg border-[1px] border-[#F2F2F2] md:pt-[24px] pt-5 md:pr-[24px] pr-5 md:pb-[32px] pb-6 md:pl-[24px] pl-5">
           <center>
@@ -51,12 +51,12 @@ const Sign_In = () => {
               />
             </div>
             <div className="w-full md:h-[21px] mt-[16px] flex flex-row justify-between">
-              <div className="relative">
+              <div className="relative top-[-2px]">
                 <input
                   type="checkbox"
                   className="ssm:w-[20px] ssm:h-[20px] w-[14px] h-[14px]"
                 />
-                <p className="w-[105px] md:ml-7 ssm:ml-6 ml-4 h-[21px] text-[14px] leading-[21px] text-[#666666] absolute top-0">
+                <p className="w-[105px] md:ml-7 ssm:ml-6 ml-5 h-[21px] text-[14px] leading-[21px] text-[#666666] absolute top-[2px]">
                   Remember Me
                 </p>
               </div>
@@ -73,13 +73,13 @@ const Sign_In = () => {
                 Login
               </button>
             </div>
-            <div className="ssm:w-full h-[25px] mt-5" id="register">
+            <div className="ssm:w-full h-[25px] md:mt-5 mt-3" id="register">
               <div className="flex items-center justify-center">
                 <p className="text-[14px] leading-[21px] text-[#666666] font-normal">
                   Don’t have account?
                 </p>
                 <span className="font-medium text-[14px] leading-[21px] text-[#1A1A1A] ml-[4px]">
-                  <Link to="create_account" className="hover:underline">
+                  <Link to="/create_account" className="hover:underline">
                     Register
                   </Link>
                 </span>

@@ -87,7 +87,7 @@ const Create_Acct = () => {
   };
 
   return (
-    <div className="xl:py-[140px] lg:py-[100px] md:py-[80px] py-16 flex items-center justify-center">
+    <div className="xl:py-[140px] lg:py-[100px] md:py-[80px] py-16 flex items-center justify-center container-1">
       <div
         className="create_acct_div md:h-[432px] md:w-[520px] w-full rounded-lg border-[1px] border-[#F2F2F2] md:pt-[24px] pt-5 md:pr-[24px] pr-5 md:pb-[32px] pb-[26px] md:pl-[24px] pl-5"
       >
@@ -147,7 +147,7 @@ const Create_Acct = () => {
           <div className="w-full h-[21px] mt-[16px] ">
             <div className="relative">
               <input type="checkbox" className="ssm:w-[20px] ssm:h-[20px] w-[14px] h-[14px]" />
-              <span className="ssm:w-[208px] w-auto ml-[6px] h-[21px] ssm:text-[14px] text-[12px] ssm:leading-[21px] leading-[12px] text-[#666666] absolute ssm:top-[1px] top-[6px]">
+              <span className="ssm:w-[208px] w-auto ml-[6px] h-[21px] ssm:text-[14px] text-[12px] ssm:leading-[21px] leading-[12px] text-[#666666] absolute ssm:top-[3px] top-2">
                 Accept all terms & Conditions
               </span>
             </div>

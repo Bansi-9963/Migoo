@@ -3,6 +3,7 @@ import SLider from 'react-slider'
 import { useState } from 'react'
 import category_img from '../Images/Product-list.png'
 import addtoCart from '../Images/Add To Cart.svg'
+import { Link } from "react-router-dom"
 
 const MIN = 50
 const MAX = 1000
@@ -269,7 +270,9 @@ const Product_List = () => {
             </svg>
           </div>
           <div className='pl-2 pt-[3px]'>
-            <p className='text-[#5F6C72] text-base'>Home</p>
+            <Link to="/">
+              <p className='text-[#5F6C72] text-base'>Home</p>
+            </Link>
           </div>
         </div>
         <div className='pt-1'>
@@ -921,11 +924,10 @@ const Product_List = () => {
                 <button
                   key={startPage + index}
                   onClick={() => handlePageChange(startPage + index)}
-                  className={`pagination-button  text-[#666666] rounded-full px-3.5 py-1.5 ${
-                    startPage + index === currentPage
-                      ? 'selected bg-[#E6992A] text-white'
-                      : ''
-                  }`}
+                  className={`pagination-button  text-[#666666] rounded-full px-3.5 py-1.5 ${startPage + index === currentPage
+                    ? 'selected bg-[#E6992A] text-white'
+                    : ''
+                    }`}
                 >
                   {startPage + index}
                 </button>
@@ -962,9 +964,8 @@ const Product_List = () => {
                   />
                   <path
                     d='M15.0833 12.1668L20.9166 18.0002L15.0833 23.8335'
-                    stroke={` ${
-                      currentPage >= totalPages ? '#B3B3B3' : '#1A1A1A'
-                    }`}
+                    stroke={` ${currentPage >= totalPages ? '#B3B3B3' : '#1A1A1A'
+                      }`}
                     strokeWidth='1.5'
                     strokeLinecap='round'
                     strokeLinejoin='round'
