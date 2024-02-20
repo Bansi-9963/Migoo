@@ -57,6 +57,7 @@ const Order_Detail = () => {
         ));
     };
     return (
+        <>
         <section className="ssm:my-[79px] my-10 flex ssm:flex-row flex-col lg:gap-6 gap-4 container-1 ">
             {screenWidth >= 1024 ? <Navigation_Bar /> : null}
             <div className="Order_Detail border-[1px] border-[#E6E6E6] w-full rounded-lg">
@@ -233,7 +234,9 @@ const Order_Detail = () => {
                                             PRICE
                                         </th>
                                         <th scope="col" className="text-sm px-2 sm:px-5 py-3">
+
                                             QUANTITY
+
                                         </th>
                                         <th scope="col" className="text-sm px-2 sm:px-5 py-3">
                                             SUBTOTAL
@@ -245,6 +248,9 @@ const Order_Detail = () => {
                         </div>
                     </div>
                 </div>
+
+                </div>
+
             </section>
         </>
     );
