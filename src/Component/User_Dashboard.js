@@ -18,9 +18,35 @@ const User_Dashboard = () => {
     };
   }, []);
   return (
-    <section className="sm:my-[79px] my-10   container-1   flex ssm:flex-row flex-col lg:gap-6 gap-4 ">
-      {screenWidth >= 1024 ? <Navigation_Bar /> : null}
-      {/* <div className="flex flex-col gap-[27px]">
+    <>
+      {/* breadcrumbs */}
+      <section className="container-1">
+        <div id='breadcrumbs' className='lg:h-[62px] h-11 w-full flex items-center gap-[10px]'>
+          <div className='flex items-center'>
+            <div>
+              <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.875 15.2498V11.4998C9.875 11.334 9.80915 11.1751 9.69194 11.0579C9.57473 10.9406 9.41576 10.8748 9.25 10.8748H6.75C6.58424 10.8748 6.42527 10.9406 6.30806 11.0579C6.19085 11.1751 6.125 11.334 6.125 11.4998V15.2498C6.125 15.4156 6.05915 15.5745 5.94194 15.6917C5.82473 15.809 5.66576 15.8748 5.5 15.8748H1.75C1.58424 15.8748 1.42527 15.809 1.30806 15.6917C1.19085 15.5745 1.125 15.4156 1.125 15.2498V8.02324C1.1264 7.93674 1.14509 7.8514 1.17998 7.77224C1.21486 7.69308 1.26523 7.6217 1.32812 7.5623L7.57812 1.88261C7.69334 1.77721 7.84384 1.71875 8 1.71875C8.15616 1.71875 8.30666 1.77721 8.42187 1.88261L14.6719 7.5623C14.7348 7.6217 14.7851 7.69308 14.82 7.77224C14.8549 7.8514 14.8736 7.93674 14.875 8.02324V15.2498C14.875 15.4156 14.8092 15.5745 14.6919 15.6917C14.5747 15.809 14.4158 15.8748 14.25 15.8748H10.5C10.3342 15.8748 10.1753 15.809 10.0581 15.6917C9.94085 15.5745 9.875 15.4156 9.875 15.2498Z" stroke="#5F6C72" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className='pl-2 pt-[3px]'>
+              <Link to="/">
+                <p className='text-[#5F6C72] text-base'>Home</p>
+              </Link>
+            </div>
+          </div>
+          <div className='pt-1'>
+            <svg width="10" height="12" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 1.25L5.25 5L1.5 8.75" stroke="#77878F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <div className='pt-1'>
+            <p className='text-[#E6992A] font-medium text-base'>User Dashboard</p>
+          </div>
+        </div>
+      </section>
+      <section className="sm:my-[79px] my-10   container-1   flex ssm:flex-row flex-col lg:gap-6 gap-4 ">
+        {screenWidth >= 1024 ? <Navigation_Bar /> : null}
+        {/* <div className="flex flex-col gap-[27px]">
         <div className="flex flex-row gap-6">
           <div className="2xl:w-[536px] 2xl:h-[278px] rounded-lg border-[1px] border-[#E6E6E6]">
             <div className="2xl:w-[147px] 2xl:h-[214px] mx-auto my-[32px]">
@@ -97,10 +123,10 @@ const User_Dashboard = () => {
           </table>
         </div>
       </div> */}
-       <div className="flex flex-col lg:gap-[27px] gap-[20px] w-full">
-        <div className="flex sm:flex-row flex-col gap-6">
-          <div className="lg:w-[55%] md:w-[45%] sm:w-[35%] w-full  rounded-lg border-[1px] border-[#E6E6E6]">
-           
+        <div className="flex flex-col lg:gap-[27px] gap-[20px] w-full">
+          <div className="flex sm:flex-row flex-col gap-6">
+            <div className="lg:w-[55%] md:w-[45%] sm:w-[35%] w-full  rounded-lg border-[1px] border-[#E6E6E6]">
+
               <div className="pt-2.5 pb-3 flex justify-center">
                 <img
                   src={Profile_Pic}
@@ -122,10 +148,10 @@ const User_Dashboard = () => {
                   </h4>
                 </Link>
               </div>
-         
-          </div>
-          <div className="rounded-lg border-[1px] border-[#E6E6E6] py-[26px] sm:pl-8 pl-5 lg:w-[45%] md:w-[55%] sm:w-[65%] w-full">
-           
+
+            </div>
+            <div className="rounded-lg border-[1px] border-[#E6E6E6] py-[26px] sm:pl-8 pl-5 lg:w-[45%] md:w-[55%] sm:w-[65%] w-full">
+
               <h2 className="uppercase text-[#999] text-sm leading-[14px] tracking-[0.42px] font-medium">
                 Billing Address
               </h2>
@@ -146,10 +172,10 @@ const User_Dashboard = () => {
               <h2 className="text-base leading-6 text-[#E6992A] font-medium mt-5">
                 Edit Address
               </h2>
-         
+
+            </div>
           </div>
-        </div>
-        {/* <div className="2xl:w-[984px] 2xl:h-[404px] rounded-lg border-[1px] border-[#E6E6E6]">
+          {/* <div className="2xl:w-[984px] 2xl:h-[404px] rounded-lg border-[1px] border-[#E6E6E6]">
           <div className="2xl:h-[55px] flex justify-between items-center px-6">
             <h2 className="text-xl font-medium leading-[30px] text-[#1A1A1A]">
               Recent Order History
@@ -173,8 +199,6 @@ const User_Dashboard = () => {
             </tbody>
           </table>
         </div> */}
-
-
 
 
 
@@ -208,11 +232,11 @@ const User_Dashboard = () => {
               </tbody>
             </table>
             </div>
-            
-      </div>
-    </div>
-      </div>
-    </section>
+          </div>
+        </div>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @import url("https://fonts.googleapis.com/css2?family=Inter");
 body {
@@ -9,8 +8,8 @@ body {
   font-weight: 500 !important;
 }
 
- /* Global CSS */
- .container-1 {
+/* Global CSS */
+.container-1 {
   width: 100%;
   padding-right: 20px !important;
   padding-left: 20px !important;
@@ -45,7 +44,6 @@ body {
     max-width: 1320px;
   }
 }
-
 
 .sign_in_div,
 .create_acct_div {
@@ -84,7 +82,8 @@ body {
   animation-iteration-count: 1;
 }
 
-#mobile_menu {
+#mobile_menu,
+#user_dash {
   animation: appear 0.4s ease-in;
   animation-iteration-count: 1;
 }
@@ -104,8 +103,8 @@ body {
   box-shadow: 0 0 0 0 white;
 }
 
-
-#from_range, #to_range {
+#from_range,
+#to_range {
   background-color: #e9e7e1;
   padding-inline: 14px;
   padding-top: 4px;
@@ -118,19 +117,20 @@ body {
   cursor: pointer;
   background: white;
   border-radius: 50%;
-  border: 2px #E6992A solid;
+  border: 2px #e6992a solid;
   position: absolute;
   top: -10px;
 }
 
-.track-0, .track-2 {
+.track-0,
+.track-2 {
   background-color: #666666;
   height: 3px;
   border-radius: 25px;
 }
 
 .track-1 {
-  background-color: #E6992A;
+  background-color: #e6992a;
   height: 3px;
   border-radius: 25px;
 }
@@ -141,13 +141,12 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 2px solid #ccc;
-  width: 16px; 
-  height: 16px; 
-  border-radius: 3px; 
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
 }
 
 /* Style the custom checkbox */
 input[type="checkbox"]:checked {
-  background-color: #E6992A;
+  background-color: #e6992a;
 }
-
