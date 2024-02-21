@@ -1,148 +1,40 @@
 import React from 'react'
 import SLider from 'react-slider'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import category_img from '../Images/Product-list.png'
 import addtoCart from '../Images/Add To Cart.svg'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const MIN = 50
 const MAX = 1000
 
 const Product_List = () => {
-  const Product_Category_Data = [
-    {
-      id: 1,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine',
-      brand: 'brand_1'
-    },
-    {
-      id: 2,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 3,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 4,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 5,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 6,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 7,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 8,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 9,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 10,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 11,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 12,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 13,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 14,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 15,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 16,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 17,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 18,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 19,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 20,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    },
-    {
-      id: 21,
-      product_img:
-        'https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg',
-      title: 'Engine'
-    }
-  ]
+  // const [featureData, setFeatureData] = useState([]);
+  const [Data, setData] = useState([])
 
-  const [Data, setData] = useState(Product_Category_Data)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          'http://192.168.2.134:8000/api/product-detail/'
+        )
+        const Product_Category_Data = await response.json()
+        console.log('data--------------', Product_Category_Data)
+
+        setData(Product_Category_Data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    // Call the function to fetch data
+    fetchData()
+  }, [])
+
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 20 // Number of items per page
-  const totalPages = Math.ceil(Product_Category_Data.length / itemsPerPage)
+  const totalPages = Math.ceil(Data.length / itemsPerPage)
+  console.log(totalPages)
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const currentItems = Data.slice(indexOfFirstItem, indexOfLastItem)
@@ -205,7 +97,7 @@ const Product_List = () => {
     } else {
       matching_labels[0].style.color = '#4D4D4D'
       matching_labels[0].style.fontWeight = '500'
-      setData(Product_Category_Data)
+      setData(Data)
     }
   }
 
@@ -270,7 +162,7 @@ const Product_List = () => {
             </svg>
           </div>
           <div className='pl-2 pt-[3px]'>
-            <Link to="/">
+            <Link to='/'>
               <p className='text-[#5F6C72] text-base'>Home</p>
             </Link>
           </div>
@@ -864,14 +756,14 @@ const Product_List = () => {
                   <div className='h-[103px] p-[16px] '>
                     <div className=' flex justify-between'>
                       <div>
-                        <p className='text-[20px]'>Air Filter </p>
+                        <p className='text-[20px]'>{data.title}</p>
                         <div className='flex text-[16px] gap-[5px]'>
-                          <p>₹1499.99</p>
+                          <p>{data.prices[0].price}</p>
                           <p className='text-[#999999] line-through'>
-                            ₹1999.99
+                            ₹{data.mrp}
                           </p>
                         </div>
-                        <p className='text-[12px]'>Brand Name</p>
+                        <p className='text-[12px]'>{data.brand}</p>
                       </div>
                       <div onClick={handleclick}>
                         <img src={addtoCart} />
@@ -924,10 +816,11 @@ const Product_List = () => {
                 <button
                   key={startPage + index}
                   onClick={() => handlePageChange(startPage + index)}
-                  className={`pagination-button  text-[#666666] rounded-full px-3.5 py-1.5 ${startPage + index === currentPage
-                    ? 'selected bg-[#E6992A] text-white'
-                    : ''
-                    }`}
+                  className={`pagination-button  text-[#666666] rounded-full px-3.5 py-1.5 ${
+                    startPage + index === currentPage
+                      ? 'selected bg-[#E6992A] text-white'
+                      : ''
+                  }`}
                 >
                   {startPage + index}
                 </button>
@@ -964,8 +857,9 @@ const Product_List = () => {
                   />
                   <path
                     d='M15.0833 12.1668L20.9166 18.0002L15.0833 23.8335'
-                    stroke={` ${currentPage >= totalPages ? '#B3B3B3' : '#1A1A1A'
-                      }`}
+                    stroke={` ${
+                      currentPage >= totalPages ? '#B3B3B3' : '#1A1A1A'
+                    }`}
                     strokeWidth='1.5'
                     strokeLinecap='round'
                     strokeLinejoin='round'

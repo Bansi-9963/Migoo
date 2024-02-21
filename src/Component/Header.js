@@ -9,6 +9,7 @@ import Wishlist from "../Images/Wishlist.png";
 import ShoppingList from "../Images/Shopping_Cart.png";
 import Settings from "../Images/Settings.png";
 import Logout from "../Images/Logout.png";
+import { Link } from 'react-router-dom';
 
 const toggleElement = (elementId) => {
   const element = document.getElementById(elementId);
@@ -102,12 +103,14 @@ const Header = () => {
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
               />
             </div>
+            <Link to="/wishlist">
             <div className="hidden lg:block">
               <img
                 src={Heart}
                 className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6"
               />
             </div>
+            </Link>
             <div onClick={handleUser} className="lg:pointer-events-none pointer-events-auto cursor-pointer">
               <img src={User} className="lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6" />
             </div>
