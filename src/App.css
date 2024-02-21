@@ -41,6 +41,114 @@ body {
 }
 @media (min-width: 1536px) {
   .container-1 {
-    max-width: 1325px;
+
+    max-width: 1320px;
   }
 }
+
+.sign_in_div,
+.create_acct_div {
+  box-shadow: 0 0 10px -4px #002603;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid #666666;
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  transform: rotate(180deg);
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(-100%);
+    /* transform: translateX(100%); */
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    /* transform: translateX(0%); */
+    opacity: 1;
+  }
+}
+
+#srch_inp {
+  animation: appear 0.5s ease-in;
+  animation-iteration-count: 1;
+}
+
+#mobile_menu,
+#user_dash {
+  animation: appear 0.4s ease-in;
+  animation-iteration-count: 1;
+}
+
+#header_nav {
+  transition: position 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#header_nav.sticky {
+  position: sticky;
+  top: 0;
+  box-shadow: 0 1px 1px 0 black;
+}
+
+#header_nav.static {
+  position: static;
+  box-shadow: 0 0 0 0 white;
+}
+
+#from_range,
+#to_range {
+  background-color: #e9e7e1;
+  padding-inline: 14px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.slider .thumb {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  background: white;
+  border-radius: 50%;
+  border: 2px #e6992a solid;
+  position: absolute;
+  top: -10px;
+}
+
+.track-0,
+.track-2 {
+  background-color: #666666;
+  height: 3px;
+  border-radius: 25px;
+}
+
+.track-1 {
+  background-color: #e6992a;
+  height: 3px;
+  border-radius: 25px;
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #ccc;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+/* Style the custom checkbox */
+input[type="checkbox"]:checked {
+  background-color: #e6992a;
+}
+

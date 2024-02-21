@@ -24,8 +24,8 @@ const MyShoppingCartMobile = ({
    const subtotal = originalPrice * quantity;
   return (
     <div className="relative rounded-lg overflow-hidden border border-gray-100  mb-2 ssm:block flex">
-      <div className="h-[100px] w-[110px]">
-        <img className="w-full h-full object-contain" src={image} alt={text} />
+      <div className="h-[100px] w-[110px] w-[40%] self-center">
+        <img className="w-full h-full object-contain h-[100px] w-[110px]" src={image} alt={text} />
         <div className="absolute top-2 right-2">
           <div className="w-8 h-8 rounded-full p-1 flex items-center justify-center">
             <svg
@@ -67,19 +67,19 @@ const MyShoppingCartMobile = ({
       </div>
       <div className="px-[14px] pt-4 pb-[9px] text-gray-900 text-base font-normal leading-6">
         <div className=" mb-2 ">
-          <div className="text-lg font-semibold w-[104px]">{text}</div>
+          <div className="sm:text-lg  text-base font-semibold w-[104px]">{text}</div>
         </div>
-        <p className="mb-3 flex  items-baseline">
+        <p className="mb-3 text-sm flex  items-baseline">
           ${originalPrice}
-          <div className="py-1 px-1 inline-block bg-white border border-gray-200 rounded-[170px]  ml-3">
+          <div className="py-1 px-1 inline-block bg-white border border-gray-200 rounded-[170px]  max-[345px]:ml-1 ml-3 ">
             <div className="flex items-center gap-x-1.5">
               <button
                 data-action="decrement"
-                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
+                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 max-[345px]:p-1 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full max-[345px]:m-0 m-1"
                 onClick={decrement}
               >
                 <svg
-                  className="w-3 h-3 text-black"
+                  className="max-[345px]:w-2 w-3 max-[345px]:h-2 h-3 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -96,18 +96,18 @@ const MyShoppingCartMobile = ({
               </button>
               <input
               type="number"
-              className="p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-black"
+              className=" text-sm p-0 w-5 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-black"
               name="custom-input-number"
               value={quantity}
               readOnly
             />
               <button
                 data-action="increment"
-                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full m-1"
+                className="bg-[#F2F2F2] border border-gray-300 md:p-2.5 max-[345px]:p-1 p-1.5 focus:ring-[#E6992A] focus:ring-2 focus:outline-none rounded-full max-[345px]:m-0 m-1"
                 onClick={increment}
               >
                 <svg
-                  className="w-3 h-3 text-black"
+                  className="max-[345px]:w-2 w-3 max-[345px]:h-2 h-3 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -125,7 +125,7 @@ const MyShoppingCartMobile = ({
             </div>
           </div>
         </p>
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center mb-2 text-sm">
           <span className="mb-2 ">SubTotal: ${subtotal.toFixed(2)}</span>
         </div>
       </div>

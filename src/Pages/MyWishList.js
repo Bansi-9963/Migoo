@@ -4,60 +4,90 @@ import '../CSS/Order_detail.css';
 import Productimage from '../Images/Image.png';
 import Productimage1 from '../Images/Gear.png';
 import 'tailwindcss/tailwind.css';
-import MyWishListItem from  '../Component/MyWishListItem.js';
+import MyWishListItem from '../Component/MyWishListItem.js';
 import MyWishListMobile from "../Component/MyWishListMobile";
+import { Link } from 'react-router-dom';
 const MyWishList = () => {
    const dummyWishlistData = [
       {
-        id: 1,
-        image: `${Productimage}`,
-        text: 'Engine Part',
-        discountedPrice: '$14.99',
-        originalPrice: '$20.99',
-        status: 'In Stock',
-      },
-      {
-        id: 2,
-        image: `${Productimage1}`,
-        text: 'Gear Box',
-        discountedPrice: '$45.00',
-        status: 'In Stock',
+         id: 1,
+         image: `${Productimage}`,
+         text: 'Engine Part',
+         discountedPrice: '$14.99',
+         originalPrice: '$20.99',
+         status: 'In Stock',
       },
       {
          id: 2,
          image: `${Productimage1}`,
          text: 'Gear Box',
          discountedPrice: '$45.00',
+         status: 'In Stock',
+      },
+      {
+         id: 3,
+         image: `${Productimage1}`,
+         text: 'Gear Box',
+         discountedPrice: '$45.00',
          status: 'Out Of Stock',
-       },
+      },
       // Add more wishlist items as needed
-    ];
-return (
-<section className="container-1">
-   <div className="font-medium text-gray-900 text-3xl leading-10 pt-20 ">My WishList</div>
-   <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 gap-6 mt-4 ">
-   {dummyWishlistData.map((item) => (
-          <MyWishListMobile
-            key={item.id}
-            image={item.image}
-            text={item.text}
-            discountedPrice={item.discountedPrice}
-            originalPrice={item.originalPrice}
-            status={item.status}
-          />
-        ))}
-   </div>
-   <div className="relative  mt-4 rounded-md border border-gray-100 ssm:block hidden">
+   ];
+   return (
+      <>
+         {/* breadcrumbs */}
+         <section className='container-1'>
+            <div id='breadcrumbs' className='lg:h-[62px] h-11 w-full flex items-center gap-[10px]'>
+               <div className='flex items-center'>
+                  <div>
+                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.875 15.2498V11.4998C9.875 11.334 9.80915 11.1751 9.69194 11.0579C9.57473 10.9406 9.41576 10.8748 9.25 10.8748H6.75C6.58424 10.8748 6.42527 10.9406 6.30806 11.0579C6.19085 11.1751 6.125 11.334 6.125 11.4998V15.2498C6.125 15.4156 6.05915 15.5745 5.94194 15.6917C5.82473 15.809 5.66576 15.8748 5.5 15.8748H1.75C1.58424 15.8748 1.42527 15.809 1.30806 15.6917C1.19085 15.5745 1.125 15.4156 1.125 15.2498V8.02324C1.1264 7.93674 1.14509 7.8514 1.17998 7.77224C1.21486 7.69308 1.26523 7.6217 1.32812 7.5623L7.57812 1.88261C7.69334 1.77721 7.84384 1.71875 8 1.71875C8.15616 1.71875 8.30666 1.77721 8.42187 1.88261L14.6719 7.5623C14.7348 7.6217 14.7851 7.69308 14.82 7.77224C14.8549 7.8514 14.8736 7.93674 14.875 8.02324V15.2498C14.875 15.4156 14.8092 15.5745 14.6919 15.6917C14.5747 15.809 14.4158 15.8748 14.25 15.8748H10.5C10.3342 15.8748 10.1753 15.809 10.0581 15.6917C9.94085 15.5745 9.875 15.4156 9.875 15.2498Z" stroke="#5F6C72" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                     </svg>
+                  </div>
+                  <div className='pl-2 pt-[3px]'>
+                     <Link to="/">
+                        <p className='text-[#5F6C72] text-base'>Home</p>
+                     </Link>
+                  </div>
+               </div>
+               <div className='pt-1'>
+                  <svg width="10" height="12" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M1.5 1.25L5.25 5L1.5 8.75" stroke="#77878F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+               </div>
+               <div className='pt-1'>
+                  <p className='text-[#E6992A] font-medium text-base'>WishList</p>
+               </div>
+            </div>
+         </section>
+
+         <section className="container-1 py-5 sm:py-5">
+
+            <div className="font-medium text-gray-900 text-3xl leading-10">My WishList</div>
+            <div className="ssm:hidden block grid ssm:grid-cols-2 grid-cols-1 gap-6 mt-4 ">
+               {dummyWishlistData.map((item) => (
+                  <MyWishListMobile
+                     key={item.id}
+                     image={item.image}
+                     text={item.text}
+                     discountedPrice={item.discountedPrice}
+                     originalPrice={item.originalPrice}
+                     status={item.status}
+                  />
+               ))}
+            </div>
+
+            <div className="relative  mt-6 rounded-md border border-gray-100 ssm:block hidden">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500">
          <thead className=" uppercase text-[#808080] border-b">
             <tr className="text-sm w-full">
-               <th scope="col" className="px-2 sm:px-6 py-3">
+               <th scope="col" className="px-2 px-6  ">
                   PRODUCT 
                </th>
-               <th scope="col" className="px-2 sm:px-6 lg:px-20 xl:px-28 py-3">
+               <th scope="col" className="px-2 sm:px-6 lg:px-12 xl:px-20 py-3">
                   PRICE
                </th>
-               <th scope="col" className="px-2 sm:px-4 md:px-8 lg:px-12 xl:px-20 py-3">
+               <th scope="col" className="px-2 sm:px-4  lg:px-12 xl:px-20 py-3">
                   STOCK STATUS
                </th>
                <th scope="col" className="px-2 sm:px-4 py-3">
@@ -127,7 +157,9 @@ return (
          </div>
       </div>
    </div>
-</section>
-);
+
+         </section>
+      </>
+   );
 };
 export default MyWishList;

@@ -7,7 +7,9 @@
     background-color: #E6992A;
   }
   .order_progress li .active p{
-    display: none;
+    /* display: none; */
+    color: white;
+    margin-top: 7px;
   }
   .order_progress li .active .uil{
     display: flex;
@@ -15,16 +17,14 @@
   
   /* Responsive Css  */
   
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     .order_progress{
         flex-direction: column;
     }
     .order_progress li{
         flex-direction: row;
     }
-    .order_progress li .progress{
-        margin: 0 30px;
-    }
+
     .progress::after{
         width: 5px;
         height: 55px;
@@ -34,11 +34,11 @@
         z-index: -1;
     }
     .one::after{
-        height: 0;
+        height: 0px;
     }
     .order_progress li .icon{
         margin: 15px 0;
-    }
+    } 
   }
   
  

@@ -7,7 +7,7 @@ import clien3 from "../Images/Product_Details/client3.png";
 
 import Featurecard from "../Component/Featurecard";
 import FeaturcardScroll from "../Component/FeaturcardScroll";
-import Scroll from "../Component/Product_Details/Slider";
+
 
 import OfferCard from "../Component/Product_Details/OfferCard";
 import Customer_review from "../Component/Product_Details/Customer_review";
@@ -553,8 +553,10 @@ const ProductDetails = () => {
                   <span
                     className={`${product_detail_style.small_text} font-normal   text-[#1A1A1A] col-span-1 sm:col-span-4  lg:col-span-3 `}
                   >
+
                     3rd floor, Building # 10, Tower C DLF Cyber City,  Phase-II,
                     Gurugram, Haryana 122002,  India Ph:- +911244933535
+
                   </span>
                 </div>
               </div>
@@ -702,4 +704,6 @@ const ProductDetails = () => {
   );
 };
 
+
 export default ProductDetails;
+
