@@ -41,6 +41,7 @@ body {
 }
 @media (min-width: 1536px) {
   .container-1 {
+
     max-width: 1320px;
   }
 }
@@ -150,3 +151,4 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
   background-color: #e6992a;
 }
+

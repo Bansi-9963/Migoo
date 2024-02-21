@@ -17,9 +17,11 @@ import Footer from "./Component/Footer";
 import Testing from "./Component/testing";
 import Order_Detail from "./Component/Order_Detail";
 import OrderHistory from "./Component/OrderHistory";
+
 import Billing_address from "./Pages/Address.js";
 import Product_Category from "./Component/Product_Category";
 import Product_List from "./Component/Product_List";
+
 import ProductDetails from "./Pages/ProductDetails.js";
 
 
@@ -33,7 +35,6 @@ import {
 function App() {
   return (
     <>
-
       <BrowserRouter>
         <Header />
 
@@ -52,10 +53,12 @@ function App() {
             <Route path="testing" element={<Testing />} />
             <Route path="order-detail/:orderId" element={<Order_Detail />} />
             <Route path="order-history" element={<OrderHistory />} />
+
             <Route path="billing-address" element={<Billing_address />} />
             <Route path="testing" element={<Testing />} />
             <Route path="category" element={<Product_Category />} />
             <Route path="product-list" element={<Product_List />} />
+
             <Route path="product-details" element={<ProductDetails />} />
           </Routes>
         
