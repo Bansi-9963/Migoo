@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import '../CSS/Order_detail.css';
 import ProductImage from '../Images/Image.png';
@@ -7,6 +7,38 @@ import MyShoppingcartItem from '../Component/MyShoppingcartItem';
 import MyShoppingCartMobile from '../Component/MyShoppingCartMobile';
 import { Link } from 'react-router-dom';
 const MyShoppingCart = () => {
+
+   const [Data, setData] = useState([])
+   const [productDetail, setProductDetail] = useState([])
+
+
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const response = await fetch('http://192.168.2.134:8000/api/cart-view/');
+            const Product_Category_Data = await response.json();
+
+
+            const response_data = await fetch('http://192.168.2.134:8000/api/product-detail/');
+            const Product_detail_data = await response_data.json();
+
+
+
+            const filteredData = Product_Category_Data.filter(item => {
+
+               return item.owner_id == 3;
+            })[0].basket;
+
+
+            setData(filteredData);
+            setProductDetail(Product_detail_data);
+         } catch (error) {
+            console.error('Error fetching data:', error);
+         }
+      };
+
+      fetchData();
+   }, []);
    const products = [
       {
          image: `${ProductImage}`,
@@ -25,23 +57,46 @@ const MyShoppingCart = () => {
 
    // Render mobile items
    const renderMobileItems = () => {
-      return products.map((product, index) => (
-         <MyShoppingCartMobile key={index} {...product} />
-      ));
+      return Data.map((product, index) => {
+         const matchingItem = productDetail.find(item => product.product_id === item.id);
+         if (matchingItem) {
+            return (
+               <MyShoppingCartMobile
+                  key={index}
+                  image={matchingItem.images[0].original}
+                  title={matchingItem.title}
+                  quantity ={product.quantity}
+                  originalPrice={matchingItem.prices[0].price}
+               // Pass other props as needed
+               />
+            );
+         } else {
+            return null;
+         }
+      });
    };
 
-   // Render table items
+
+
    const renderTableItems = () => {
-      return products.map((product, index) => (
-         <MyShoppingcartItem
-            key={index}
-            item_name={product.text}
-            item_image={product.image}
-            item_price={product.originalPrice}
-            sub_total={`$${parseFloat(product.originalPrice).toFixed(2)}`}
-         />
-      ));
+      return Data.map((product, index) => {
+         const matchingItem = productDetail.find(item => product.product_id === item.id);
+         if (matchingItem) {
+        
+            return <MyShoppingcartItem
+               key={index}
+               item_name={matchingItem.title}
+               item_image={matchingItem.images[0].original}
+               item_price={matchingItem.prices[0].price}
+               quantity={product.quantity}
+               sub_total={`$${parseFloat(matchingItem.originalPrice).toFixed(2)}`}
+            />;
+         } else {
+            return null;
+         }
+      });
    };
+
    return (
       <>
          {/* breadcrumbs */}

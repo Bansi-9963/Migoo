@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navigation_Bar from "./Navigation_Bar";
 import '../CSS/Order_detail.css';
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+
 
 
 
@@ -11,6 +11,8 @@ const OrderHistory = () => {
   const { useState, useEffect } = React;
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useEffect(() => {
+
+
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
     };
@@ -21,6 +23,27 @@ const OrderHistory = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+       try {
+          const response = await fetch('http://192.168.2.134:8000/api/order/');
+          const response_data = await response.json();
+          const filteredData = response_data.filter(item => {
+
+            return item.user == 1;
+         });
+
+          setData(filteredData);
+         console.log(filteredData);
+       } catch (error) {
+          console.error('Error fetching data:', error);
+       }
+    };
+
+    fetchData();
+ }, []);
 
   // const [data, setData] = useState([]);
   // const [currentPage, setCurrentPage] = useState(1);
@@ -103,16 +126,16 @@ const OrderHistory = () => {
 
   ];
 
-  const [data, setData] = useState([]);
+  
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5; // Number of items per page
   const [loading, setLoading] = useState(true);
 
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const totalPages = Math.ceil(data.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems =
-    products.slice(indexOfFirstItem, indexOfLastItem);
+  data.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -187,12 +210,12 @@ const OrderHistory = () => {
                 </thead>
                 <tbody>
                   {currentItems.map((item) => (
-                    <tr key={item.order_id} className="data-row text-sm text-[#333333]">
-                      <td className="data-cell py-3 xl:px-[24px] pr-[64px] pl-[24px] whitespace-nowrap">{item.order_id}</td>
-                      <td className="data-cell py-3 px-[24px] whitespace-nowrap">{item.date}</td>
+                    <tr key={item.id} className="data-row text-sm text-[#333333]">
+                      <td className="data-cell py-3 xl:px-[24px] pr-[64px] pl-[24px] whitespace-nowrap">{item.number}</td>
+                      <td className="data-cell py-3 px-[24px] whitespace-nowrap">{item.date_placed}</td>
                       <td className="data-cell py-3 px-[24px] whitespace-nowrap">{item.total_products}</td>
                       <td className="data-cell py-3 px-[24px] whitespace-nowrap">{item.status}</td>
-                      <td className="data-cell py-3 px-[24px] whitespace-nowrap"><a className="font-medium text-[#E6992A]"><Link to={`/order-detail/${item.order_id}`}>View Details</Link></a></td>
+                      <td className="data-cell py-3 px-[24px] whitespace-nowrap"><a className="font-medium text-[#E6992A]"><Link to={`/order-detail/${item.number}`}>View Details</Link></a></td>
                       {/* Add more table data as needed */}
                     </tr>
                   ))}
