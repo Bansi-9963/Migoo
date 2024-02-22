@@ -1,9 +1,11 @@
 import React from 'react'
 import SLider from 'react-slider'
 import { useState, useEffect } from 'react'
-import category_img from '../Images/Product-list.png'
-import addtoCart from '../Images/Add To Cart.svg'
+
+
 import { Link } from 'react-router-dom'
+
+import Product_card from './Product_card'
 
 const MIN = 50
 const MAX = 1000
@@ -30,6 +32,8 @@ const Product_List = () => {
     // Call the function to fetch data
     fetchData()
   }, [])
+
+
 
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 20 // Number of items per page
@@ -74,9 +78,7 @@ const Product_List = () => {
       svg_div.classList.remove('rotate-180')
     }
   }
-  const handleclick = () => {
-    // console.log("hello");
-  }
+
 
   const handleChange = event => {
     let labels = document.getElementsByTagName('label')
@@ -746,31 +748,16 @@ const Product_List = () => {
           <div className='flex flex-col 2xl:w-[975px] w-full h-fit pt-5'>
             {/* Categories Imgaes */}
             <div className='grid  xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full h-auto 2xl:gap-[25px] xl:gap-5 lg:gap-4 md:gap-5 ssm:gap-3 gap-5'>
-              {currentItems.map(data => (
-                <div
-                  className='2xl:max-w-[312px] 2xl:max-h-[407px] border-2 hover:border-[#D2871C] rounded-lg'
-                  key={data.id}
-                >
-                  <img src={category_img} className='p-[5px] w-full' />
-
-                  <div className='h-[103px] p-[16px] '>
-                    <div className=' flex justify-between'>
-                      <div>
-                        <p className='text-[20px]'>{data.title}</p>
-                        <div className='flex text-[16px] gap-[5px]'>
-                          <p>{data.prices[0].price}</p>
-                          <p className='text-[#999999] line-through'>
-                            ₹{data.mrp}
-                          </p>
-                        </div>
-                        <p className='text-[12px]'>{data.brand}</p>
-                      </div>
-                      <div onClick={handleclick}>
-                        <img src={addtoCart} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {currentItems.map((data, index) => (
+                <Product_card
+                  key={index}
+                  id={data.id}
+                  title={data.title}
+                  price={data.prices[0].price}
+                  brand={data.brand}
+                  mrp ={data.mrp}
+                  image= {"http://192.168.2.134:8000/media/" + data.images[0].original}
+                />
               ))}
             </div>
             {/* Pagination Buttons */}
