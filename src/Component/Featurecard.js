@@ -56,13 +56,13 @@ const Featurecard = ({
   };
 
   return (
-    <div className="relative rounded-lg overflow-hidden shadow-md 2xl:w-[300px] max-[324px]:w-[100%] xl:w-[259px] lg:w-[292px] md:w-[314px] sm:w-[270px] msm:w-[236px] mssm:w-[210px] mssm:max-w-[300px] max-w-[230px] w-full bg-white mb-2 ">
-      <div className="">
+    <div className="relative rounded-lg overflow-hidden shadow-md shadow-gray-400 2xl:w-[300px] max-[324px]:w-[100%] xl:w-[259px] lg:w-[292px] md:w-[314px] sm:w-[270px] msm:w-[236px] mssm:w-[210px] mssm:max-w-[300px] max-w-[230px] w-full bg-white mb-2 ">
+      <div className="aspect-square flex items-center">
         <img className="w-full object-cover" src={image} alt={text} />
         
         <div className="absolute top-2 right-2">
           <div
-            className="w-8 h-8 mssm:w-6 mssm:h-6  rounded-full bg-white p-1 flex items-center justify-center test"
+            className="ssm:w-9 ssm:h-9 mssm:w-8 mssm:h-8 h-7 w-7  rounded-full bg-white p-1 flex items-center justify-center test"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -114,9 +114,9 @@ const Featurecard = ({
           </div>
         </div>
       </div>
-      <div className="px-[14px] pt-4 pb-[9px]">
-        <div className="flex mb-[5px] justify-between">
-          <div className="font-bold sm:text-[16px] text-[14px] m w-[104px]">
+      <div className="px-[14px]  pt-4 pb-[9px] lg:h-[100px]  md:h-[93px] h-[90px]">
+        <div className="flex mb-[5px] justify-between items-baseline">
+          <div className="font-bold sm:text-[16px] text-[14px] m w-[130px]">
             {text}
           </div>
           <div className="flex items-center">
