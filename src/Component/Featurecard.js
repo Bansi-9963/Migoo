@@ -125,7 +125,7 @@ const Featurecard = ({
               alt="Icon"
               className="w-[14px] h-[14px]"
             />
-            <span className="sm:text-[12px] ml-1 text-[10px] w-[64px]">Fulfilled by</span>
+            <span className="sm:text-[10px] ml-1 font-bold text-[8px] w-[64px]">Fulfilled by</span>
           </div>
         </div>
         <p className="text-[#000000] font-bold sm:text-[12px] text-[12px] mb-[5px]">

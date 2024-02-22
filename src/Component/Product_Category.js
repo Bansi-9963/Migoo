@@ -1,6 +1,6 @@
 import React from 'react';
 import SLider from 'react-slider';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import '../App.css';
 import { Link } from "react-router-dom";
 
@@ -8,121 +8,140 @@ const MIN = 50;
 const MAX = 1000;
 
 const Product_Category = () => {
+  const [Data, setData] = useState([])
 
-  const Product_Category_Data = [
-    {
-      id: 1,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine",
-      brand: "brand_1"
-    },
-    {
-      id: 2,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine",
-      brand: "brand_1"
-    },
-    {
-      id: 3,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 4,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 5,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 6,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 7,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 8,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 9,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 10,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 11,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 12,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 13,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 14,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 15,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 16,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 17,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 18,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 19,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 20,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    },
-    {
-      id: 21,
-      product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
-      title: "Engine"
-    }
-  ]
 
-  const [Data, setData] = useState(Product_Category_Data);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://192.168.2.134:8000/api/product-category/');
+        const Product_Category_Data = await response.json();
+        console.log("data--------------", Product_Category_Data)
+
+
+        setData(Product_Category_Data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    // Call the function to fetch data
+    fetchData();
+  }, []);
+  // const Product_Category_Data = [
+  //   {
+  //     id: 1,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine",
+  //     brand: "brand_1"
+  //   },
+  //   {
+  //     id: 2,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine",
+  //     brand: "brand_1"
+  //   },
+  //   {
+  //     id: 3,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 4,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 5,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 6,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 7,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 8,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 9,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 10,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 11,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 12,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 13,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 14,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 15,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 16,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 17,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 18,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 19,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 20,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   },
+  //   {
+  //     id: 21,
+  //     product_img: "https://www.liebherr.com/shared/media/mobile-and-crawler-cranes/images/product-detail-pages/ltm-cranes/ltm-1150-5.3/liebherr-lrt-1100-2.1-hotspot-stage-1920x1129_img_1920.jpg",
+  //     title: "Engine"
+  //   }
+  // ]
+
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20; // Number of items per page
-  const totalPages = Math.ceil(Product_Category_Data.length / itemsPerPage);
+  const totalPages = Math.ceil(Data.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems =
@@ -179,7 +198,7 @@ const Product_Category = () => {
     } else {
       matching_labels[0].style.color = "#4D4D4D";
       matching_labels[0].style.fontWeight = "500";
-      setData(Product_Category_Data)
+      setData(Data)
     }
   }
 
@@ -492,10 +511,10 @@ const Product_Category = () => {
               {currentItems.map((data) => (
                 <div className='2xl:max-w-[225px] 2xl:max-h-[250px]' key={data.id}>
                   <div className='w-full h-[212px] flex justify-center'>
-                    <img src={data.product_img} className='object-cover w-full' />
+                    <img src={data.image} className='object-cover w-full' />
                   </div>
                   <div className='w-full h-auto py-[7px] bg-[#E6992A]'>
-                    <center className='text-white font-bold text-xl'>{data.title}</center>
+                    <center className='text-white font-bold text-xl'>{data.name}</center>
                   </div>
                 </div>
               ))}

@@ -1,31 +1,32 @@
 import React ,{ useState } from "react";
 const MyShoppingCartMobile = ({
   image,
-  text,
+  title,
   status,
   originalPrice,
+  quantity,
   discountedPrice,
   discountPercentage,
   productCode
  
 }) => {
-   const [quantity, setQuantity] = useState(0);
+   const [productQuantity, setProductQuantity] = useState(0);
 
    const decrement = () => {
-     if (quantity > 0) {
-       setQuantity(quantity - 1);
+     if (productQuantity > 0) {
+      setProductQuantity(productQuantity - 1);
      }
    };
  
    const increment = () => {
-     setQuantity(quantity + 1);
+    setProductQuantity(productQuantity + 1);
    };
  
-   const subtotal = originalPrice * quantity;
+   const subtotal = originalPrice * productQuantity;
   return (
     <div className="relative rounded-lg overflow-hidden border border-gray-100  mb-2 ssm:block flex">
       <div className="h-[100px] w-[110px] w-[40%] self-center">
-        <img className="w-full h-full object-contain h-[100px] w-[110px]" src={image} alt={text} />
+        <img className="w-full h-full object-contain h-[100px] w-[110px]" src={image} alt={title} />
         <div className="absolute top-2 right-2">
           <div className="w-8 h-8 rounded-full p-1 flex items-center justify-center">
             <svg
@@ -67,7 +68,7 @@ const MyShoppingCartMobile = ({
       </div>
       <div className="px-[14px] pt-4 pb-[9px] text-gray-900 text-base font-normal leading-6">
         <div className=" mb-2 ">
-          <div className="sm:text-lg  text-base font-semibold w-[104px]">{text}</div>
+          <div className="sm:text-lg  text-base font-semibold w-[104px]">{title}</div>
         </div>
         <p className="mb-3 text-sm flex  items-baseline">
           ${originalPrice}
