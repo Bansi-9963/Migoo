@@ -37,7 +37,8 @@ function App () {
           <Route path='/' element={<Home />} />
           <Route path='category' element={<Product_Category />} />
           <Route path='product_list' element={<Product_List />} />
-          <Route path='product_details' element={<ProductDetails />} />
+          <Route path='/product_details/:text' element={<ProductDetails />} />
+          {/* <Route path='/product_details' element={<ProductDetails />} /> */}
           //protected routes
           <Route
             path='checkout'
