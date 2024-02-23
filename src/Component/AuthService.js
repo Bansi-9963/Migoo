@@ -13,14 +13,18 @@ export const login = async (email, password) => {
       })
     })
 
-    const credentials = await response.json()
-
-    if (credentials && credentials.id) {
+    if (response.ok) {
       console.log('Login successful!')
+      const credentials = await response.json()
+      console.log('credentials')
+      localStorage.setItem('login', true) //login true
+      // navigate('/')
       localStorage.setItem('credentials', JSON.stringify(credentials))
       window.location.href = '/' // Redirect to home page or any other desired page
     } else {
       console.log('Login failed!')
+      window.location.href = '/sign_in'
+
       // Handle failed login attempts, show error message, etc.
     }
   } catch (error) {

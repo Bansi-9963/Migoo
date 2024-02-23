@@ -16,20 +16,19 @@ const Sign_In = () => {
     }
   }
 
+  const navigate = useNavigate()
   const handlelogin = async e => {
-    e.preventDefault() // Prevent the default form submission
-    login(email, password)
-    localStorage.setItem('login', true) //login true
-    navigate('/')
+    e.preventDefault()
+     login(email, password)
+  
   }
 
-  const navigate = useNavigate()
-  useEffect(() => {
-    let login = localStorage.getItem('login')
-    if (login) {
-      navigate('/')
-    }
-  })
+  // useEffect(() => {
+  //   let login = localStorage.getItem('login')
+  //   if (login) {
+  //     navigate('/')
+  //   }
+  // })
 
   return (
     <section className='xl:py-[150px] lg:py-[100px] py-[75px] flex justify-center items-center container-1'>
@@ -85,7 +84,7 @@ const Sign_In = () => {
             <div className='md:mt-5 mt-3'>
               <button
                 onClick={handlelogin}
-                className='  w-full md:h-[45px] h-10 rounded-[43px] bg-[#E6992A] hover:bg-[#af8345ee] transition duration-300 flex justify-center items-center text-white font-semibold text-[14px] leading-[16.8px]'
+                className=' w-full md:h-[45px] h-10 rounded-[43px] bg-[#E6992A] hover:bg-[#af8345ee] transition duration-300 flex justify-center items-center text-white font-semibold text-[14px] leading-[16.8px]'
               >
                 Login
               </button>
