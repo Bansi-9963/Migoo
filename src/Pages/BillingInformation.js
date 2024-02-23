@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useContext } from 'react'
 import Productimage from '../Images/Image.png'
 import Productimage1 from '../Images/Gear.png'
 import '../CSS/Order_detail.css'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../App';
 const BillingInformation = () => {
 
+
+  const user_data = useContext(UserContext);
+  console.log("user_data----------",user_data.id);
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
