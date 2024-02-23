@@ -1,5 +1,5 @@
 import logo from './logo.svg'
-import React from 'react'
+import React , { createContext, useState , useEffect } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './Component/Navbar'
@@ -25,9 +25,19 @@ import Product_List from './Component/Product_List'
 import ProductDetails from './Pages/ProductDetails.js'
 import PrivateRoute from './Component/PrivateRoute'
 
+// Create a context for user data
+export const UserContext = createContext();
+
 function App () {
+  const [user_data, setUser_data] = useState(null);
+
+  useEffect(() => {
+    const userDataFromLocalStorage = JSON.parse(localStorage.getItem('credentials'));
+    setUser_data(userDataFromLocalStorage);
+  }, []);
+
   return (
-    <>
+    <UserContext.Provider value={user_data}>
       <Router>
         <Header />
         <Routes>
@@ -99,7 +109,7 @@ function App () {
         </Routes>
         <Footer />
       </Router>
-    </>
+      </UserContext.Provider>
   )
 }
 
