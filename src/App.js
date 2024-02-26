@@ -29,7 +29,7 @@ import PrivateRoute from './Component/PrivateRoute'
 export const UserContext = createContext();
 
 function App () {
-  const [user_data, setUser_data] = useState(null);
+  const [user_data, setUser_data] = useState([]);
 
   useEffect(() => {
     const userDataFromLocalStorage = JSON.parse(localStorage.getItem('credentials'));

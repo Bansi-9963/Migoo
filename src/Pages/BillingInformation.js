@@ -1,19 +1,22 @@
-import React, { useState, useEffect , useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Productimage from '../Images/Image.png'
 import Productimage1 from '../Images/Gear.png'
 import '../CSS/Order_detail.css'
 import { Link } from 'react-router-dom'
-import { UserContext } from '../App';
+import { UserContext } from '../App'
 const BillingInformation = () => {
-
-
-  const user_data = useContext(UserContext);
-  console.log("user_data----------",user_data.id);
+  let user_data = useContext(UserContext)
+  let user_id = user_data.id
+  console.log(user_id)
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState({})
+  const [Data, setData] = useState([])
+  const [productData, setproductData] = useState([])
+  const [totalprice, setTotalPrice] = useState(0) // Initialize totalprice state
+
   const validateForm = () => {
     let errors = {}
     if (name.trim() === '') {
@@ -35,11 +38,61 @@ const BillingInformation = () => {
   const handleSubmit = e => {
     e.preventDefault()
     if (validateForm()) {
-      console.log('Form submitted successfully')
+      // console.log('Form submitted successfully')
     } else {
-      console.log('Form submission failed')
+      // console.log('Form submission failed')
     }
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // cart-view api call
+        const response1 = await fetch(
+          'http://192.168.2.134:8000/api/cart-view/'
+        )
+        const Product_Category_Data1 = await response1.json()
+
+        // product-detail api call
+        const response2 = await fetch(
+          'http://192.168.2.134:8000/api/product-detail/'
+        )
+        const Product_Category_Data2 = await response2.json()
+
+        // Set product data
+        setproductData(Product_Category_Data2)
+
+        // Filter the Product_Category_Data based on owner_id matching user_id
+        const filteredData = Product_Category_Data1.filter(
+          item => item.owner_id === user_id && item.status === 'Open'
+        )
+
+        const filteredData1 = filteredData[0].basket
+        // const data = filteredData.flatMap(item =>
+        //   item.basket.map(item => item.product_id)
+        // )
+
+        // Calculate total price_excl_tax
+        const totalPriceExclTax = filteredData1.reduce((total, currentItem) => {
+          return total + currentItem.price_excl_tax
+        }, 0)
+
+        console.log('Total price_excl_tax:', totalPriceExclTax)
+
+        // Assign totalPriceExclTax to totalprice state
+        setTotalPrice(totalPriceExclTax)
+
+        // Set the filtered data with totalPriceExclTax to state
+        setData(filteredData1)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    // Call the function to fetch data
+    fetchData()
+  }, [user_id])
+
   return (
     <>
       <section className='container-1'>
@@ -230,55 +283,38 @@ const BillingInformation = () => {
               <div className='cart-total pb-1.5 font-medium text-[20px] '>
                 Order summary
               </div>
-              <div className='divide-y-2 pb-6'>
-                <div className='subtotal flex justify-between  '>
-                  <div className='flex flex-row '>
-                    <img
-                      src={Productimage1}
-                      alt='Product Image'
-                      className='w-[60px] h-[60px]'
-                    />
-                    <p className='text-gray-900 text-base font-normal leading-6 self-center pl-3 '>
-                      Heavy Gear Box
-                      <br className='sm:hidden block' />
-                      <span className='text-gray-900 text-base font-normal leading-6 self-center pl-1.5 '>
-                        X
-                      </span>
-                      <span className='text-gray-900 text-base font-normal leading-6 self-center'>
-                        5
-                      </span>
-                    </p>
+
+              {Data.map((data, index) => (
+                <div className='divide-y-2 pb-6' key={index}>
+                  <div className='subtotal flex justify-between  '>
+                    <div className='flex flex-row '>
+                      {/* "http://192.168.2.134:8000/media/" + data.images[0].original */}
+                      <img
+                        src={Productimage1}
+                        alt='Product Image'
+                        className='w-[60px] h-[60px]'
+                      />
+                      <p className='text-gray-900 text-base font-normal leading-6 self-center pl-3 '>
+                        {data.basket_id}
+                        <br className='sm:hidden block' />
+                        <span className='text-gray-900 text-base font-normal leading-6 self-center pl-1.5 '>
+                          X
+                        </span>
+                        <span className='text-gray-900 text-base font-normal leading-6 self-center'>
+                          {data.quantity}
+                        </span>
+                      </p>
+                    </div>
+                    <span className='text-[#1A1A1A] text-end align-self-center'>
+                      ₹{data.price_excl_tax}
+                    </span>
                   </div>
-                  <span className='text-[#1A1A1A] text-end align-self-center'>
-                    $70.00
-                  </span>
                 </div>
-                <div className='subtotal flex justify-between  '>
-                  <div className='flex flex-row '>
-                    <img
-                      src={Productimage}
-                      alt='Product Image'
-                      className='w-[60px] h-[60px]'
-                    />
-                    <p className='text-gray-900 text-base font-normal leading-6 self-center pl-3 '>
-                      Engine Part <br className='sm:hidden block' />
-                      <span className='text-gray-900 text-base font-normal leading-6 self-center pl-1.5 '>
-                        X
-                      </span>
-                      <span className='text-gray-900 text-base font-normal leading-6 self-center  '>
-                        1
-                      </span>
-                    </p>
-                  </div>
-                  <span className='text-[#1A1A1A] text-end align-self-center'>
-                    $14.00
-                  </span>
-                </div>
-              </div>
+              ))}
               <div className='divide-y-2 '>
                 <div className='subtotal pb-3 flex justify-between  '>
                   <span className='text-[#4D4D4D] '>Subtotal:</span>
-                  <span className='text-[#1A1A1A] text-end'>$84.00</span>
+                  <span className='text-[#1A1A1A] text-end'>₹{totalprice}</span>
                 </div>
                 <div className='shipping py-3 flex justify-between'>
                   <span className='text-[#4D4D4D]'>Shipping:</span>
@@ -289,7 +325,7 @@ const BillingInformation = () => {
                     Total:
                   </span>
                   <span className='font-semibold text-[16px] text-[#1A1A1A]'>
-                    $84.00
+                    ₹{totalprice}
                   </span>
                 </div>
               </div>
