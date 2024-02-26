@@ -85,6 +85,8 @@ function FeaturcardScroll () {
           slidesToScroll: 3,
           infinite: true,
           dots: true,
+          speed: 500,
+          autoplaySpeed: 3000,
           autoplay: false
         }
       },
@@ -95,6 +97,8 @@ function FeaturcardScroll () {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
+          speed: 500,
+          autoplaySpeed: 3000,
           autoplay: false
         }
       },
@@ -105,6 +109,8 @@ function FeaturcardScroll () {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
+          speed: 500,
+          autoplaySpeed: 3000,
           autoplay: false
         }
       },
@@ -113,6 +119,8 @@ function FeaturcardScroll () {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          speed: 500,
+          autoplaySpeed: 3000,
           initialSlide: 2,
           dots: true
         }
@@ -122,6 +130,8 @@ function FeaturcardScroll () {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          speed: 500,
+          autoplaySpeed: 3000,
           initialSlide: 2,
           dots: true
         }
@@ -131,6 +141,8 @@ function FeaturcardScroll () {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          speed: 500,
+          autoplaySpeed: 3000,
           dots: true
         }
       }
