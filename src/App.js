@@ -44,14 +44,18 @@ function App () {
         <Routes>
           {/* sign_in_route */}
           <Route path='/sign_in' element={<Sign_In />} />
+          <Route path='*'  element={<Error_Page />} />
+          {/* <Route path='/sign_out' element={<Sign_Out />} */}
           {/* unprotected routes */}
           <Route path='/' element={<Home />} />
 
+
+          
           <Route path='category' element={<Product_Category />} />
           <Route path='product_list' element={<Product_List />} />
           <Route path='/product_details/:text' element={<ProductDetails />} />
           {/* <Route path='/product_details' element={<ProductDetails />} /> */}
-          //protected routes
+          {/* //protected routes */}
           <Route
             path='checkout'
             element={<PrivateRoute Component={BillingInformation} />}
