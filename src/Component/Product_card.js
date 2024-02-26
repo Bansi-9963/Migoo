@@ -16,7 +16,7 @@ const Product_card = ({ id, title, price, brand, mrp ,image }) => {
       key={id}
       onClick={handleCardClick}
     >
-      <img src={image} className='p-[5px] w-full' />
+      <img src={image} className='p-[5px] w-full object-contain h-[250px]' />
 
       <div className=' p-[16px] '>
         <div className=' flex justify-between'>
