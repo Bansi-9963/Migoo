@@ -179,8 +179,9 @@ const MyShoppingCart = () => {
                         <span className="font-semibold text-[#1A1A1A]">$84.00</span>
                      </div>
                   </div>
-
+                  <Link to="/checkout">
                   <button className="px-8 lg:py-3.5 py-2 my-3 text-white rounded-full bg-[#E6992A] font-semibold w-full">Proceed to checkout</button>
+                  </Link>
 
                </div>
             </div>

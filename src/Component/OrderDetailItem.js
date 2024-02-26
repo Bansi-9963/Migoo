@@ -2,7 +2,7 @@ import React , { useState } from 'react';
 const OrderdetailItem = (props) => {
    
  
-   const subtotal = props.item_price * props.qty;
+ 
 return (
 <tr className="bg-white hover:bg-gray-50 border-b">
    <th
@@ -19,7 +19,7 @@ return (
       X{props.qty}
    </td>
    <td className="px-2 sm:px-4 md:px-6 py-4 text-gray-900 text-sm font-medium leading-6 self-center">
-   ${subtotal.toFixed(2)}
+   ${props.subtotal}
    </td>
 
 </tr>

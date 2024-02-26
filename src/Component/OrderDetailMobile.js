@@ -3,12 +3,13 @@ const OrderDetailMobile = ({
   image,
   text,
   originalPrice,
-  qty
+  qty,
+  subtotal
 
 }) => {
 
 
-  const subtotal = originalPrice * qty;
+
   return (
     <div className="relative  overflow-hidden border border-gray-100  ssm:block flex">
       <div className="h-[100px] w-[110px] px-2">
@@ -26,7 +27,7 @@ const OrderDetailMobile = ({
           </div>
         </p>
         <div className="flex justify-between items-center mb-2">
-          <span className="mb-2 ">SubTotal: ${subtotal.toFixed(2)}</span>
+          <span className="mb-2 ">SubTotal: ${subtotal}</span>
         </div>
       </div>
     </div>
