@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import slider from '../Images/Product_Details/slider.png'
 import prodict_image from '../Images/Product_Details/product_image.png'
 import client1 from '../Images/Product_Details/client1.png'
@@ -12,11 +12,33 @@ import OfferCard from '../Component/Product_Details/OfferCard'
 import Customer_review from '../Component/Product_Details/Customer_review'
 import { useParams } from 'react-router-dom'
 import product_detail_style from '../CSS/Product_Details.module.css'
+import { UserContext } from '../App'
+import Sign_In from '../Component/Sign_In'
 
 const ProductDetails = () => {
   const [featureData, setFeatureData] = useState([])
+  const [datareview, setdatareview] = useState([])
+  const [showAllReviews, setShowAllReviews] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
+
+  // Function to toggle showing all reviews
+  const handleLoadMoreClick = () => {
+    setShowAllReviews(true)
+  }
+
+  // Function to toggle showing only first 4 reviews
+  const handleShowLessClick = () => {
+    setShowAllReviews(false)
+  }
+
+  // Function to toggle the visibility of the popup
+  const togglePopup = () => {
+    setShowPopup(!showPopup)
+  }
   const { text } = useParams()
 
+  const user_data = useContext(UserContext)
+  console.log('user_data----------', user_data.id)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +47,7 @@ const ProductDetails = () => {
           `http://192.168.2.134:8000/api/product-detail/`
         )
         const data = await response.json()
-        console.log('data-------------------->>>>>', data)
+        // console.log('data-------------------->>>>>', data)
         const matchedItems = data.filter(
           item => item.title.trim().toLowerCase() === text.trim().toLowerCase()
         )
@@ -36,8 +58,58 @@ const ProductDetails = () => {
       }
     }
 
+    const fetchreview = async () => {
+      try {
+        const response = await fetch(
+          `http://192.168.2.134:8000/api/product-reviews/`
+        )
+        const data = await response.json()
+
+        // Format the date_created field in the data
+        const formattedData = data.map(review => {
+          const date = new Date(review.date_created)
+          const options = { month: 'short', day: '2-digit', year: 'numeric' }
+          const formattedDate = date.toLocaleDateString('en-US', options)
+
+          // Calculate time difference
+          const currentTime = new Date()
+          const timeDifference = Math.abs(currentTime - date)
+          const minutesDifference = Math.floor(timeDifference / 60000) // Convert milliseconds to minutes
+
+          let formattedTimeDifference
+          if (minutesDifference < 60) {
+            formattedTimeDifference = `${minutesDifference} min ago`
+          } else {
+            const daysDifference = Math.floor(minutesDifference / (60 * 24))
+            formattedTimeDifference = `${daysDifference} days ago`
+          }
+
+          return {
+            ...review,
+            formattedDate,
+            formattedTimeDifference
+          }
+        })
+
+        // Set the formatted data to state
+        setdatareview(formattedData)
+        console.log('Formatted data:', formattedData)
+      } catch (error) {
+        console.error('Error fetching additional data:', error)
+      }
+    }
+
     fetchData()
+    fetchreview()
   }, [text])
+
+  const today = new Date()
+  const formattedToday = today.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit'
+  })
+  console.log(formattedToday)
 
   return (
     <>
@@ -68,24 +140,39 @@ const ProductDetails = () => {
 
                 <div className='grid gap-[12px] 2xl:w-[80px]  '>
                   <img
-                    src={"http://192.168.2.134:8000/media/" + category.images[0].original}
+                    src={
+                      'http://192.168.2.134:8000/media/' +
+                      category.images[0].original
+                    }
                     className='w-auto h-auto 2xl:w-[80px] 2xl:h-[80px] '
                   />
 
                   <img
-                    src={"http://192.168.2.134:8000/media/" + category.images[0].original}
+                    src={
+                      'http://192.168.2.134:8000/media/' +
+                      category.images[0].original
+                    }
                     className='w-auto h-auto 2xl:w-[80px] 2xl:h-[80px]'
                   ></img>
                   <img
-                    src={"http://192.168.2.134:8000/media/" + category.images[0].original}
+                    src={
+                      'http://192.168.2.134:8000/media/' +
+                      category.images[0].original
+                    }
                     className='w-auto h-auto 2xl:w-[80px] 2xl:h-[80px] '
                   ></img>
                   <img
-                    src={"http://192.168.2.134:8000/media/" + category.images[0].original}
+                    src={
+                      'http://192.168.2.134:8000/media/' +
+                      category.images[0].original
+                    }
                     className='w-auto h-auto 2xl:w-[80px] 2xl:h-[80px] '
                   ></img>
                   <img
-                    src={"http://192.168.2.134:8000/media/" + category.images[0].original}
+                    src={
+                      'http://192.168.2.134:8000/media/' +
+                      category.images[0].original
+                    }
                     className='w-auto h-auto 2xl:w-[80px] 2xl:h-[80px]'
                   ></img>
                 </div>
@@ -113,7 +200,10 @@ const ProductDetails = () => {
               {/* Product-Image Div */}
               <div className='Product-Image  xl:h-[556px]  '>
                 <img
-                  src={"http://192.168.2.134:8000/media/" + category.images[0].original}
+                  src={
+                    'http://192.168.2.134:8000/media/' +
+                    category.images[0].original
+                  }
                   className='2xl:max-w-[556px]    2xl:h-[556px] w-auto '
                 ></img>
               </div>
@@ -674,16 +764,11 @@ const ProductDetails = () => {
               Offer by Other Seller
             </h2>
 
-            <div className='mt-6  mb-[14px]'>
-              <OfferCard />
-            </div>
-
-            <div className='mb-[14px]'>
-              <OfferCard />
-            </div>
-            <div className='mb-[14px]'>
-              <OfferCard />
-            </div>
+            {featureData.map((category, index) => (
+              <div className='mt-6  mb-[14px]' key={index}>
+                <OfferCard prices={category.prices} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -695,27 +780,67 @@ const ProductDetails = () => {
             Customer Review
           </h2>
         </div>
-        <div className='mt-[25px] max-w-[648px] '>
-          <Customer_review />
-          <div className='border-b my-[20px]'></div>
+        <div className='mt-[25px] max-w-[648px]'>
+          {/* Map through the reviews data and render only the first 4 reviews if showAllReviews is false */}
+          {!showAllReviews
+            ? datareview
+                .slice(0, 1) // Display the first 4 reviews
+                .map((data, index) => (
+                  <Customer_review
+                    key={index}
+                    name={data.name}
+                    date={
+                      formattedToday === data.formattedDate
+                        ? data.formattedTimeDifference
+                        : data.formattedDate
+                    }
+                    score={data.score}
+                    body={data.body}
+                  />
+                ))
+            : // Render all reviews if showAllReviews is true
+              datareview.map((data, index) => (
+                <Customer_review
+                  key={index}
+                  name={data.name}
+                  date={
+                    formattedToday === data.formattedDate
+                      ? data.formattedTimeDifference
+                      : data.formattedDate
+                  }
+                  score={data.score}
+                  body={data.body}
+                />
+              ))}
 
-          <Customer_review />
-          <div className='border-b my-[20px]'></div>
-
-          <Customer_review />
-
-          <div className='mt-[14px] mb-[14px]  grid grid-cols-2'>
-            <a className='text-[#E6992A] flex rounded-[43px] font-semibold bg-[#E6992A1A]  leading-[28px]  w-fit sm:w-[138px] max-h-[45px]  '>
+          {/* Load More / Show Less button */}
+          <div className='mt-[14px] mb-[14px] grid grid-cols-2'>
+            <button
+              onClick={
+                showAllReviews ? handleShowLessClick : handleLoadMoreClick
+              }
+              className='text-[#E6992A] flex rounded-[43px] font-semibold bg-[#E6992A1A]  leading-[28px]  w-fit sm:w-[138px] max-h-[45px]'
+            >
               <span
                 className={`${product_detail_style.small_text} mx-auto px-4 py-2 justify-center items-center sm:py-[14px]  sm:px-[8px]`}
               >
-                Load More
+                {showAllReviews ? 'Show Less' : 'Load More'}
               </span>
-            </a>
-            <a className='text-[#E6992A]  justify-self-end  font-medium  text-[12px]  my-auto'>
+            </button>
+            <button
+              className='text-[#E6992A]  justify-self-end  font-medium  text-[12px]  my-auto'
+              onClick={togglePopup}
+            >
               Write a Review
-            </a>
+            </button>
           </div>
+
+          {/* Popup Component */}
+          {showPopup && (
+            <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-200   rounded-lg shadow-lg'>
+              <Sign_In />
+            </div>
+          )}
         </div>
       </section>
     </>
