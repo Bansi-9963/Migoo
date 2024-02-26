@@ -36,15 +36,17 @@ function App () {
     setUser_data(userDataFromLocalStorage);
   }, []);
 
+
   return (
     <UserContext.Provider value={user_data}>
       <Router>
         <Header />
         <Routes>
-          //sign_in_route
-          <Route path='sign_in' element={<Sign_In />} />
-          // unprotected routes
+          {/* sign_in_route */}
+          <Route path='/sign_in' element={<Sign_In />} />
+          {/* unprotected routes */}
           <Route path='/' element={<Home />} />
+
           <Route path='category' element={<Product_Category />} />
           <Route path='product_list' element={<Product_List />} />
           <Route path='/product_details/:text' element={<ProductDetails />} />
@@ -111,6 +113,7 @@ function App () {
       </Router>
       </UserContext.Provider>
   )
+
 }
 
-export default App
+export default App;

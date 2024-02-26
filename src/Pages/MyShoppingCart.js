@@ -136,6 +136,7 @@ const MyShoppingCart = () => {
                 <p className='text-[#5F6C72] text-base'>Home</p>
               </Link>
             </div>
+
           </div>
           <div className='pt-1'>
             <svg
@@ -214,6 +215,7 @@ const MyShoppingCart = () => {
                 <span className='font-normal text-[#4D4D4D]'>Total:</span>
                 <span className='font-semibold text-[#1A1A1A]'>$84.00</span>
               </div>
+
             </div>
             {/* <Link to='/checkout'> */}
             <button
