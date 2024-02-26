@@ -6,7 +6,6 @@ import FeaturcardScroll from '../Component/FeaturcardScroll'
 import Aftermarketcard from '../Component/Aftermarketcard'
 import Cardscroll from '../Component/Cardscroll'
 import BrandCarousel from '../Component/BrandCarousel'
-import { logout } from '../Component/AuthService'
 import '../CSS/Home.css'
 
 function Home () {
@@ -82,13 +81,6 @@ function Home () {
 
   return (
     <>
-      <button
-        type='button'
-        onClick={logout}
-        class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
-      >
-        Logout
-      </button>
       <section className='overflow-hidden' style={backgroundStyle}>
         <div className='container-1 '>
           <div className='lg:pb-[194px] pb-[120px] pt-[125px]'>
