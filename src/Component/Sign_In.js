@@ -23,13 +23,6 @@ const Sign_In = () => {
   
   }
 
-  // useEffect(() => {
-  //   let login = localStorage.getItem('login')
-  //   if (login) {
-  //     navigate('/')
-  //   }
-  // })
-
   return (
     <section className='xl:py-[150px] lg:py-[100px] py-[75px] flex justify-center items-center container-1'>
       <div className='flex items-center justify-center md:h-[371px] md:w-[520px] w-full h-full'>

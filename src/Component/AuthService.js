@@ -20,7 +20,7 @@ export const login = async (email, password) => {
       localStorage.setItem('login', true) //login true
       // navigate('/')
       localStorage.setItem('credentials', JSON.stringify(credentials))
-      window.location.href = '/' // Redirect to home page or any other desired page
+      window.location.href = '/dashboard' // Redirect to home page or any other desired page
     } else {
       console.log('Login failed!')
       window.location.href = '/sign_in'
