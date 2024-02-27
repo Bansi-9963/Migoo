@@ -35,20 +35,7 @@ const User_Dashboard = () => {
       }
     }
 
-    const userData = async () => {
-      try {
-        const response = await fetch(`http://192.168.2.134:8000/api/user-view`)
-        const data = await response.json()
-        console.log('user-view---', data)
-
-        setProfileData(data)
-      } catch (error) {
-        console.error('Error fetching additional data:', error)
-      }
-    }
-
     fetchData()
-    // userData()
   }, [])
   return (
     <>
