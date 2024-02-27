@@ -40,8 +40,12 @@ const Footer = () => {
   const handleProductList = () => {
     navigate('/product_list')
   }
-
- 
+  const home = () => {
+    navigate('/')
+  }
+  const handleproductCategory = name => {
+    navigate(`/product_category/${name}`)
+  }
 
   return (
     <footer className='bg-[#1A1A1A] xl:h-[368px] lg:h-[380px] md:h-[480px]'>
@@ -49,8 +53,9 @@ const Footer = () => {
         <div className='2xl:h-[167px] 2xl:w-[336px] xl:w-[306px] lg:w-[286px] h-max  lg:mx-0 mb-3 lg:mb-0'>
           <div className='mb-4'>
             <img
+              onClick={home}
               src={logo}
-              className='xl:w-[125px] xl:h-[39px] w-[150px] h-[40px]'
+              className='xl:w-[125px] xl:h-[39px] w-[150px] h-[40px] cursor-pointer'
             />
           </div>
           <div className='lg:mb-4 mb-2'>
@@ -77,7 +82,10 @@ const Footer = () => {
               <p className='text-base font-medium leading-6 lg:mb-5 mb-2 text-white'>
                 My Account
               </p>
-              <p onClick={handleAccount} className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
+              <p
+                onClick={handleAccount}
+                className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
+              >
                 My Account
               </p>
               <p
@@ -103,9 +111,13 @@ const Footer = () => {
               <p className='text-base font-medium leading-6 lg:mb-5 mb-2 text-white'>
                 Categories
               </p>
-              {Data.map(data => (
-                <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
-                  {data.name}
+              {Data.map((item, index) => (
+                <p
+                  key={index}
+                  onClick={() => handleproductCategory(item.name)} // Pass item.name to handleproductCategory
+                  className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
+                >
+                  {item.name}
                 </p>
               ))}
             </div>
@@ -121,7 +133,10 @@ const Footer = () => {
               <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
                 Shop
               </p>
-              <p onClick={handleProductList} className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
+              <p
+                onClick={handleProductList}
+                className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
+              >
                 Product
               </p>
             </div>

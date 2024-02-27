@@ -13,7 +13,7 @@ import Customer_review from '../Component/Product_Details/Customer_review'
 import { useParams } from 'react-router-dom'
 import product_detail_style from '../CSS/Product_Details.module.css'
 import { UserContext } from '../App'
-import Sign_In from '../Component/Sign_In'
+import LeaveRating from '../Component/LeaveRating'
 
 const ProductDetails = () => {
   const [featureData, setFeatureData] = useState([])
@@ -36,7 +36,6 @@ const ProductDetails = () => {
     setShowPopup(!showPopup)
   }
   const { text } = useParams()
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -764,7 +763,7 @@ const ProductDetails = () => {
 
             {featureData.map((category, index) => (
               <div className='mt-6  mb-[14px]' key={index}>
-                <OfferCard prices={category.prices} />
+                <OfferCard prices={category.prices} title={category.title} />
               </div>
             ))}
           </div>
@@ -826,7 +825,7 @@ const ProductDetails = () => {
               </span>
             </button>
             <button
-              className='text-[#E6992A]  justify-self-end  font-medium  text-[12px]  my-auto'
+              className='text-[#E6992A]  justify-self-end  font-medium  text-[16px]  my-auto'
               onClick={togglePopup}
             >
               Write a Review
@@ -836,7 +835,7 @@ const ProductDetails = () => {
           {/* Popup Component */}
           {showPopup && (
             <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-200   rounded-lg shadow-lg'>
-              <Sign_In />
+              <LeaveRating />
             </div>
           )}
         </div>
