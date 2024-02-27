@@ -1,7 +1,18 @@
 import React from 'react'
 import product_detail_style from '../../CSS/Product_Details.module.css'
+import { useNavigate } from 'react-router-dom'
 
-const OfferCard = ({ prices }) => {
+const OfferCard = ({ prices, title }) => {
+  const navigate = useNavigate()
+
+  const handleButtonClickCart = () => {
+    navigate('/cart')
+  }
+
+  const handleButtonClickBuy = () => {
+    navigate(`/product_details/${title}`)
+  }
+
   return (
     <>
       {prices.map((price, index) => (
@@ -13,7 +24,7 @@ const OfferCard = ({ prices }) => {
             <p
               className={`${product_detail_style.text_xs} text-[#333333] pt-[15px]`}
             >
-              Seller Location 
+              Seller Location
             </p>
             <h5
               className={`${product_detail_style.text_xs} text-black ssm:pb-[13px]`}
@@ -42,10 +53,16 @@ const OfferCard = ({ prices }) => {
           </div>
 
           <div className='ssm:col-span-5 col-span-3 grid grid-cols-2 2xl:gap-5 gap-4 w-full ssm:gap-2 ssm:justify-self-end justify-self-center justify-between'>
-            <button className='bg-[#E6992A] self-center px-2 hover:bg-white hover:text-[#F2C94C] py-2  text-white   w-full    text-[12px] ssm:text-[8px] sm:text-[10px]  font-bold rounded-[4px] hover:border-[#F2C94C] border border-[#E6992A] '>
+            <button
+              onClick={handleButtonClickCart}
+              className='bg-[#E6992A] self-center px-2 hover:bg-white hover:text-[#F2C94C] py-2  text-white   w-full    text-[12px] ssm:text-[8px] sm:text-[10px]  font-bold rounded-[4px] hover:border-[#F2C94C] border border-[#E6992A] '
+            >
               Add To Cart
             </button>
-            <button className='  self-center text-white w-auto py-2 hover:bg-white bg-[#E6992A] text-[12px] ssm:text-[8px]  sm::text-[10px] hover:text-[#F2C94C] font-semibold rounded-[4px] hover:border-[#F2C94C] border border-[#E6992A] '>
+            <button
+              onClick={handleButtonClickBuy}
+              className='  self-center text-white w-auto py-2 hover:bg-white bg-[#E6992A] text-[12px] ssm:text-[8px]  sm::text-[10px] hover:text-[#F2C94C] font-semibold rounded-[4px] hover:border-[#F2C94C] border border-[#E6992A] '
+            >
               Buy Now
             </button>
           </div>

@@ -70,6 +70,11 @@ const Header = () => {
   const handleShoppingCartClick = () => {
     navigate('/cart')
   }
+  const handleUserClick = () => {
+    navigate('/dashboard')
+  }
+
+
 
   return (
     <header
@@ -81,8 +86,9 @@ const Header = () => {
           <div className='flex gap-10 items-center'>
             <div className='xl:h-[70px] xl:w-[199px] lg:w-[159px] ssm:w-[109px] lg:h-[60px] md:w-[129px] md:h-[50px] ssm:h-10 w-[89px] h-8'>
               <img
+               onClick={handleHomeclick}
                 src={Logo}
-                className='xl:h-[70px] xl:w-[199px] lg:w-[159px] ssm:w-[109px] lg:h-[60px] md:w-[129px] md:h-[50px] ssm:h-10 w-[89px] h-8'
+                className='xl:h-[70px] xl:w-[199px] lg:w-[159px] ssm:w-[109px] lg:h-[60px] md:w-[129px] md:h-[50px] ssm:h-10 w-[89px] cursor-pointer h-8'
               />
             </div>
           </div>
@@ -130,7 +136,8 @@ const Header = () => {
               onClick={handleUser}
               className='lg:pointer-events-none pointer-events-auto cursor-pointer'
             >
-              <img src={User} className='lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6' />
+              {/* onClick={handleUserClick} */}
+              <img   src={User} className='lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6 cursor-pointer' />
             </div>
             <div
               className='block lg:hidden md:w-7 md:h-7 w-6 h-6 md:mt-[3px] mt-[2px]'

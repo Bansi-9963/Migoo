@@ -26,12 +26,10 @@ const Featurecard = ({
   const navigate = useNavigate()
 
   const handleButtonClickCart = () => {
-    // Redirect to the cart page when the button is clicked
-    navigate('/cart') // Replace '/cart' with the actual path of your cart page
+    navigate('/cart')
   }
   const handleButtonClickBuy = () => {
-    // Redirect to the cart page when the button is clicked
-    navigate(`/product_details/${text}`) // Replace '/cart' with the actual path of your cart page
+    navigate(`/product_details/${text}`)
   }
 
   return (

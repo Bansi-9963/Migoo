@@ -7,8 +7,8 @@ import 'tailwindcss/tailwind.css'
 import MyWishListItem from '../Component/MyWishListItem.js'
 import MyWishListMobile from '../Component/MyWishListMobile'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const MyWishList = () => {
-
   const dummyWishlistData = [
     {
       id: 1,
@@ -34,6 +34,13 @@ const MyWishList = () => {
     }
     // Add more wishlist items as needed
   ]
+
+  const navigate = useNavigate()
+
+  const handleButtonClickCart = () => {
+    navigate('/cart')
+  }
+
   return (
     <>
       {/* breadcrumbs */}
@@ -122,8 +129,13 @@ const MyWishList = () => {
                 >
                   STOCK STATUS
                 </th>
-                <th scope='col' className='px-2 sm:px-4 py-3'>
-                  <span className='sr-only'>Add To Cart</span>
+                <th scope='col'  className='px-2 sm:px-4 py-3'>
+                  <span
+                    
+                    className='sr-only cursor-pointer'
+                  >
+                    Add To Cart
+                  </span>
                 </th>
               </tr>
             </thead>
