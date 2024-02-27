@@ -159,7 +159,7 @@ function FeaturcardScroll () {
               image={
                 'http://192.168.2.134:8000/media/' + feature.images[0].original
               }
-              text={feature.categories[0].category}
+              text={feature.title}
               discountedPrice={
                 parseFloat(feature.prices[0].price) +
                 parseFloat(feature.website_price)
