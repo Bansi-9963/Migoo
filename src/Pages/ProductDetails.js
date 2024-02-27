@@ -37,8 +37,6 @@ const ProductDetails = () => {
   }
   const { text } = useParams()
 
-  const user_data = useContext(UserContext)
-  console.log('user_data----------', user_data.id)
 
   useEffect(() => {
     const fetchData = async () => {

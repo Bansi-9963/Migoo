@@ -35,7 +35,20 @@ const User_Dashboard = () => {
       }
     }
 
+    const userData = async () => {
+      try {
+        const response = await fetch(`http://192.168.2.134:8000/api/user-view`)
+        const data = await response.json()
+        console.log('user-view---', data)
+
+        setProfileData(data)
+      } catch (error) {
+        console.error('Error fetching additional data:', error)
+      }
+    }
+
     fetchData()
+    // userData()
   }, [])
   return (
     <>
@@ -98,28 +111,26 @@ const User_Dashboard = () => {
 
         <div className='flex flex-col lg:gap-[27px] gap-[20px] w-full'>
           <div className='flex sm:flex-row flex-col gap-6'>
-            {/* {userProfileData.map(data => (
-              <div className='lg:w-[55%] md:w-[45%] sm:w-[35%] w-full  rounded-lg border-[1px] border-[#E6E6E6]'>
-                <div className='pt-2.5 pb-3 flex justify-center'>
-                  <img src={Profile_Pic} className='w-[120px] h-[120px]' />
-                </div>
-                <div className='mt-2'>
-                  <h1 className='font-medium text-xl leading-[30px] text-center'>
-                    Dianne Russell
-                  </h1>
-                  <p className='mt-[2px] text-sm font-normal leading-[21px] text-[#808080] text-center'>
-                    Customer
-                  </p>
-                </div>
-                <div className='my-[9px]'>
-                  <Link to='/settings'>
-                    <h4 className='text-base leading-6 text-[#E6992A] font-medium text-center'>
-                      Edit Profile
-                    </h4>
-                  </Link>
-                </div>
+            <div className='lg:w-[55%] md:w-[45%] sm:w-[35%] w-full  rounded-lg border-[1px] border-[#E6E6E6]'>
+              <div className='pt-2.5 pb-3 flex justify-center'>
+                <img src={Profile_Pic} className='w-[120px] h-[120px]' />
               </div>
-            ))} */}
+              <div className='mt-2'>
+                <h1 className='font-medium text-xl leading-[30px] text-center'>
+                  Dianne Russell
+                </h1>
+                <p className='mt-[2px] text-sm font-normal leading-[21px] text-[#808080] text-center'>
+                  Customer
+                </p>
+              </div>
+              <div className='my-[9px]'>
+                <Link to='/settings'>
+                  <h4 className='text-base leading-6 text-[#E6992A] font-medium text-center'>
+                    Edit Profile
+                  </h4>
+                </Link>
+              </div>
+            </div>
 
             {userData.map((data, index) => (
               <div
