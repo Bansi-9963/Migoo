@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import logo from '../Images/migoo-logo-white.png'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const Footer = () => {
   const [Data, setData] = useState([])
 
@@ -22,41 +22,17 @@ const Footer = () => {
     fetchData()
   }, [])
 
-  const navigate = useNavigate()
-
-  const handleCart = () => {
-    navigate('/cart')
-  }
-
-  const handleWishlist = () => {
-    navigate('/wishlist')
-  }
-  const handleOrderHistory = () => {
-    navigate('/order-history')
-  }
-  const handleAccount = () => {
-    navigate('/settings')
-  }
-  const handleProductList = () => {
-    navigate('/product_list')
-  }
-  const home = () => {
-    navigate('/')
-  }
-  const handleproductCategory = name => {
-    navigate(`/product_category/${name}`)
-  }
-
   return (
     <footer className='bg-[#1A1A1A] xl:h-[368px] lg:h-[380px] md:h-[480px]'>
       <div className='container-1 upper-footer pt-[60px] mb-[60px] xl:h-[228.5px] flex lg:flex-row flex-col'>
         <div className='2xl:h-[167px] 2xl:w-[336px] xl:w-[306px] lg:w-[286px] h-max  lg:mx-0 mb-3 lg:mb-0'>
           <div className='mb-4'>
-            <img
-              onClick={home}
-              src={logo}
-              className='xl:w-[125px] xl:h-[39px] w-[150px] h-[40px] cursor-pointer'
-            />
+            <Link to='/'>
+              <img
+                src={logo}
+                className='xl:w-[125px] xl:h-[39px] w-[150px] h-[40px] cursor-pointer'
+              />
+            </Link>
           </div>
           <div className='lg:mb-4 mb-2'>
             <p className='text-sm leading-[21px] font-normal text-[#808080]'>
@@ -82,29 +58,17 @@ const Footer = () => {
               <p className='text-base font-medium leading-6 lg:mb-5 mb-2 text-white'>
                 My Account
               </p>
-              <p
-                onClick={handleAccount}
-                className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
-              >
-                My Account
+              <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
+                <Link to='settings'>My Account</Link>
               </p>
-              <p
-                onClick={handleOrderHistory}
-                className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
-              >
-                Order History
+              <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
+                <Link to='order-history'>Order History</Link>
               </p>
-              <p
-                onClick={handleCart}
-                className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
-              >
-                Shopping Cart
+              <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
+                <Link to='cart'>Shopping Cart</Link>
               </p>
-              <p
-                onClick={handleWishlist}
-                className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
-              >
-                Wishlist
+              <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
+                <Link to='wishlist'>Wishlist</Link>
               </p>
             </div>
             <div className='2xl:ml-[129px] xl:ml-[109px] lg:ml-[85px] 2xl:w-130px 2xl:h-[164px] w-fit h-max'>
@@ -114,10 +78,9 @@ const Footer = () => {
               {Data.map((item, index) => (
                 <p
                   key={index}
-                  onClick={() => handleproductCategory(item.name)} // Pass item.name to handleproductCategory
                   className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
                 >
-                  {item.name}
+                  <Link to={`/product_category/${item.name}`}>{item.name}</Link>
                 </p>
               ))}
             </div>
@@ -133,11 +96,8 @@ const Footer = () => {
               <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
                 Shop
               </p>
-              <p
-                onClick={handleProductList}
-                className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'
-              >
-                Product
+              <p className='text-sm text-[#999999] leading-[21px] font-normal md:mb-3 mb-2 hover:text-white hover:cursor-pointer'>
+                <Link to='product_list'>Product</Link>
               </p>
             </div>
             <div className='xl:ml-[156.5px] lg:ml-[76.5px] 2xl:w-[122px] 2xl:h-[164px] w-fit h-max'>
