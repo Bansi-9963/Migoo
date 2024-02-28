@@ -4,6 +4,7 @@ import prodict_image from '../Images/Product_Details/product_image.png'
 import client1 from '../Images/Product_Details/client1.png'
 import clien2 from '../Images/Product_Details/client2.png'
 import clien3 from '../Images/Product_Details/client3.png'
+import { Link } from 'react-router-dom'
 
 import Featurecard from '../Component/Featurecard'
 import FeaturcardScroll from '../Component/FeaturcardScroll'
@@ -44,7 +45,7 @@ const ProductDetails = () => {
           `http://192.168.2.134:8000/api/product-detail/`
         )
         const data = await response.json()
-        // console.log('data-------------------->>>>>', data)
+
         const matchedItems = data.filter(
           item => item.title.trim().toLowerCase() === text.trim().toLowerCase()
         )
@@ -490,7 +491,7 @@ const ProductDetails = () => {
                 <div className=' w-[70%] ssm:w-[50%] sm:w-full  flex '>
                   <button className=' flex justify-center items-center   gap-2 ssm:gap-3 msm:gap-4 text-white rounded-full bg-[#E6992A] font-semibold w-[100%] sm:w-full'>
                     <span className=' text-[12px] msm:text-[14px] sm:text-[16px]'>
-                      Add to Cart
+                      <Link to='/cart'>Add to Cart</Link>
                     </span>
                     <span className=''>
                       <svg

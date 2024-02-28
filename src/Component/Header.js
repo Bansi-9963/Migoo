@@ -10,7 +10,6 @@ import ShoppingList from '../Images/Shopping_Cart.png'
 import Settings from '../Images/Settings.png'
 import Logout from '../Images/Logout.png'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 
 const toggleElement = elementId => {
   const element = document.getElementById(elementId)
@@ -62,19 +61,6 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  const navigate = useNavigate()
-  const handleHomeclick = () => {
-    navigate('/')
-  }
-
-  const handleShoppingCartClick = () => {
-    navigate('/cart')
-  }
-  const handleUserClick = () => {
-    navigate('/dashboard')
-  }
-
-
 
   return (
     <header
@@ -85,11 +71,12 @@ const Header = () => {
         <div className='lg:h-[93px] md:h-[83px] h-[70px] flex justify-between items-center '>
           <div className='flex gap-10 items-center'>
             <div className='xl:h-[70px] xl:w-[199px] lg:w-[159px] ssm:w-[109px] lg:h-[60px] md:w-[129px] md:h-[50px] ssm:h-10 w-[89px] h-8'>
-              <img
-               onClick={handleHomeclick}
-                src={Logo}
-                className='xl:h-[70px] xl:w-[199px] lg:w-[159px] ssm:w-[109px] lg:h-[60px] md:w-[129px] md:h-[50px] ssm:h-10 w-[89px] cursor-pointer h-8'
-              />
+              <Link to='/'>
+                <img
+                  src={Logo}
+                  className='xl:h-[70px] xl:w-[199px] lg:w-[159px] ssm:w-[109px] lg:h-[60px] md:w-[129px] md:h-[50px] ssm:h-10 w-[89px] cursor-pointer h-8'
+                />
+              </Link>
             </div>
           </div>
           <div className='lg:w-[194px] lg:h-8 flex lg:gap-6 md:gap-4 gap-3 relative items-center'>
@@ -118,26 +105,28 @@ const Header = () => {
               </svg>
             </div>
             <div>
-              <img
-                src={Shopping_Cart}
-                onClick={handleShoppingCartClick}
-                className='lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6 cursor-pointer'
-              />
+              <Link to='/cart'>
+                <img
+                  src={Shopping_Cart}
+                  className='lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6 cursor-pointer'
+                />
+              </Link>
             </div>
-            <Link to='/wishlist'>
-              <div className='hidden lg:block'>
+            <div className='hidden lg:block'>
+              <Link to='/wishlist'>
                 <img
                   src={Heart}
                   className='lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6'
                 />
-              </div>
-            </Link>
-            <div
-              onClick={handleUser}
-              className='lg:pointer-events-none pointer-events-auto cursor-pointer'
-            >
-              {/* onClick={handleUserClick} */}
-              <img   src={User} className='lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6 cursor-pointer' />
+              </Link>
+            </div>
+            <div className='lg:pointer-events-none pointer-events-auto cursor-pointer'>
+              <Link to='/dashboard'>
+                <img
+                  src={User}
+                  className='lg:w-8 md:w-7 lg:h-8 md:h-7 w-6 h-6 cursor-pointer'
+                />
+              </Link>
             </div>
             <div
               className='block lg:hidden md:w-7 md:h-7 w-6 h-6 md:mt-[3px] mt-[2px]'
@@ -191,11 +180,8 @@ const Header = () => {
       <div className='h-[60px] lg:flex items-center hidden container-1 justify-between'>
         <div className='flex xl:h-[21px] items-center gap-8'>
           <div>
-            <a
-              onClick={handleHomeclick}
-              className='font-medium leading-[21px] text-sm cursor-pointer'
-            >
-              Home
+            <a className='font-medium leading-[21px] text-sm cursor-pointer'>
+              <Link to='/'>Home</Link>
             </a>
           </div>
           <div>
@@ -246,7 +232,9 @@ const Header = () => {
             </a>
           </div>
           <div>
-            <a className='font-medium leading-[21px] text-sm cursor-pointer'>Contact Us</a>
+            <a className='font-medium leading-[21px] text-sm cursor-pointer'>
+              Contact Us
+            </a>
           </div>
         </div>
         <div className='flex gap-2 items-center'>
@@ -342,7 +330,9 @@ const Header = () => {
       >
         <div className='container-1'>
           <div className='border-b-[1px]'>
-            <p className='text-xl pt-3 pb-3 cursor-pointer' onClick={handleHomeclick} >Home</p>
+            <p className='text-xl pt-3 pb-3 cursor-pointer'>
+              <Link to='/'>Home</Link>
+            </p>
           </div>
           <div className='border-b-[1px]'>
             <p className='text-xl pt-3 pb-3 cursor-pointer'>About Us</p>

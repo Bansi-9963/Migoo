@@ -1,14 +1,9 @@
 import React from 'react'
 import Productimage from '../Images/Image.png'
 import Productimage1 from '../Images/Gear.png'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const MyWishListItem = props => {
-  const navigate = useNavigate()
-
-  const handleButtonClickCart = () => {
-    navigate('/cart')
-  }
   const isOutOfStock = props.stock_status === 'Out Of Stock'
   return (
     <tr
@@ -25,11 +20,8 @@ const MyWishListItem = props => {
           alt='Product Image'
           className='w-[100px] h-[100px]'
         />
-        <p
-          onClick={handleButtonClickCart}
-          className='self-start lg:self-center lg:pl-6 xl:pl-10'
-        >
-          {props.item_name}
+        <p className='self-start lg:self-center lg:pl-6 xl:pl-10'>
+          <Link to='/cart'>{props.item_name}</Link>
         </p>
       </th>
       <td className='px-2 sm:px-6 lg:px-12 xl:px-20 py-4  self-center'>
@@ -59,29 +51,27 @@ const MyWishListItem = props => {
                 : 'bg-[#E6992A] font-semibold'
             } lg:hidden block`}
           >
-            <svg
-            onClick={handleButtonClickCart}
-              xmlns='http://www.w3.org/2000/svg'
-              height='16'
-              width='18'
-              viewBox='0 0 576 512'
-            >
-              <path
-                fill='#ffffff'
-                d='M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z'
-              />
-            </svg>
+            <Link to='/cart'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                height='16'
+                width='18'
+                viewBox='0 0 576 512'
+              >
+                <path
+                  fill='#ffffff'
+                  d='M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z'
+                />
+              </svg>
+            </Link>
           </div>
           {isOutOfStock ? (
             <button className='px-8 py-3.5 focus:outline-0 text-[#B3B3B3] rounded-full bg-[#F2F2F2] font-semibold lg:block hidden'>
               Add To Cart
             </button>
           ) : (
-            <button
-              onClick={handleButtonClickCart}
-              className='px-8 py-3.5 focus:outline-0 text-white rounded-full bg-[#E6992A] font-semibold lg:block hidden'
-            >
-              Add To Cart
+            <button className='px-8 py-3.5 focus:outline-0 text-white rounded-full bg-[#E6992A] font-semibold lg:block hidden'>
+              <Link to='/cart'>Add To Cart</Link>
             </button>
           )}
           <div className='self-center'>

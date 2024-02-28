@@ -2,7 +2,7 @@ import React from 'react'
 import Cardbutton from './Cardbutton'
 import '../CSS/Home.css'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Featurecard = ({
   image,
@@ -21,15 +21,6 @@ const Featurecard = ({
 
   const handleMouseLeave = () => {
     setIsHovered(false)
-  }
-
-  const navigate = useNavigate()
-
-  const handleButtonClickCart = () => {
-    navigate('/cart')
-  }
-  const handleButtonClickBuy = () => {
-    navigate(`/product_details/${text}`)
   }
 
   return (
@@ -75,12 +66,12 @@ const Featurecard = ({
       </div>
       <div className='px-[14px]  pt-4 pb-[9px] lg:h-[100px]  md:h-[93px] h-[90px]'>
         <div className='flex mb-[5px] justify-between items-baseline'>
-          <div className='font-bold sm:text-[16px] text-[14px] m w-[130px]'>
+          <div className='font-bold sm:text-[16px] text-[14px]  w-fit'>
             {text}
           </div>
           <div className='flex items-center'>
             <img
-              src='../Images/Rectangle 98.svg' // Adjust the path accordingly
+              src='../Images/Rectangle 98.svg'
               alt='Icon'
               className='w-[14px] h-[14px]'
             />
@@ -109,19 +100,16 @@ const Featurecard = ({
         </div>
       </div>
       <div className='flex justify-between px-[14px] gap-[10px] pb-4'>
-        <button
-          className='bg-[#E6992A] hover:bg-white hover:text-[#F2C94C] text-white xl:w-[130px] sm:w-[150px] w-full sm:text-[14px] text-[13px] mssm:text-[12px] font-bold sm:py-[5px] py-[3px] rounded-xl  hover:border-[#F2C94C] border border-[#E6992A]'
-          onClick={handleButtonClickBuy}
-        >
-          Buy Now
-        </button>
-
-        <button
-          className='bg-[#E6992A] hover:bg-white hover:text-[#F2C94C] text-white xl:w-[130px] sm:w-[150px] w-full sm:text-[14px] text-[13px] mssm:text-[12px] font-bold sm:py-[5px] py-[3px] rounded-xl  hover:border-[#F2C94C] border border-[#E6992A]'
-          onClick={handleButtonClickCart}
-        >
-          Add to Cart
-        </button>
+          <button className='bg-[#E6992A] hover:bg-white hover:text-[#F2C94C] text-white xl:w-[130px] sm:w-[150px] w-full sm:text-[14px] text-[13px] mssm:text-[12px] font-bold sm:py-[5px] py-[3px] rounded-xl  hover:border-[#F2C94C] border border-[#E6992A]'>
+        <Link to={`/product_details/${text}`}>
+            Buy Now
+        </Link>
+          </button>
+          <button className='bg-[#E6992A] hover:bg-white hover:text-[#F2C94C] text-white xl:w-[130px] sm:w-[150px] w-full sm:text-[14px] text-[13px] mssm:text-[12px] font-bold sm:py-[5px] py-[3px] rounded-xl  hover:border-[#F2C94C] border border-[#E6992A]'>
+        <Link to={'cart'}>
+            Add to Cart
+        </Link>
+          </button>
       </div>
     </div>
   )
